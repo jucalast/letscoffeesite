@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nossos grãos</title>
+    <link rel="stylesheet" href="nossosgrãos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+<header>
+  <a href="cod-homepage\index.html"><img class="logo" src="media\Logo.png"></a>
+
+  <ul class="menu">
+      <a href="https://letscoffee.goomer.app/menu"><li>cardápio</li></a>
+      <a href="Produtos\nossosgrãos.html"><li>nossos grãos</li></a>
+      <a href="#"><li>faça seu coado</li></a>
+      <a href="blog.html"><li>blog</li></a>
+      <a href="#" id="Inscreva-se-btn"><li>Já tem uma conta?</li></a>
+  </ul>
+  <div class="dark-mode-toggle" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+  </div>
+  
+</div>
+  
+</header>
+    
+  <h5>conheça nossos <br>
+     cafés especiais</h5>
+
+<!-- Modal de Filtro -->
+<div id="filterModal" class="modal-content1">
+    <span class="close1" onclick="closeFilterModal()">&times;</span>
+    <h6>opções de Filtro</h6>
+    <div class="filter-options">
+      <label>
+        <input class="check" type="checkbox" name="filtro1" value="catuaí">
+        catuaí
+      </label>
+      <label>
+        <input class="check" type="checkbox" name="filtro2" value="bourbon">
+        bourbon
+      </label>
+      <label>
+        <input class="check" type="checkbox" name="filtro3" value="guesha">
+        guesha
+      </label>
+    </div>
+</div>
+
+<div class="filter-container">
+  <p class="filter-text"></p>
+</div>
+
+<div class="conteiner" id="cards-container">
+  <div class="card" data-id="1" data-title="Produto 1" data-description="catuaí vermelho" data-filtro1 ="catuaí" data-filtro2="bourbon" data-filtro3="guesha">
+  <img class="image-default" src="media\117960866_2762111820739684_8888816499722538550_n.jpg" alt="Imagem do Produto">
+  <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
+  <h3>Nome do Produto</h3>
+  <p>Descrição do Produto</p>
+</div>
+
+<div class="card" data-id="6" data-title="Produto 1" data-description="Descrição do Produto " data-filtro1="" data-filtro2="" data-filtro3="guesha">
+  <img class="image-default" src="media\245498542_3133624640199846_3983274045722879994_n.jpg" alt="Imagem do Produto">
+  <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
+  <h3>Nome do Produto</h3>
+  <p>Descrição do Produto</p>
+</div>
+
+  <div class="card" data-id="3" data-title="Produto 3" data-description="catuaí vermelho" data-filtro1="catuaí" data-filtro2="" data-filtro3="" >
+      <img class="image-default" src="media\245498542_3133624640199846_3983274045722879994_n.jpg" alt="Imagem do Produto">
+      <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
+      <h3>Nome do Produto</h3>
+      <p>Descrição do Produto</p>
+  </div>
+
+  <div class="card" data-id="4" data-title="Produto 1" data-description="Descrição do Produto " data-filtro1="" data-filtro2="" data-filtro3="guesha">
+      <img class="image-default" src="media\117960866_2762111820739684_8888816499722538550_n.jpg" alt="Imagem do Produto">
+      <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
+      <h3>Nome do Produto</h3>
+      <p>Descrição do Produto</p>
+  </div>
+
+  <div class="card" data-id="5" data-title="Produto 1" data-description="Descrição do Produto " data-filtro1="" data-filtro2="" data-filtro3="guesha">
+      <img class="image-default" src="media\279005299_3836437939814210_692940873935983022_n.jpg" alt="Imagem do Produto">
+      <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
+      <h3>Nome do Produto</h3>
+      <p>Descrição do Produto</p>
+  </div>
+
+  <div class="card" data-id="6" data-title="Produto 1" data-description="Descrição do Produto " data-filtro1="" data-filtro2="" data-filtro3="guesha">
+      <img class="image-default" src="media\245498542_3133624640199846_3983274045722879994_n.jpg" alt="Imagem do Produto">
+      <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
+      <h3>Nome do Produto</h3>
+      <p>Descrição do Produto</p>
+  </div>
+</div>
+
+<div class="filter-container">
+  <p class="filter-text"></p>
+</div>
+
+           
+<!-- Modal de Filtro -->
+<div id="myModal" class="modal">
+  <div id="modalContent" class="modal-content">
+    <span id="closeModalButton" class="close">&times;</span>
+    <div class="content">
+      <span id="modalTitle">Título do Modal</span>
+      <div class="containerModal">
+        <img class="imgModal" src="media\info-mezzanotte.jpg" alt="Imagem Modal">
+        <img class="imgModal" src="media\info-mezzanotte.jpg" alt="Imagem Modal">
+        <img class="imgModal" src="media\info-mezzanotte.jpg" alt="Imagem Modal">
+        <img class="imgModal" src="media\info-mezzanotte.jpg" alt="Imagem Modal">
+      </div>
+      <span id="modalDetails">detalhes do produto</span>
+      <div id="modalFilters"></div>
+      <div class="bubble"></div>
+      <button class="adicionar" >adicionar ao carrinho</button>
+    </div>
+    <!-- Botão para fechar o carrinho -->
+    <span class="close-cart-modal" onclick="closeCartModal()">&times;</span>
+  </div>
+
+ <!-- Modal de Carrinho -->
+<div id="modalContent" class="modal-content-carrinho">
+  <h2>Seu Carrinho</h2>
+    
+  <div class="cart-products">
+    <!-- Os cartões criados dinamicamente serão adicionados aqui -->
+  </div>
+    
+  <!-- Informações de pagamento -->
+  <h3>Informações de Pagamento</h3>
+  <h4 for="card-number">Número do Cartão</h4>
+  <input type="text" id="card-number" placeholder="XXXX-XXXX-XXXX-XXXX">
+    
+  <h4 for="card-name">Nome no Cartão</h4>
+  <input type="text" id="card-name" placeholder="Seu Nome">
+    
+  <button class="checkout-button" onclick="checkout()">Finalizar Compra</button>
+</div>
+
+</div>
+
+
+
+
+
+<script src="grãos.js"></script>
+</body>
+</html>

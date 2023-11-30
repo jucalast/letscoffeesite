@@ -1,0 +1,422 @@
+body {
+  overflow-x: hidden;
+    max-height: 300px; /* Defina uma altura máxima para a div */
+    max-width: 2470px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+   background-color: rgb(96, 96, 96);
+   position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    backdrop-filter: blur(15px); /* Aplica o efeito de desfoque */
+    background-color: rgba(222, 222, 222, 0.336); /* Define a cor de fundo com transparência */
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+                        linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)); /* Define as imagens de fundo */
+    background-position: top left, bottom right;
+    background-repeat: no-repeat;
+    padding: 10px; 
+    align-items: center;
+    z-index: 9999;
+}
+
+.logo {
+    width: 150px;
+    margin-top: 10px;
+    position: relative;
+    left: 30px;
+    bottom: 10px;
+}
+
+img {
+  width: 150px;
+  margin-top: 10px;
+  position: relative;
+  
+}
+
+li{
+    display:inline-flex;
+    margin: 10px;
+    padding-left: 50px;
+    margin-left: px;
+    margin-top: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+ }
+
+ a{
+    color: rgb(36, 36, 36);
+    position: relative;
+    right: 150px;
+    bottom: 6px;
+
+}
+
+a:hover{
+    color: rgb(239, 239, 239);
+    transition: 0.3s all;
+}
+
+.video-container {
+  
+  width: 110%;
+  height: 100%;
+  position: relative;
+  top: -400px;
+  overflow: hidden;
+  margin: -10px;
+}
+
+.video-container video {
+  
+  width: 100%;
+  height: 100%;
+  object-fit:fill;
+}
+
+
+h2 {
+
+  font-size: 100px;
+  position: relative;
+  top: 300px;
+  margin-left: 150px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+  
+.close {
+  visibility: hidden;
+}
+ 
+#myModal {
+  position: fixed;
+  top: 0;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none; 
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px); 
+  background-color: rgba(30, 30, 30, 0.336);
+  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+                    linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)); 
+  max-height: 6000px; 
+  z-index: 9999;
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: none;
+  width: 1000px;
+  max-width: 1000px;
+  text-align: center;
+  border-radius: 30px;
+  position: relative;
+  top: -150px;
+
+}
+.card {
+  position: absolute;
+  top: 320px;
+  width: 400px;
+  height: 500px;
+  background-color: #efefef;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  transition: all 0.1s;
+  backdrop-filter: blur(15px);
+  background-color: rgba(57, 57, 57, 0.336);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+                    linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.434);
+}
+
+.card.current-iten {
+  opacity: 1;
+  visibility: visible;
+}
+
+.card .image-default,
+.card .image-hover {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.card .image-hover {
+  position: absolute;
+  top: 10;
+  left: 0;
+  visibility: hidden;
+}
+
+.card:hover .image-default {
+  visibility: hidden;
+  transition: all 0.7s;
+}
+
+.card:hover .image-hover {
+  visibility: visible;
+  transition: all 0.1s;
+}
+
+.card:nth-child(1) {
+  left: 80px;
+}
+
+.card:nth-child(2) {
+  left: 480px;
+}
+
+.card:nth-child(3) {
+  left: 880px;
+}
+
+.card img {
+  border-radius: 10px;
+  margin-bottom: -30px;
+  position: relative;
+  top: -10px;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.card h3,
+.card p {
+  margin-left: 20px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.card h3 {
+  font-size: 30px;
+  margin-bottom: -18px;
+}
+
+.card p {
+  font-size: 20px;
+  color: #363636;
+}
+
+  
+  .arrow-rigth {
+    position: absolute;
+    background-color: #bbbbbb;
+    opacity: 0.5;
+    top: 10vw;
+    left: 56vw;
+    right: auto;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 100%;
+    border: none;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 10px, 10px, 10px, 100px, rgb(8, 8, 8);
+  }
+  
+  .arrow-left {
+    color: #222222;
+    position: absolute;
+    background-color: rgb(173, 173, 173);
+    opacity: 0.5;
+    top: 10vw;
+    left: 85vw;
+    right: auto;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 100%;
+    border: none;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 300ms ease-in-out;
+  }
+  
+  .arrow-rigth:hover,
+  .arrow-left:hover {
+    background-color: #878787;
+  }
+  
+  .conteiner {
+    position:relative;
+    top:-200px;
+    left: 100px;
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 900px;
+  }
+  
+  .cards-wrapper {
+    display: flex;
+    position: relative;
+    left: 1380px;
+    top: -200px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 1600px;
+    height: 900vw;
+  }
+  
+  footer {
+    background-color: #939393;
+    margin: -20px;
+    text-align: center;
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  h4 {
+    position: relative;
+    right: 800px;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #363636;
+    margin-right: auto;
+  }
+  
+  .social-links img {
+    width: 50px;
+    height: auto;
+    position: relative;
+    right: -800px;
+  }
+  
+  .img1 {
+    width: 55px;
+    height: 40px;
+  }
+  
+  .img2 {
+    width: 90px;
+    height: 70px;
+  }
+  
+  .img3 {
+    width: 50px;
+    height: 38px;
+  }
+
+  .sessão2 {
+    position: relative;
+    top: -600px;
+  
+  }  
+
+  .dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
+  
+  .dark-mode-toggle input[type="checkbox"] {
+    display: none;
+  }
+  
+  .dark-mode-toggle label {
+    display: block;
+    width: 40px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .dark-mode-toggle label:after {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .dark-mode-toggle input[type="checkbox"]:checked + label {
+    background-color: #333;
+  }
+  
+  .dark-mode-toggle input[type="checkbox"]:checked + label:after {
+    transform: translateX(20px);
+  }
+  
+  .dark-mode {
+    background-color: #222;
+    color: #fff;
+  }
+  
+  .dark-mode header {
+    backdrop-filter: blur(15px); /* Aplica o efeito de desfoque */
+    background-color: rgba(44, 44, 44, 0.336); /* Define a cor de fundo com transparência */
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+                        linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)); /* Define as imagens de fundo */
+  }
+
+  .dark-mode a {
+    color: rgb(173, 173, 173);
+}
+  
+  .dark-mode h2 {
+    color: #fff;
+  }
+  
+  .dark-mode .card {
+    background-color: #444;
+  }
+  
+  .dark-mode .card:hover {
+    background-color: rgba(57, 57, 57, 0.8);
+  }
+  
+  .dark-mode .card h3,
+  .dark-mode .card p {
+    color: #fff;
+  }
+  
+  .dark-mode .arrow-rigth,
+  .dark-mode .arrow-left {
+    background-color: #878787;
+    color: #fff;
+  }
+  
+  .dark-mode .arrow-rigth:hover,
+  .dark-mode .arrow-left:hover {
+    background-color: #666;
+  }
+  
+  

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Let's coffee e-commerce</title>
+</head>
+<body>
+    
+    <header>
+        <img class="logo" src="media/Logo.png" alt="logo">
+
+        <ul class="menu">
+            <a href="https://letscoffee.goomer.app/menu"><li>cardápio</li></a>
+            <a href="nossosgrãos.html"><li>nossos grãos</li></a>
+            <a href="#"><li>faça seu coado</li></a>
+            <a href="#"><li>blog</li></a>
+            <a href="#" id="Inscreva-se-btn"><li>Já tem uma conta?</li></a>
+        </ul>
+        <div class="dark-mode-toggle">
+          <input type="checkbox" id="darkModeToggle" />
+          <label for="darkModeToggle"></label>
+        </div>
+        
+    </header>
+
+    <div >
+      <video class="video-container" src="media\Video para tela de expansão 01.mp4" autoplay loop></video>
+    </div>
+
+    <div class="sessão2">
+        <h2>não passamos só café,<br>
+            passamos do limite!</h2>
+            <div class="conteiner">
+              <button class="arrow-left control" aria-label="previous image">></button>
+              <button class="arrow-rigth control" aria-label="Next Image"><</button>
+              <div class="cards-wrapper">
+                <div class="card">
+                  <img class="image-default" src="media\117960866_2762111820739684_8888816499722538550_n.jpg" alt="Imagem do Produto">
+                  <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
+                  <h3>Nome do Produto</h3>
+                  <p>Descrição do Produto</p>
+                </div>
+                
+                <div class="card current-iten">
+                  <img class="image-default" src="media\279005299_3836437939814210_692940873935983022_n.jpg" alt="Imagem do Produto">
+                  <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
+                  <h3>Nome do Produto</h3>
+                  <p>Descrição do Produto</p>
+                </div>
+                
+                <div class="card">
+                  <img class="image-default" src="media\245498542_3133624640199846_3983274045722879994_n.jpg" alt="Imagem do Produto">
+                  <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
+                  <h3>Nome do Produto</h3>
+                  <p>Descrição do Produto</p>
+                </div>
+              </div>
+
+              <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span id="closeModalButton" class="close">&times;</span>
+                  <div style="width: 700px; height: 500px; position: relative; bottom: 80px; left: 20px;" class="content">
+                    <h2  id="modalTitle" style= " display:flex; justify-content: center; white-space:nowrap; position: relative; top: 50px;">iae gurizada</h2>
+                        <p style= "overflow-wrap: break-word; text-align: center;" id="modalDetails"></p>
+                    </div>
+        </div>
+    </div>
+  </div>
+    <footer>
+      <div class="social-links">
+        <a href="https://api.whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i><img class="img1" src="media\1.png" alt="instarodape"></a>
+        <a href="https://www.instagram.com" target="_blank"><i class="img current-iten"></i><img class="img2" src="media\3.png" alt="instarodape"></a>
+        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-email"></i><img class="img3" src="media\2.png" alt="emailrodape"></a>
+      </div>
+    
+      <div>
+        <H4>Um oferecimento: MacLand®</H4>
+      </div>
+    </div> 
+    </footer>
+    
+    
+    
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
