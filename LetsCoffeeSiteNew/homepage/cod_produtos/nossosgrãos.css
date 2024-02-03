@@ -1,87 +1,855 @@
-body {
+body, h1, h2, h3, h5, p, ul, li, figure, figcaption, div {
+  line-height: 1.6;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  max-height: 300px;
-  max-width: 2470px;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  flex-wrap: wrap;
 }
 
+body {
+  display: flex;
+  overflow-y: scroll;
+  scrollbar-width: thin; /* Adiciona uma barra de rolagem mais fina no Firefox */
+  scrollbar-color: transparent transparent; /* Adiciona uma barra de rolagem mais fina no Firefox */
+}
+
+::-webkit-scrollbar {
+  width: 12px; /* Largura da barra de rolagem no Chrome/Safari/Edge */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Cor do polegar da barra de rolagem no Chrome/Safari/Edge */
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Cor da pista da barra de rolagem no Chrome/Safari/Edge */
+}
+
+
+/* Estilos do cabeçalho (header) */
 header {
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  background-color: rgb(96, 96, 96);
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
   position: fixed;
+  backdrop-filter: blur(15px);
+  background-color: rgba(218, 218, 218, 0.497);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+                  linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.1));
   top: 0;
   left: 0;
   right: 0;
-  backdrop-filter: blur(15px);
-  background-color: rgba(222, 222, 222, 0.336);
-  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
-                    linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1));
-  background-position: top left, bottom right;
-  background-repeat: no-repeat;
-  padding: 10px;
+  padding: 1em;
+  z-index: 5;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  z-index: 9999;
 }
 
 .logo {
-  width: 150px;
-  margin-top: 10px;
-  position: relative;
-  left: 180px;
-  bottom: 5px;
+width: 8rem;
 }
 
-image-hover {
-  width: 150px;
-  margin-top: 10px;
-  position: relative;
+.logo-container {
+  display: flex;
+  max-width: 20%;
+  width: 10%;
+  justify-content: center;
+  align-items: center;
 }
 
-image-hover:hover {
-  width: 150px;
-  margin-top: 10px;
+ul {
+  list-style: none;
+  display: flex;
 }
 
-li{
-  display:inline-flex;
-  position: relative;
-  left: 600px;
-  margin: 10px;
-  padding-left: 50px;
-  margin-left: px;
-  margin-top: 20px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 20px;
+.menu-button {
+  background-color: #3498db00;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
 }
+
+.menu-icon {
+  font-size: 2em;
+  color: rgb(1, 1, 1);
+}
+
+ul li {
+  margin-right: 2vw;
+}
+
 a {
-  color: rgb(36, 36, 36);
-  position: relative;
-  right: 150px;
-  bottom: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  text-decoration: none;
+  padding: 0.7rem;
+  color: #2c2c2c;
+  font-size: 1rem;
+  background: #3b3b3b00;
+  border: solid #3d3d3d30 0.08em;
+  border-radius: 0.9rem;
+  backdrop-filter: blur(10px);
 }
 
-a:hover {
-  color: rgb(239, 239, 239);
-  transition: 0.3s all;
+.dark-mode-toggle input[type="checkbox"] {
+  display: none;
 }
 
-h5 {
-  margin-top: 350px;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+.dark-mode-toggle label {
+  margin-right: 1rem;
+  display: block;
+  width: 2.7em; /* Tamanho relativo para melhor responsividade */
+  height: 1.5em; /* Tamanho relativo para melhor responsividade */
+  background-color: #ddd;
+  border-radius: 2rem;
   position: relative;
-  left: 100px;
-  top: 50px;
-  font-size: 50px;
+  cursor: pointer;
+  
+}
+
+.dark-mode-toggle label:after {
+  content: "";
+  display: block;
+  width: 1.2em; /* Tamanho relativo para melhor responsividade */
+  height: 1.2em; /* Tamanho relativo para melhor responsividade */
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked + label {
+  background-color: #6eec07;
+  box-shadow: 0 0 30px 20px #6eec074f;
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked + label:after {
+  transform: translateX(100%); /* Usando uma porcentagem para garantir uma transição completa */
+}
+
+/* Estilos específicos para telas menores (max-width: 600px) */
+@media screen and (max-width: 600px) {
+  body, html {
+    height: auto;
+    margin-top: 0;
+  }
+
+  #coisas {
+    margin-bottom: -26rem;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+  }
+
+  ul {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  a {
+    font-size: 1rem;
+  }
+
+  .conteiner {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+}
+
+@media screen and (min-width: 377px) and (max-width: 768px) {
+  body, html {
+    height: auto; /* Remova a altura fixa */
+    margin-top: 0; /* Remova o deslocamento negativo no topo */
+  }
+
+  #coisas {
+    margin-bottom: -22rem;
+  }
+
+  .menu {
+      flex-wrap: wrap;
+  }
+
+  ul {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+  }
+
+  a {
+      font-size: 1rem;
+  }
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  body, html {
+    height: auto; /* Remova a altura fixa */
+    margin-top: 0; /* Remova o deslocamento negativo no topo */
+  }
+
+  #coisas {
+    margin-bottom: -16rem;
+  }
+  
+  .menu {
+      flex-wrap: wrap;
+  }
+
+
+  ul {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+  }
+
+  a {
+      font-size: 1rem;
+  }
+
+}
+
+@media screen and (min-width: 1020px) {
+  body, html {
+    height: auto; /* Remova a altura fixa */
+    margin-top: 0; /* Remova o deslocamento negativo no topo */
+  }
+
+  
+  .menu {
+      flex-wrap: wrap;
+  }
+
+
+  ul {
+      margin-top: 0.7rem;
+      margin-bottom: 0.7rem;
+      margin-left: 7rem;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+  }
+
+  a {
+    display: flex;
+    flex-wrap: wrap;
+    text-decoration: none;
+    padding: 0.7rem;
+  
+    font-size: 1rem;
+    border-radius: 0.9rem;
+    backdrop-filter: blur(10px);
+  }
 }
 
 .filter-container {
-  height: 1000px;
+  margin-top: 8.5rem;
+  margin-left: 15rem;
+  position: absolute;
 }
 
-/* Estilo para o texto do filtro */
+/* Estilo para o nome do filtro */
+.filter-name {
+  font-weight: bold;
+  color: #00b3ff; /* Cor desejada para o nome do filtro */
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  background: #00b3ff3d;
+  padding: 0.1rem 0.3rem 0.2rem 0.3rem;
+  border-radius: 0.3rem;
+  border: solid 0.001rem #00b3ff4d;
+}
+
+
+.filter-text {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Estilo para os cards visíveis */
+.card.visible {
+  display: block;
+}
+
+/* Estilo para os cards ocultos */
+.card.hidden {
+  display: none;
+}
+
+
+.conjunto {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-top: 12rem;
+}
+
+.filter-header .arrow-down {
+  font-size: 1.5em; /* Ajuste o valor conforme necessário */
+}
+
+
+/* General Styles */
+.filters-container {
+  display: flex;
+  align-content: space-between;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 20rem;
+  margin-left: 2rem;
+}
+
+.filtro {
+  margin-left: 2rem;
+}
+
+#color-options,
+#size-options,
+#weight-options,
+#price-options {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  
+}
+
+
+#filter-options {
+  display: flex ;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100vw;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 0.01rem solid #afafaf;
+}
+
+.filter-header {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: #ffffff;
+  border: none;
+  color: rgb(55, 55, 55);
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: 1.7vw;
+  max-width: 9vw;
+}
+
+
+.filter-options input[type="checkbox"] {
+  border-radius: 50%;
+  border: none;
+  outline: none;
+}
+
+.filter-options label {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  cursor: pointer;
+  position: relative;
+  padding-left: 35px; /* Adjust this value as necessary */
+}
+
+
+ /* Estilizando o checkbox padrão para ficar invisível */
+ input[type="checkbox"] {
+  display: none;
+}
+
+/* Estilizando o rótulo para se parecer com o checkbox personalizado */
+label.checkbox-container {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px; /* Espaço para a bolinha */
+  cursor: pointer;
+}
+
+/* Criando o círculo exterior */
+label.checkbox-container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px; /* Diâmetro do círculo */
+  height: 20px;
+  border: 2px solid rgb(188, 188, 188); /* Cor da borda inicial */
+  border-radius: 50%; /* Tornando-o circular */
+}
+
+/* Adicionando a bolinha colorida para cada checkbox */
+label.checkbox-container::after {
+  content: '';
+  position: absolute;
+  left: 4.5px; /* Posição da bolinha dentro do círculo */
+  transform: translateY(-40%);
+  width: 15px; /* Diâmetro da bolinha */
+  height: 15px;
+  border-radius: 50%; /* Tornando-a circular */
+  background-color: rgb(40, 160, 220); /* Cor da bolinha inicial (cinza) */
+  transform: scale(0); /* Inicialmente, a bolinha está invisível */
+  transition: transform 0.3s ease-in-out; /* Adicionando transição suave */
+}
+
+/* Estilizando a bolinha para aparecer quando o checkbox está marcado */
+input[type="checkbox"]:checked + label.checkbox-container::after {
+  transform: scale(1); /* Aumenta o tamanho da bolinha para 100% */
+}
+
+/* Adicionando estilo para a borda do círculo quando o rótulo é tocado ou hover */
+label.checkbox-container:hover::before,
+input[type="checkbox"]:checked + label.checkbox-container::before {
+  border-color: rgb(40, 160, 220); /* Cor da borda ao tocar ou quando marcado */
+}
+
+/* Adicionando margem à esquerda para criar espaço entre o círculo e o texto */
+label.checkbox-container {
+  margin-bottom: 30px;
+  margin-left: 0px; /* Ajuste o valor conforme necessário */
+  display: flex;
+  align-items: center; /* Alinhar verticalmente */
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-content: flex-start;
+}
+
+.card {
+  width: 100vw;
+  height: auto;
+  border-radius: 15px;
+  backdrop-filter: blur(15px);
+  background-color: #dcdcdcaa;
+  border: 1px solid rgb(215, 215, 215);
+  margin-top: 2rem;
+}
+
+.card:hover {
+  border-radius: 15px;
+  transform: scale(1.1);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.434);
+  background-color: #dcdcdcaa;
+  border: 1px solid rgb(215, 215, 215);
+}
+
+.card .image-default,
+.card .image-hover {
+  width: 100%;
+  height: 100vh;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.card .image-hover {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.card:hover .image-default {
+  visibility: hidden;
+  transition: all 0.7s;
+}
+
+.card:hover .image-hover {
+  visibility: visible;
+  transition: all 0.1s;
+}
+
+.card img {
+  border-radius: 10px;
+
+}
+
+.card h3,
+.card p {
+  margin-left: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.card h3 {
+  font-size: 1.2em;
+  padding-top: 1rem;
+}
+
+.card p {
+  font-size: 1em;
+  color: #888888;
+  margin-bottom: 1rem;
+}
+
+/* Adicione esta regra ao seu arquivo CSS */
+.card.visible {
+  display: flex ;
+  width: 17%;
+  height: 62.5%;
+}
+
+.card.hidden {
+  display: none; /* Tornar os cards invisíveis */
+}
+
+
+
+
+@media (min-width: 100px) and (max-width: 400px){
+  .conteiner {
+    display: flex;
+    gap: 4%;
+    max-width: 100vw;
+    margin-right: 0.5rem;
+    justify-content: flex-start;
+  }
+  .card {
+    width: 40%;
+  }
+
+  .filtro {
+    margin-left: 0.5REM;
+  }
+
+  .filter-header {
+    font-size: 1rem;
+  }
+}
+
+
+@media only screen and (min-width: 400px) and (max-width: 600px){
+  .conteiner {
+    display: flex;
+    gap: 4%;
+    max-width: 100vw;
+    margin-right: 1rem;
+    justify-content: flex-start;
+  }
+  .card {
+    width: 40%;
+  }
+
+  .filtro {
+    margin-left: 1REM;
+  }
+}
+
+
+@media only screen and (min-width: 600px) {
+  .conteiner {
+    display: flex;
+    gap: 5%;
+    max-width: 100vw;
+    margin-right: 3rem;
+    justify-content: flex-start;
+  }
+  .card {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .conteiner {
+    display: flex;
+    gap: 1.5rem;
+    max-width: 100vw;
+    margin-left: 5rem;
+    justify-content: flex-start;
+  }
+
+  .card {
+    width: 28%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .conteiner {
+    display: flex;
+    gap: 3rem;
+    max-width: 100vw;
+    margin-left: 5rem;
+    justify-content: flex-start;
+  }
+
+  .card {
+    width: 26.5%;
+  }
+
+  /* Adicione esta regra ao seu arquivo CSS */
+  .card.visible {
+    display: flex ;
+    width: 26.5%;
+    height: 80%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .conteiner {
+    display: flex;
+    gap: 2rem;
+    max-width: 100vw;
+    justify-content: flex-start;
+    margin-left: 5rem;
+  }
+
+  .card {
+    width: 22%;
+  }
+  /* Adicione esta regra ao seu arquivo CSS */
+  .card.visible {
+    display: flex ;
+    width: 22%;
+    height: 73%;
+  }
+}
+
+@media only screen and (min-width: 1300px) and (max-width:1650px) {
+  .conteiner {
+    display: flex;
+    gap: 2rem;
+    max-width: 100vw;
+    justify-content: flex-start;
+  }
+
+    /* Adicione esta regra ao seu arquivo CSS */
+  .card.visible {
+    display: flex ;
+    width: 22%;
+    height: 81%;
+  }
+
+  .card {
+    width: 22%;
+  }
+
+  .filtro {
+    margin-left: REM;
+  }
+}
+
+.card.hidden {
+  display: none;
+}
+
+/* Estilização básica do modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px);
+  background-color: rgba(30, 30, 30, 0.8);
+  overflow: hidden;
+}
+
+.modal-content {
+  display: flex;
+  font-size: 16px;
+  color: #222;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  width: 90%;
+  height: 80%;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+#closeModalButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+}
+
+.imColumn {
+  width: 20%;
+}
+
+/* Adicione estilos para a grade de imagens no modal */
+.imgselect {
+  height: 17em;
+  width: 7rem;
+  display: grid;
+  justify-items: center;
+  align-content: space-between;
+  grid-template-columns: 1fr;
+}
+
+/* Adicione estilos para as imagens na grade no modal */
+.imgselect img {
+  width: 70%;
+  height: auto;
+  border-radius: 10px;
+}
+.modalimages {
+  display: flex;
+  flex-direction: row;
+    flex-wrap: nowrap;
+    max-width: 60%;
+}
+
+
+/* Adicione estilos para a imagem maior no modal */
+.largerImageContainer {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.largerImage {
+  width: 40vw; /* Ajuste a largura conforme necessário */
+  height:65vh;
+  object-fit: cover; /* Redimensiona a imagem mantendo a proporção */
+  border-radius: 20px;
+  margin-left: 1rem;
+}
+
+.descriptionColumn {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 31rem;
+    height: 95%;
+    max-width: 35rem;
+   margin-right: 3rem;
+   margin-top: 0.5rem;
+   
+}
+
+#closeModalButton:hover {
+  color: #555;
+}
+
+.content {
+  width: 100%;
+  height: 92%;
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+ 
+}
+
+#modalTitle {
+  display: block;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  max-width: 150%;
+}
+
+.img.image-modal {
+  width: 3rem;
+}
+
+.imgselect {
+  margin-top: 20px;
+}
+
+.imgColumn {
+  width: 20%;
+}
+
+#modalDetails {
+  display: block;
+  margin-top: 20px;
+  width: 100%;
+  height: 40%;
+  border-radius: 20px;
+  background: #e4e4e4;
+}
+
+#modalFilters {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.bubble {
+  width: 100%;
+  height: 50px;
+  background-color: #bcbcbc;
+  border-radius: 25px;
+  margin-top: 20px;
+}
+
+.adicionar {
+  border: none;
+  background-color: #28fa1c;
+  color: rgb(16, 72, 1);
+  padding: 15px 15px;
+  font-size: 2.5rem;
+  border-radius: 15px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.adicionar:hover {
+  box-shadow: 0 2px 5px rgba(3, 151, 0, 0.418);
+}
+
+.close-cart-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+}
+
+img {
+  width: 20%;
+}
+
+
+
+/*.filter-container {
+  height: 2000px;
+  background-color: #00ff00;
+}
+
+Estilo para o texto do filtro 
 .filter-text {
   position:absolute;
   top: 200px;
@@ -93,47 +861,6 @@ h5 {
   color: #808080;
 }
 
-
-/* Estilos para o modal */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(15px);
-  background-color: rgba(30, 30, 30, 0.336);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-                    linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
-  overflow: hidden;
-}
-
-/* Estilos para o modal-content */
-.modal-content {
-  font-size: 22px;
-  color: #222;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: rgb(226, 226, 226);
-  margin: 15% auto;
-  padding: 50px;
-  border: none;
-  max-width: 1000px;
-  text-align: center;
-  border-radius: 30px;
-  position: relative;
-  bottom: 150px;
-  left: 100px;
-  height: 600px;
-  overflow-y: auto;
-  float: left;
-  width: 40%;
-}
-
-/* Estilos para o modal-content-carrinho */
 .modal-content-carrinho {
   font-size: 22px;
   color: #222;
@@ -158,7 +885,7 @@ h5 {
   scrollbar-color: transparent transparent;
 }
 
-/* Estilos para a barra de rolagem vertical (Webkit) */
+
 .modal-content-carrinho::-webkit-scrollbar {
   width: 6px;
 }
@@ -171,135 +898,14 @@ h5 {
   background-color: transparent;
 }
 
-/* Resto dos estilos, como os botões e outros elementos, permanecem os mesmos */
 
 .close {
   visibility: hidden;
 }
 
-.content {
-  width: 650px;
-  height: 500px;
-  position: relative;
-  bottom: 70px;
-  left: 20px;
-}
 
-#modalTitle {
-  display: flex;
-  justify-content: center;
-  white-space: nowrap;
-  position: relative;
-  top: 20px;
-  margin-bottom: 20px;
-}
 
-.containerModal {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.imgModal {
-  width: 200px;
-  border-radius: 10px;
-  margin: 10px;
-  transition: transform 0.3s;
-  position: relative;
-  top: 100px;
-  left: 110px;
-}
-
-.imgModal:hover {
-  transform: scale(1.5);
-  z-index: 9999;
-}
-
-#modalDetails {
-  display: flex;
-  overflow-wrap: break-word;
-  z-index: 9998;
-  position: relative;
-  margin-left: -5px;
-  line-height: 2;
-}
-
-/* Estilo base para o elemento modalFilters (será usado apenas como um contêiner) */
-#modalFilters {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  text-align: center;
-  margin-top: 20px;
-  position: relative;
-  bottom: 280px;
-  left: 5px;
-}
-
-/* Estilo para os filtros individuais */
-.catuaí-style,
-.bourbon-style,
-.guesha-style,
-.other-style {
-  display: inline-block;
-  width: 80px;
-  height: 20px;
-  border-radius: 10px;
-  line-height: 20px;
-  padding: 15px;
-  margin-right: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.095);
-}
-
-/* Estilo para o filtro "bourbon" */
-.bourbon-style {
-  background-color: #337bff;
-}
-
-.catuaí-style {
-  background-color: #cc33ff;
-}
-
-/* Estilo para o filtro "guesha" */
-.guesha-style {
-  background-color: #33ff37;
-  color: #000;
-}
-
-/* Estilo para outros filtros (mesmas configurações, apenas cores diferentes) */
-.other-style {
-  background-color: #f0f0f0;
-  color: #333;
-}
-
-.bubble {
-  width: 560px;
-  height: 65px;
-  background-color: #bcbcbc;
-  border-radius: 10px;
-  position: relative;
-  top: 10px;
-  left: 27px;
-}
-
-.adicionar {
-  border-radius: 10px;
-  border: none;
-  background-color: #28fa1c;
-  color: rgb(184, 255, 158);
-  position: relative;
-  top: 50px;
-  padding: 20px;
-  font-size: 25px;
-  right: 180px;
-}
-
-.adicionar:hover {
-  box-shadow: 0 10px 18px rgba(3, 151, 0, 0.418);
-}
-
-/* Estilo para o cabeçalho do carrinho */
 .modal-content-carrinho h2 {
   background-color: #272727;
   color: white;
@@ -315,19 +921,19 @@ h5 {
   position: relative;
 }
 
-/* Estilo para o botão de fechar o carrinho */
+
 .close-cart-modal {
   visibility: hidden;
 }
 
-/* Estilo para a lista de produtos no carrinho */
+
 .cart-products {
   position: relative;
   bottom: 70px;
   padding: 10px;
 }
 
-/* Estilo para cada produto no carrinho */
+
 .cart-product {
   display: flex;
   align-items: center;
@@ -384,7 +990,7 @@ h5 {
   right: -20px;
 }
 
-/* Estilo para informações de pagamento */
+
 h3 {
   position: relative;
   margin-top: 20px;
@@ -426,116 +1032,27 @@ input[type="text"] {
   background-color: #b3ffb6;
 }
 
-/* Estilo para o elemento com barra de rolagem invisível */
+
 .modal-content-carrinho-com-overflow {
-  /* Defina uma altura máxima para o elemento onde deseja que a barra de rolagem apareça */
-  max-height: 300px; /* Ajuste o valor conforme necessário */
+  
+  max-height: 300px;
 
-  /* Defina o overflow para 'auto' para habilitar a barra de rolagem apenas quando necessário */
-  overflow: auto;
-
-  /* Esconda a barra de rolagem vertical, tornando-a transparente */
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
 }
 
-/* Estilo para a barra de rolagem horizontal (se necessário) */
+
 .modal-content-carrinho-com-overflow::-webkit-scrollbar {
-  width: 8px; /* Ajuste o tamanho da barra de rolagem horizontal conforme necessário */
-}
+  width: 8px;
 
-/* Estilo para o controle deslizante da barra de rolagem horizontal (se necessário) */
+
 .modal-content-carrinho-com-overflow::-webkit-scrollbar-thumb {
-  background-color: transparent; /* Tornar a barra de rolagem horizontal transparente */
-}
-
-/* CSS para o contêiner (classe .conteiner) */
-.conteiner {
-  display: grid;
-  grid-template-columns: repeat(3, 2fr);
-  gap: 100px;
-  justify-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  top: 850px;
-  align-content: flex-start; /* Alinhe os cartões ao início do conteiner */
-}
-
-.card {
-  width: 400px;
-  position: relative;
-  bottom: 150px;
-  border-radius: 15px;
-  background-color: #cfcfcf;
+  background-color: transparent; 
 }
 
 
-.card:hover {
-  border-radius: 10px;
-  transform: scale(1.1);
-  backdrop-filter: blur(15px);
-  box-shadow: 0 0 60px rgba(0, 0, 0, 0.434);
-  background-color: rgba(57, 57, 57, 0.336);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
-}
 
-.card .image-default,
-.card .image-hover {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 10px;
-  z-index: 1;
-}
-
-.card .image-hover {
-  position: absolute;
-  top: -10;
-  left: 0;
-  visibility: hidden;
-}
-
-.card:hover .image-default {
-  visibility: hidden;
-  transition: all 0.7s;
-}
-
-.card:hover .image-hover {
-  visibility: visible;
-  transition: all 0.1s;
-}
-
-.card img {
-  border-radius: 10px;
-  margin-bottom: -30px;
-  position: relative;
-  top: -10px;
-  width: 80%;
-}
-
-.card h3,
-.card p {
-  margin: 20px;
-  margin-top: 20px;
-  margin-bottom: 25px;
-  margin-left: 30px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.card h3 {
-  position: relative;
-  bottom: -15px;
-  font-size: 30px;
-  margin-bottom: 18px;
-}
-
-.card p {
-  font-size: 20px;
-  color: #363636;
-}
-
+/*
 .filter-container {
   margin-top: 20px;
 }
@@ -544,28 +1061,12 @@ input[type="text"] {
   margin-right: 10px;
 }
 
-/* Estilo dos botões do filtro */
+
 .filter-button {
   visibility: hidden;
 }
 
 
-.modal-content1 {
-  position: absolute;
-  top: 150px;
-  left: 100px;
-  background-color: #c3c3c3;
-  margin: 20% auto;
-  padding: 20px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 22px;
-  width: 300px;
-  height: 400px;
-  border-radius: 30px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.212);
-  overflow: hidden;
-  max-width: 400px;
-}
 
 .close1 {
   visibility: hidden;
@@ -578,23 +1079,7 @@ input[type="text"] {
 }
 
 
-/* Estilize o input checkbox usando o seletor de atributo */
-input[type="checkbox"].check {
-  color: #00f;
-  width: 40px; /* Largura em pixels */
-  height: 40px; /* Altura em pixels */
-  margin-right: 15px;
-}
 
-label {
-  display: flex;
-  align-items: center; /* Centraliza verticalmente o checkbox e o texto */
-  font-size: 25px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  margin-top: 10px;
-  position: relative;
-  bottom: 150px;
-}
 
 .apli {
   border: none;
@@ -606,27 +1091,16 @@ label {
   position: relative;
   bottom: 180px;
   left: 10px;
-
- 
-
-  /* Transições para suavizar o efeito ao passar o mouse sobre o botão */
   transition: box-shadow 0.3s ease;
 }
 
-/* Adicione o estilo para o hover */
+
 .apli:hover {
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.16); /* Aumentamos a intensidade da sombra quando passar o mouse */
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.16);
 }
 
 
-H6 {
-  font-size: 40px;
-  position: relative;
-  bottom: 95px;
-  left: 10px;
-}
 
-/* Estilos para o título do modal */
 #modalTitle {
   position: relative;
   left: -150px;
@@ -638,7 +1112,7 @@ H6 {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-/* Estilos para os detalhes do modal */
+
 #modalDetails {
   position: relative;
   left: 50px;
@@ -649,165 +1123,85 @@ H6 {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-/* Estilos para o modo escuro */
+*/
+
 .dark-mode {
-  background-color: #333; /* Cor de fundo escura */
-  color: #fff; /* Texto branco */
-}
-
-.dark-mode .bubble {
-  width: 560px;
-  height: 65px;
-  background-color: #323232;
-  border-radius: 10px;
-  position: relative;
-  top: 10px;
-  left: 27px;
-}
-
-
-:root {
-  --bg-color: rgb(226, 226, 226);
-  --text-color: #222;
-  --link-color: rgb(36, 36, 36);
-}
-
-/* Variables for dark mode */
-:root.dark-mode {
-  --bg-color: #00f;
-  --text-color: #00f;
-  --link-color: #00f;
-}
-
-.dark-mode body {
-  /* Estilos para o corpo em modo escuro */
-  background-color: #333;
-  color: #fff;
-}
-
-.dark-mode header {
-  background-color: rgba(226, 226, 226, 0.336);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-                    linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
-}
-
-.dark-mode .card:hover {
-  border-radius: 10px;
-  transform: scale(1.1);
-  backdrop-filter: blur(15px);
-  box-shadow: 0 0 60px rgba(163, 163, 163, 0.434);
-  background-color: rgba(57, 57, 57, 0.336);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
-}
-
-.dark-mode header a {
-  color: #fff;
-}
-
-.dark-mode li {
-  color: #fff;
-}
-
-.dark-mode a:hover {
-  color: #fff;
-}
-
-
-
-.dark-mode h5 {
-  color: #fff;
-}
-
-.dark-mode .filter-text {
-  color: #ccc;
-}
-
-.dark-mode .modal {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.dark-mode .modal-content {
-  background-color: #444;
-  color: #fff;
-}
-
-.dark-mode .modal-content-carrinho {
-  background-color: #444;
-  color: #fff;
-}
-
-.dark-mode .modal-content-carrinho h2 {
-  background-color: #333;
-}
-
-.dark-mode .checkout-button {
-  background-color: #00ff00;
-}
-
-.dark-mode .modal-content-carrinho-com-overflow {
-  background-color: #444;
-}
-
-
-
-.dark-mode .card {
   background-color: #222;
   color: #fff;
 }
 
+.dark-mode .logo {
+  filter: brightness(0) invert(1);
+}
+
+.dark-mode a {
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  text-decoration: none;
+  padding: 0.7rem;
+  font-size: 1rem;
+  
+  border: solid #ffffff30 0.08em;
+  border-radius: 0.9rem;
+  backdrop-filter: blur(50px);
+}
+
+.dark-mode .menu-icon{
+  color: white;
+}
+
+.dark-mode header {
+  background-color: rgba(0, 0, 0, 0.279);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+                  linear-gradient(rgba(0, 0, 0, 0.09), rgba(0, 0, 0, 0.1));
+ 
+}
+
+.dark-mode .filter-header {
+  background-color: #222;
+  color: white;
+}
+
+.dark-mode .filter {
+  border-bottom: 0.01rem solid #3e3e3e;
+}
+
+
+.dark-mode .filter-options label:before {
+ 
+  background-color: #222;
+  border: 3px solid #363636;
+}
+
+.dark-mode .card {
+  background-color: #2f2f2faa;
+  border: 1px solid rgb(50, 50, 50);
+}
+
+
 .dark-mode .card:hover {
-  backdrop-filter: none;
-  background-color: #111;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.434);
+  background-color: #2f2f2faa;
+  border: 1px solid rgb(50, 50, 50);
 }
 
-.dark-mode .card h3 {
-  color: #f8f8f8;
-}
-
-.dark-mode .filter-container label {
-  color: #000000;
-}
-
-.dark-mode input[type="checkbox"].check {
-  background-color: #000000;
-}
-
-.dark-mode label {
-  color: #ea4600;
-}
-
-.dark-mode .apli {
-  background-color: #00ff00;
-  color: #000;
-}
-
-.dark-mode H6 {
-  color: #fff;
-}
-
-.dark-mode #modalTitle {
-  color: #fff;
-}
-
-.dark-mode #modalDetails {
-  color: #ccc;
+.dark-mode .card p {
+  color: #888888;
 }
 
 .dark-mode 
-.modal-content1 {
-  position: absolute;
-  top: 150px;
-  left: 100px;
-  background-color: #2a2a2a;
-  margin: 20% auto;
-  padding: 20px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 22px;
-  width: 300px;
-  height: 400px;
-  border-radius: 30px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.212);
-  overflow: hidden;
-  max-width: 400px;
-}
+
+.dark-mode 
+
+.dark-mode 
+
+.dark-mode 
+
+.dark-mode 
+
+.dark-mode 
+
+.dark-mode 
+
+.dark-mode 

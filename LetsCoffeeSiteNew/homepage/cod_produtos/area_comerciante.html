@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Let's coffee e-commerce - Sua fonte de grãos de café premium. Explore nosso cardápio, descubra nossos grãos exclusivos e faça seu coado perfeito. Leia nosso blog para dicas e novidades.">
+    <meta name="keywords" content="Let's coffee, café, grãos de café, cardápio, coado, blog, coffee shop, e-commerce">
+    <meta name="author" content="Seu Nome">
+
+    <link rel="stylesheet" href="area_comerciante.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    
+    <title>Let's Coffee - Café Premium</title>
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <div class="logo-container">
+                <img class="logo" src="media/Logo.png" alt="Logo Let's Coffee">
+            </div>
+                <ul>
+                    <li><a href="https://letscoffee.goomer.app/menu">cardápio</a></li>
+                    <li><a href="nossosgrãos.html">nossos Grãos</a></li>
+                    <li><a href="#">faça seu Coado</a></li>
+                    <li><a href="#">blog</a></li>
+                    <li><a href="login.html" id="login-btn">já tem uma conta?</a></li>
+                </ul>
+
+                <button id="toggle-btn" class="menu-button"><i class="fas fa-bars menu-icon"></i></button>
+
+               
+
+            
+            <div class="dark-mode-toggle">
+                <input type="checkbox" id="darkModeToggle" />
+                <label for="darkModeToggle"></label>
+            </div>
+        </nav>
+    </header>
+
+    
+    <div id="lista-cards-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var cardsContainer = document.getElementById('lista-cards-container');
+    
+            // Itera sobre os cards na página de vitrine e cria um item de lista para cada um
+            document.querySelectorAll('.card').forEach(function (card) {
+                var listItem = document.createElement('div');
+                listItem.classList.add('lista-card-item');
+    
+                // Adiciona as informações do card ao item de lista
+                listItem.innerHTML = `
+                    <h3>${card.getAttribute('data-title')}</h3>
+                    <p>${card.getAttribute('data-description')}</p>
+                    <p>Filtro: ${card.getAttribute('data-filtro1')}</p>
+                    <!-- Adicione mais informações conforme necessário -->
+    
+                    <hr>
+                `;
+    
+                // Adiciona o item de lista ao contêiner de cards
+                cardsContainer.appendChild(listItem);
+            });
+        });
+    </script>
+    <script src="nossosgrãos.html"></script> <!-- Adapte o caminho conforme necessário -->
+    <script src="area_comerciante.js"></script>
+</body>
+</html>

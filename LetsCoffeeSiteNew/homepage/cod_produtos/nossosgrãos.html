@@ -1,155 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nossos grãos</title>
+    <title>Nossos Grãos</title>
     <link rel="stylesheet" href="nossosgrãos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="new-integrity-value" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/feather-icons/dist/feather.min.css">
 </head>
 
 <body>
-<header>
-  <a href="index.html"><img class="logo" src="media\Logo.png"></a>
+    <header>
+        <nav class="menu">
+            <div class="logo-container">
+                <img class="logo" src="media/Logo.png" alt="Logo Let's Coffee">
+            </div>
+            <ul>
+                <li><a href="https://letscoffee.goomer.app/menu">cardápio</a></li>
+                <li><a href="nossosgrãos.html">nossos grãos</a></li>
+                <li><a href="#">faça seu coado</a></li>
+                <li><a href="#">blog</a></li>
+                <li><a href="#" id="Inscreva-se-btn">já tem uma conta?</a></li>
+            </ul>
+            <button id="toggle-btn" class="menu-button"><i class="fas fa-bars menu-icon"></i></button>
+            <div class="dark-mode-toggle">
+                <input type="checkbox" id="darkModeToggle" />
+                <label for="darkModeToggle"></label>
+            </div>
+        </nav>
+    </header>
 
-  <ul class="menu">
-      <a href="https://letscoffee.goomer.app/menu"><li>cardápio</li></a>
-      <a href="Produtos\nossosgrãos.html"><li>nossos grãos</li></a>
-      <a href="#"><li>faça seu coado</li></a>
-      <a href="blog.html"><li>blog</li></a>
-      <a href="#" id="Inscreva-se-btn"><li>Já tem uma conta?</li></a>
-  </ul>
-  <div class="dark-mode-toggle" onclick="toggleDarkMode()">
-    <i class="fas fa-moon"></i>
-    <i class="fas fa-sun"></i>
-  </div>
-  
-</div>
-  
-</header>
-    
-  <h5>conheça nossos <br>
-     cafés especiais</h5>
-
-<!-- Modal de Filtro -->
-<div id="filterModal" class="modal-content1">
-    <span class="close1" onclick="closeFilterModal()">&times;</span>
-    <h6>opções de Filtro</h6>
-    <div class="filter-options">
-      <label>
-        <input class="check" type="checkbox" name="filtro1" value="catuaí">
-        catuaí
-      </label>
-      <label>
-        <input class="check" type="checkbox" name="filtro2" value="bourbon">
-        bourbon
-      </label>
-      <label>
-        <input class="check" type="checkbox" name="filtro3" value="guesha">
-        guesha
-      </label>
+    <div class="filter-container">
+        <p class="filter-text"></p>
     </div>
-</div>
 
-<div class="filter-container">
-  <p class="filter-text"></p>
-</div>
+    <div class="conjunto">
+        <div class="filters-container">
+            <div class="filtro">
+                <div class="filter-header" onclick="toggleCategories()">filtros <span class="arrow-down" data-feather="chevron-down"></span></div>
+                <div class="filter-options" id="filter-options">
+                    <!-- Categoria "Variedade" -->
+                    <div class="filter">
+                        <div class="filter-header variety" onclick="toggleFilter('variedade')">variedade <span class="arrow-down" data-feather="chevron-down"></span></div>
+                        <div class="filter-options" id="variedade-options">
+                            <!-- Opções de filtro para a categoria "Variedade" -->
+                            <input type="checkbox" id="variedade_checkbox_guesha" onclick="filterCards('guesha')"><label class="checkbox-container" for="variedade_checkbox_guesha">guesha</label>
+                            <input type="checkbox" id="variedade_checkbox_catuai" onclick="filterCards('catuaí')"><label class="checkbox-container" for="variedade_checkbox_catuai">catuaí</label>
+                            <input type="checkbox" id="variedade_checkbox_bourbon" onclick="filterCards('bourbon')"><label class="checkbox-container" for="variedade_checkbox_bourbon">bourbon</label>
+                        </div>
+                    </div>
+    
+                    <!-- Categoria "Preço" -->
+                    <div class="filter">
+                        <div class="filter-header price" onclick="toggleFilter('preco')">preço <span class="arrow-down" data-feather="chevron-down"></span></div>
+                        <div class="filter-options" id="preco-options">
+                            <!-- Opções de filtro para a categoria "Preço" -->
+                            <input type="checkbox" id="preco_checkbox_low" onclick="filterCards('low')"><label class="checkbox-container" for="preco_checkbox_low">baixo</label>
+                            <input type="checkbox" id="preco_checkbox_medium" onclick="filterCards('medium')"><label class="checkbox-container" for="preco_checkbox_medium">médio</label>
+                            <input type="checkbox" id="preco_checkbox_high" onclick="filterCards('high')"><label class="checkbox-container" for="preco_checkbox_high">alto</label>
+                        </div>
+                    </div>
+    
+                    <!-- Adicione mais categorias conforme necessário -->
+                </div>
+            </div>
+        </div>
+    
+        <div class="conteiner" id="cards-container">
+            <div class="card" data-id="1" data-title="Produto 1" data-description="catuaí vermelho" data-filtro1="catuaí" data-preco="medium" data-filtro2="" data-filtro3="">
+                <img class="image-default" src="media\121376535_390039392022733_1628705492367631483_n.jpg" alt="Imagem do Produto">
+                <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
+                <h3>nome do produto</h3>
+                <p>descrição do produto</p>
+                <p>filtro: guesha</p>
+            </div>
+    
+            <div class="card" data-id="6" data-title="Produto 1" data-description="Descrição do Produto " data-filtro1="bourbon" data-filtro2="" data-filtro3="guesha">
+                <img class="image-default" src="media\pão de banana.png" alt="Imagem do Produto">
+                <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
+                <h3>nome do produto</h3>
+                <p>descrição do produto</p>
+                <p>filtro: guesha</p>
+            </div>
+    
+            <div class="card" data-id="3" data-title="Produto 3" data-description="catuaí vermelho" data-filtro1="catuaí" data-filtro2="" data-filtro3="">
+                <img class="image-default" src="media\pão de banana.png" alt="Imagem do Produto">
+                <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
+                <h3>nome do produto</h3>
+                <p>descrição do produto</p>
+                <p>filtro: guesha</p>
+            </div>
+    
+            <div class="card" data-id="4" data-title="Produto 1" data-description="Descrição do Produto " data-filtro1="guesha" data-filtro2="" data-filtro3="">
+                <img class="image-default" src="media\121376535_390039392022733_1628705492367631483_n.jpg" alt="Imagem do Produto">
+                <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
+                <h3>nome do produto</h3>
+                <p>descrição do produto</p>
+                <p>filtro: guesha</p>
+            </div>
+    
+            <div class="card" data-id="5" data-title="Produto 1" data-description="Descrição do Produto " data-filtro1="guesha" data-filtro2="" data-filtro3="">
+                <img class="image-default" src="media\279005299_3836437939814210_692940873935983022_n.jpg" alt="Imagem do Produto">
+                <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
+                <h3>nome do produto</h3>
+                <p>descrição do produto</p>
+                <p>filtro: guesha</p>
+            </div>
+    
+            <div class="card" data-id="6" data-title="Produto 1" data-description="Descrição do Produto " data-filtro1="guesha" data-filtro2="" data-filtro3="">
+                <img class="image-default" src="media\pão de banana.png" alt="Imagem do Produto">
+                <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
+                <h3>nome do produto</h3>
+                <p>descrição do produto</p>
+                <p>filtro: guesha</p>
+            </div>
+        </div>
+    </div>
+    
 
-<div class="conteiner" id="cards-container">
-  <div class="card" data-id="1" data-title="Produto 1" data-description="catuaí vermelho" data-filtro1 ="catuaí" data-filtro2="bourbon" data-filtro3="guesha">
-  <img class="image-default" src="media\117960866_2762111820739684_8888816499722538550_n.jpg" alt="Imagem do Produto">
-  <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
-  <h3>Nome do Produto</h3>
-  <p>Descrição do Produto</p>
-</div>
-
-<div class="card" data-id="6" data-title="Produto 1" data-description="Descrição do Produto " data-filtro1="" data-filtro2="" data-filtro3="guesha">
-  <img class="image-default" src="media\245498542_3133624640199846_3983274045722879994_n.jpg" alt="Imagem do Produto">
-  <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
-  <h3>Nome do Produto</h3>
-  <p>Descrição do Produto</p>
-</div>
-
-  <div class="card" data-id="3" data-title="Produto 3" data-description="catuaí vermelho" data-filtro1="catuaí" data-filtro2="" data-filtro3="" >
-      <img class="image-default" src="media\245498542_3133624640199846_3983274045722879994_n.jpg" alt="Imagem do Produto">
-      <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
-      <h3>Nome do Produto</h3>
-      <p>Descrição do Produto</p>
-  </div>
-
-  <div class="card" data-id="4" data-title="Produto 1" data-description="Descrição do Produto " data-filtro1="" data-filtro2="" data-filtro3="guesha">
-      <img class="image-default" src="media\117960866_2762111820739684_8888816499722538550_n.jpg" alt="Imagem do Produto">
-      <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
-      <h3>Nome do Produto</h3>
-      <p>Descrição do Produto</p>
-  </div>
-
-  <div class="card" data-id="5" data-title="Produto 1" data-description="Descrição do Produto " data-filtro1="" data-filtro2="" data-filtro3="guesha">
-      <img class="image-default" src="media\279005299_3836437939814210_692940873935983022_n.jpg" alt="Imagem do Produto">
-      <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
-      <h3>Nome do Produto</h3>
-      <p>Descrição do Produto</p>
-  </div>
-
-  <div class="card" data-id="6" data-title="Produto 1" data-description="Descrição do Produto " data-filtro1="" data-filtro2="" data-filtro3="guesha">
-      <img class="image-default" src="media\245498542_3133624640199846_3983274045722879994_n.jpg" alt="Imagem do Produto">
-      <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
-      <h3>Nome do Produto</h3>
-      <p>Descrição do Produto</p>
-  </div>
-</div>
-
-<div class="filter-container">
-  <p class="filter-text"></p>
-</div>
-
-           
-<!-- Modal de Filtro -->
-<div id="myModal" class="modal">
-  <div id="modalContent" class="modal-content">
-    <span id="closeModalButton" class="close">&times;</span>
-    <div class="content">
-      <span id="modalTitle">Título do Modal</span>
-      <div class="containerModal">
-        <img class="imgModal" src="media\info-mezzanotte.jpg" alt="Imagem Modal">
-        <img class="imgModal" src="media\info-mezzanotte.jpg" alt="Imagem Modal">
-        <img class="imgModal" src="media\info-mezzanotte.jpg" alt="Imagem Modal">
-        <img class="imgModal" src="media\info-mezzanotte.jpg" alt="Imagem Modal">
+    <div id="myModal" class="modal">
+        <div id="modalContent" class="modal-content">
+          <span id="closeModalButton" class="close">&times;</span>
+          <div class="content">
+            <div class="modalimages">
+            <!-- Coluna esquerda com as 3 imagens -->
+            <div class="imgColumn">
+              <div class="imgselect">
+                <!-- Adicione a nova imagem maior abaixo das outras -->
+                <img class="smallImage" src="media/121376535_390039392022733_1628705492367631483_n.jpg" alt="Imagem 1">
+                <img class="smallImage" src="media/279005299_3836437939814210_692940873935983022_n.jpg" alt="Imagem 2">
+                <img class="smallImage" src="media/pão de banana.png" alt="Imagem 3">
+              </div>
+            </div>
+            
+            <!-- Coluna do meio com a imagem maior -->
+            <div class="largerImageColumn">
+              <div class="largerImageContainer">
+                <img class="largerImage" src="media/121376535_390039392022733_1628705492367631483_n.jpg" alt="Imagem Maior">
+              </div>
+            </div>
+            </div>
+      
+            <!-- Coluna direita com a descrição e botão -->
+            <div class="descriptionColumn">
+              <span id="modalTitle">título do modal</span>
+              <div id="modalFilters">catuaí</div>
+              <span id="modalDetails">detalhes do produto</span>
+              
+              <button class="adicionar">comprar</button>
+            </div>
+          </div>
+          <span class="close-cart-modal" onclick="closeCartModal()">&times;</span>
+        </div>
       </div>
-      <span id="modalDetails">detalhes do produto</span>
-      <div id="modalFilters"></div>
-      <div class="bubble"></div>
-      <button class="adicionar" >adicionar ao carrinho</button>
-    </div>
-    <!-- Botão para fechar o carrinho -->
-    <span class="close-cart-modal" onclick="closeCartModal()">&times;</span>
+
+      
+
+
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script src="grãos.js"></script>
+
+
+  <!--<div id="modalContent" class="modal-content-carrinho">
+      <h2>Seu Carrinho</h2>
+      <div class="cart-products">
+       
+      </div>
+
+      <h3>Informações de Pagamento</h3>
+      <h4 for="card-number">Número do Cartão</h4>
+      <input type="text" id="card-number" placeholder="XXXX-XXXX-XXXX-XXXX">
+      <h4 for="card-name">Nome no Cartão</h4>
+      <input type="text" id="card-name" placeholder="Seu Nome">
+      <button class="checkout-button" onclick="checkout()">Finalizar Compra</button>
   </div>
-
- <!-- Modal de Carrinho -->
-<div id="modalContent" class="modal-content-carrinho">
-  <h2>Seu Carrinho</h2>
-    
-  <div class="cart-products">
-    <!-- Os cartões criados dinamicamente serão adicionados aqui -->
-  </div>
-    
-  <!-- Informações de pagamento -->
-  <h3>Informações de Pagamento</h3>
-  <h4 for="card-number">Número do Cartão</h4>
-  <input type="text" id="card-number" placeholder="XXXX-XXXX-XXXX-XXXX">
-    
-  <h4 for="card-name">Nome no Cartão</h4>
-  <input type="text" id="card-name" placeholder="Seu Nome">
-    
-  <button class="checkout-button" onclick="checkout()">Finalizar Compra</button>
-</div>
-
-</div>
+</div>-->
 
 
-
-
-
-<script src="grãos.js"></script>
 </body>
 </html>

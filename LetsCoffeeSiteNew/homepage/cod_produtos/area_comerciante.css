@@ -1,0 +1,333 @@
+body, h1, h2, h3, p, ul, li, figure, figcaption, div {
+    line-height: 1.6;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    flex-wrap: wrap;
+  }
+  
+  body, html {
+    height: 120%;
+    margin-top: -5rem;
+  }
+  
+  body {
+    display: flex;
+    overflow-y: scroll;
+    scrollbar-width: thin; /* Adiciona uma barra de rolagem mais fina no Firefox */
+    scrollbar-color: transparent transparent; /* Adiciona uma barra de rolagem mais fina no Firefox */
+  }
+  
+  ::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem no Chrome/Safari/Edge */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Cor do polegar da barra de rolagem no Chrome/Safari/Edge */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: transparent; /* Cor da pista da barra de rolagem no Chrome/Safari/Edge */
+  }
+  
+  #coisas {
+    width: 100%;
+    height: 120%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: -5rem;
+  
+  }
+  
+  video{
+    width: 100%;
+    height: 100%;
+    
+  }
+  
+  
+  #video-background,
+  #video-backgroun {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+  }
+  
+  
+  #video-background {
+    filter: blur(70px);
+    z-index: 1;
+  
+  }
+  
+  #video-backgroun {
+    z-index: 2;
+  }
+  
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+    position: fixed;
+    backdrop-filter: blur(15px);
+    background-color: rgba(255, 255, 255, 0.279);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+                    linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.1));
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1em;
+    z-index: 5;
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    max-width: 7em;
+    height: auto;
+    margin-left: 20%;
+  }
+  
+  ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  .menu-button {
+    background-color: #3498db00; /* Cor de fundo do botão */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .menu-icon {
+    font-size: 2em; /* Tamanho do ícone */
+    color: rgb(1, 1, 1);
+  }
+  
+  
+  ul li {
+    margin-right: 2vw;
+  }
+  
+  a {
+    display: flex;
+    flex-wrap: wrap;
+    text-decoration: none;
+    padding: 0.7rem;
+    color: #2c2c2c;
+    font-size: 1rem;
+    background: #3b3b3b00;
+    border: solid #ffffff30 0.08em;
+    border-radius: 0.9rem;
+    backdrop-filter: blur(10px);
+  }
+  
+  @media screen and (max-width: 376px) {
+    body, html {
+      height: 120%;
+      margin-top: -15rem;
+    }
+  
+    #coisas {
+      margin-bottom: -26rem;
+    }
+  
+    .menu {
+        flex-wrap: wrap;
+    }
+  
+  
+    ul {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+    }
+  
+    a {
+        font-size: 1rem;
+    }
+  
+   
+  }
+  
+  @media screen and (min-width: 377px) and (max-width: 768px) {
+    body, html {
+      height: 120%;
+      margin-top: -15rem;
+    }
+  
+    #coisas {
+      margin-bottom: -22rem;
+    }
+  
+    .menu {
+        flex-wrap: wrap;
+    }
+  
+    ul {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+    }
+  
+    a {
+        font-size: 1rem;
+    }
+  
+  }
+  
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    body, html {
+      height: 120%;
+      margin-top: -11rem;
+    }
+  
+    #coisas {
+      margin-bottom: -16rem;
+    }
+    
+    .menu {
+        flex-wrap: wrap;
+    }
+  
+  
+    ul {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+    }
+  
+    a {
+        font-size: 1rem;
+    }
+  
+  }
+  
+  @media screen and (min-width: 1020px) {
+    body, html {
+      height: 120%;
+      margin-top: -10rem;
+    }
+  
+    
+  
+    .menu {
+        flex-wrap: wrap;
+    }
+  
+  
+    ul {
+        margin-top: 0.7rem;
+        margin-bottom: 0.7rem;
+        margin-left: 7rem;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+  
+    a {
+      display: flex;
+      flex-wrap: wrap;
+      text-decoration: none;
+      padding: 0.7rem;
+    
+      font-size: 1rem;
+      border-radius: 0.9rem;
+      backdrop-filter: blur(10px);
+    }
+  }
+
+  #merchantInterface{
+display: flex;
+  }
+
+  .dark-mode-toggle input[type="checkbox"] {
+    display: none;
+  }
+  
+  .dark-mode-toggle label {
+    margin-right: 1rem;
+    display: block;
+    width: 2.7em; /* Tamanho relativo para melhor responsividade */
+    height: 1.5em; /* Tamanho relativo para melhor responsividade */
+    background-color: #ddd;
+    border-radius: 2rem;
+    position: relative;
+    cursor: pointer;
+    
+  }
+  
+  .dark-mode-toggle label:after {
+    content: "";
+    display: block;
+    width: 1.2em; /* Tamanho relativo para melhor responsividade */
+    height: 1.2em; /* Tamanho relativo para melhor responsividade */
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .dark-mode-toggle input[type="checkbox"]:checked + label {
+    background-color: #6eec07;
+    box-shadow: 0 0 30px 20px #6eec074f;
+  }
+  
+  .dark-mode-toggle input[type="checkbox"]:checked + label:after {
+    transform: translateX(100%); /* Usando uma porcentagem para garantir uma transição completa */
+  }
+  
+  .dark-mode {
+    background-color: #222;
+    color: #fff;
+  }
+  
+  .dark-mode .logo {
+    filter: brightness(0) invert(1);
+  }
+  
+  .dark-mode a {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    text-decoration: none;
+    padding: 0.7rem;
+    font-size: 1rem;
+    
+    border: solid #ffffff30 0.08em;
+    border-radius: 0.9rem;
+    backdrop-filter: blur(50px);
+  }
+  
+  .dark-mode .menu-icon{
+    color: white;
+  }
+  
+  .dark-mode header {
+    background-color: rgba(0, 0, 0, 0.279);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+                    linear-gradient(rgba(0, 0, 0, 0.09), rgba(0, 0, 0, 0.1));
+   
+  }
+  
+  .dark-mode .product-details {
+    background: #333333;
+  }
+  
+  

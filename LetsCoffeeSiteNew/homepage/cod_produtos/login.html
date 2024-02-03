@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página de Login - Let's Coffee">
+    <meta name="author" content="Seu Nome">
+
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <title>Login - Let's Coffee</title>
+</head>
+<body>
+
+    <input class="dark" type="checkbox" id="darkModeToggle">
+
+    <div class="logo-container">
+        <img class="logo" src="media/Logo.png" alt="Logo Let's Coffee">
+    </div>
+
+
+    <div class="login-container">
+        <h2>login</h2>
+        <form id="loginForm">
+            <label for="username">usuário:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">senha:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="button" onclick="authenticateUser()">entrar</button>
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
