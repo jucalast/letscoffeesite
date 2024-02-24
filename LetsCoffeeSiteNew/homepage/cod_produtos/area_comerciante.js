@@ -36,3 +36,24 @@ document.getElementById('toggle-btn').addEventListener('click', function() {
       menu.style.display = 'none';
   }
 });
+
+// Função para fechar o modal
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
+
+
+// Função para alternar a exibição da lista de produtos com animação
+function toggleListaProdutos() {
+  const listaProdutos = document.getElementById('listaProdutos');
+  const cardOpcoes = document.getElementById('cardOpcoes');
+
+  if (listaProdutos.style.display === 'none') {
+      listaProdutos.style.display = 'block';
+      cardOpcoes.style.transform = 'translateY(-100%)';
+  } else {
+      listaProdutos.style.display = 'none';
+      cardOpcoes.style.transform = 'none';
+  }
+}
+

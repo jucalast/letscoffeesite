@@ -397,6 +397,7 @@ h2 {
   
   .dark-mode .card {
     background-color: #444;
+    gap: 2rem;
   }
   
   .dark-mode .card:hover {

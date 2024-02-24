@@ -23,7 +23,7 @@
                 <li><a href="nossosgrãos.html">nossos grãos</a></li>
                 <li><a href="#">faça seu coado</a></li>
                 <li><a href="#">blog</a></li>
-                <li><a href="#" id="Inscreva-se-btn">já tem uma conta?</a></li>
+                <li><a href="login.html" id="Inscreva-se-btn">já tem uma conta?</a></li>
             </ul>
             <button id="toggle-btn" class="menu-button"><i class="fas fa-bars menu-icon"></i></button>
             <div class="dark-mode-toggle">
@@ -33,13 +33,15 @@
         </nav>
     </header>
 
-    <div class="filter-container">
-        <p class="filter-text"></p>
-    </div>
+    
 
     <div class="conjunto">
+       
+        
         <div class="filters-container">
+            
             <div class="filtro">
+               
                 <div class="filter-header" onclick="toggleCategories()">filtros <span class="arrow-down" data-feather="chevron-down"></span></div>
                 <div class="filter-options" id="filter-options">
                     <!-- Categoria "Variedade" -->
@@ -68,100 +70,163 @@
                 </div>
             </div>
         </div>
+        
+        <span class="filter-text"></span>
     
-        <div class="conteiner" id="cards-container">
-            <div class="card" data-id="1" data-title="Produto 1" data-description="catuaí vermelho" data-filtro1="catuaí" data-preco="medium" data-filtro2="" data-filtro3="">
-                <img class="image-default" src="media\121376535_390039392022733_1628705492367631483_n.jpg" alt="Imagem do Produto">
-                <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
-                <h3>nome do produto</h3>
-                <p>descrição do produto</p>
-                <p>filtro: guesha</p>
+    <!-- HTML para exibir os cards dos produtos -->
+<div id="cards-container"></div>
+
+<!-- Modal para exibir mais informações do produto -->
+<div id="myModal" class="modal">
+    <div id="modalContent" class="modal-content">
+        <span id="closeModalButton" class="close">&times;</span>
+        <div class="content">
+            <div class="modal-images">
+                <!-- Coluna esquerda com as imagens -->
+                <div class="imgColumn">
+                    <div class="imgselect"></div>
+                </div>
+                <!-- Coluna do meio com a imagem maior -->
+                <div class="largerImageColumn">
+                    <div class="largerImageContainer"></div>
+                </div>
             </div>
-    
-            <div class="card" data-id="6" data-title="Produto 1" data-description="Descrição do Produto " data-filtro1="bourbon" data-filtro2="" data-filtro3="guesha">
-                <img class="image-default" src="media\pão de banana.png" alt="Imagem do Produto">
-                <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
-                <h3>nome do produto</h3>
-                <p>descrição do produto</p>
-                <p>filtro: guesha</p>
-            </div>
-    
-            <div class="card" data-id="3" data-title="Produto 3" data-description="catuaí vermelho" data-filtro1="catuaí" data-filtro2="" data-filtro3="">
-                <img class="image-default" src="media\pão de banana.png" alt="Imagem do Produto">
-                <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
-                <h3>nome do produto</h3>
-                <p>descrição do produto</p>
-                <p>filtro: guesha</p>
-            </div>
-    
-            <div class="card" data-id="4" data-title="Produto 1" data-description="Descrição do Produto " data-filtro1="guesha" data-filtro2="" data-filtro3="">
-                <img class="image-default" src="media\121376535_390039392022733_1628705492367631483_n.jpg" alt="Imagem do Produto">
-                <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
-                <h3>nome do produto</h3>
-                <p>descrição do produto</p>
-                <p>filtro: guesha</p>
-            </div>
-    
-            <div class="card" data-id="5" data-title="Produto 1" data-description="Descrição do Produto " data-filtro1="guesha" data-filtro2="" data-filtro3="">
-                <img class="image-default" src="media\279005299_3836437939814210_692940873935983022_n.jpg" alt="Imagem do Produto">
-                <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
-                <h3>nome do produto</h3>
-                <p>descrição do produto</p>
-                <p>filtro: guesha</p>
-            </div>
-    
-            <div class="card" data-id="6" data-title="Produto 1" data-description="Descrição do Produto " data-filtro1="guesha" data-filtro2="" data-filtro3="">
-                <img class="image-default" src="media\pão de banana.png" alt="Imagem do Produto">
-                <img class="image-hover" src="media\info-mezzanotte.jpg" alt="Imagem do Produto durante o hover">
-                <h3>nome do produto</h3>
-                <p>descrição do produto</p>
-                <p>filtro: guesha</p>
+            <!-- Coluna direita com a descrição e botão -->
+            <div class="descriptionColumn">
+                <h2 id="modalTitle"></h2>
+                <div id="modalFilters"></div>
+                <p id="modalDetails"></p>
+                <button class="adicionar">Comprar</button>
             </div>
         </div>
     </div>
+</div>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+    // Your web app's Firebase configuration (certifique-se de usar a mesma configuração que na página original)
+    const firebaseConfig = {
+      apiKey: "AIzaSyD8m3pK1ybzcbz_c655G22L9AlM8tSjzd4",
+      authDomain: "let-s-coffee-site.firebaseapp.com",
+      projectId: "let-s-coffee-site",
+      storageBucket: "let-s-coffee-site.appspot.com",
+      messagingSenderId: "400929193396",
+      appId: "1:400929193396:web:15ab2756687b91f55d86e1",
+      measurementId: "G-G1H9QGKYJ9"
+    };
     
 
-    <div id="myModal" class="modal">
-        <div id="modalContent" class="modal-content">
-          <span id="closeModalButton" class="close">&times;</span>
-          <div class="content">
-            <div class="modalimages">
-            <!-- Coluna esquerda com as 3 imagens -->
-            <div class="imgColumn">
-              <div class="imgselect">
-                <!-- Adicione a nova imagem maior abaixo das outras -->
-                <img class="smallImage" src="media/121376535_390039392022733_1628705492367631483_n.jpg" alt="Imagem 1">
-                <img class="smallImage" src="media/279005299_3836437939814210_692940873935983022_n.jpg" alt="Imagem 2">
-                <img class="smallImage" src="media/pão de banana.png" alt="Imagem 3">
-              </div>
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    // Referência ao banco de dados do Firebase
+    const database = getDatabase();
+    const produtosRef = ref(database, 'produtos');
+
+// Função para renderizar os cards dos produtos
+function renderizarCards(produtos) {
+    const cardsContainer = document.getElementById('cards-container');
+    cardsContainer.innerHTML = ''; // Limpa o conteúdo atual
+
+    // Itera sobre os produtos e cria um card para cada um
+    produtos.forEach((produto, index) => {
+        // Verifica se a propriedade 'imagem' existe e não é 'undefined'
+        const imagens = produto.imagens ? produto.imagens : ''; 
+
+        const cardHTML = `
+            <div class="card" data-index="${index}">
+                
+                <img src="${imagens}" alt="${produto.nome}" class="product-image">
+                <h2>${produto.nome}</h2>
+                <p>Preço: ${produto.preco}</p>
             </div>
-            
-            <!-- Coluna do meio com a imagem maior -->
-            <div class="largerImageColumn">
-              <div class="largerImageContainer">
-                <img class="largerImage" src="media/121376535_390039392022733_1628705492367631483_n.jpg" alt="Imagem Maior">
-              </div>
-            </div>
-            </div>
-      
-            <!-- Coluna direita com a descrição e botão -->
-            <div class="descriptionColumn">
-              <span id="modalTitle">título do modal</span>
-              <div id="modalFilters">catuaí</div>
-              <span id="modalDetails">detalhes do produto</span>
-              
-              <button class="adicionar">comprar</button>
-            </div>
-          </div>
-          <span class="close-cart-modal" onclick="closeCartModal()">&times;</span>
-        </div>
-      </div>
+        `;
+        cardsContainer.innerHTML += cardHTML; // Adiciona o card ao contêiner
+    });
+
+    // Adicionar evento de clique a todos os cards
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card) => {
+        card.addEventListener('click', () => {
+            const index = card.getAttribute('data-index');
+            abrirModalComDadosDoProduto(produtos[index]);
+        });
+    });
+}
+
+
+
+
+
+
+    // Função para abrir o modal com as informações do produto
+    function abrirModalComDadosDoProduto(produto) {
+        const modal = document.getElementById('myModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDetails = document.getElementById('modalDetails');
+        const modalFilters = document.getElementById('modalFilters');
+        const imgSelect = document.querySelector('.imgselect');
+        const largerImageContainer = document.querySelector('.largerImageContainer');
+
+        // Configurar as informações do modal com base no produto
+        modalTitle.textContent = produto.nome;
+        modalDetails.textContent = produto.descricao || "Sem descrição disponível";
+
+        // Limpando o conteúdo anterior do modalFilters
+        modalFilters.innerHTML = '';
+
+        // Adicionar filtros ao modalFilters, se existirem
+        const filters = ['filtro1', 'filtro2', 'filtro3'];
+        filters.forEach((filtro) => {
+            const filtroValue = produto[filtro];
+            if (filtroValue) {
+                const filtroElement = document.createElement('div');
+                filtroElement.textContent = `${filtro}: ${filtroValue}`;
+                modalFilters.appendChild(filtroElement);
+            }
+        });
+
+        // Abrir o modal
+        modal.style.display = "block";
+    }
+
+    // Evento 'value' para ouvir alterações nos dados do banco de dados
+    onValue(produtosRef, (snapshot) => {
+        const data = snapshot.val(); // Obter os dados do snapshot
+        const produtos = Object.values(data || {}); // Converter os dados em um array de produtos
+        renderizarCards(produtos); // Renderizar os cards dos produtos
+    });
+
+    // Fechar o modal quando o botão de fechar for clicado
+    document.getElementById('closeModalButton').addEventListener('click', () => {
+        document.getElementById('myModal').style.display = "none";
+    });
+
+    // Fechar o modal quando clicar fora dele
+    window.addEventListener('click', (event) => {
+        const modal = document.getElementById('myModal');
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+</script>
+
 
       
 
 
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script src="grãos.js"></script>
+
+
+</body>
+</html>
+
 
 
   <!--<div id="modalContent" class="modal-content-carrinho">
@@ -178,7 +243,3 @@
       <button class="checkout-button" onclick="checkout()">Finalizar Compra</button>
   </div>
 </div>-->
-
-
-</body>
-</html>

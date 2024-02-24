@@ -386,8 +386,8 @@ function openModal(card) {
 }
 
 function displayFilterText(selectedFilters) {
-  const filterContainer = document.querySelector('.filter-container');
   const filterText = document.querySelector('.filter-text');
+  if (!filterText) return; // Verifica se o elemento .filter-text existe
 
   const filterNames = {
     guesha: 'guesha',
@@ -406,8 +406,6 @@ function displayFilterText(selectedFilters) {
 
   filterText.innerHTML = displayedFilters.length > 0
     ? `filtros aplicados: ${displayedFilters.join('')}` : ' ';
-
-  filterContainer.style.display = displayedFilters.length > 0 ? 'block' : 'none';
 }
 
 document.querySelectorAll('#variedade-options input[type="checkbox"], #preco-options input[type="checkbox"]').forEach((checkbox) => {
@@ -419,4 +417,45 @@ document.querySelectorAll('#variedade-options input[type="checkbox"], #preco-opt
     filterCards();
   });
 });
+
+
+// Referência para o nó 'produtos' do banco de dados
+const produtosRef = firebase.database().ref('produtos');
+
+// Função para buscar os dados dos produtos
+produtosRef.once('value', (snapshot) => {
+    // Iterar sobre cada produto no snapshot
+    snapshot.forEach((produtoSnapshot) => {
+        const produto = produtoSnapshot.val();
+        // Chame uma função para criar um card com os dados do produto
+        createCard(produto);
+    });
+});
+
+function createCard(produto) {
+  const cardsContainer = document.getElementById('cards-container');
+
+  // Crie um elemento div para o card
+  const cardElement = document.createElement('div');
+  cardElement.classList.add('card');
+  
+  // Defina os atributos do card com base nos dados do produto
+  cardElement.dataset.id = produto.id;
+  cardElement.dataset.title = produto.nome;
+  cardElement.dataset.description = produto.descricao;
+
+  // Crie os elementos HTML para exibir os dados do produto
+  const titleElement = document.createElement('h3');
+  titleElement.textContent = produto.nome;
+
+  const descriptionElement = document.createElement('p');
+  descriptionElement.textContent = produto.descricao;
+
+  // Adicione os elementos ao card
+  cardElement.appendChild(titleElement);
+  cardElement.appendChild(descriptionElement);
+
+  // Adicione o card ao contêiner de cards
+  cardsContainer.appendChild(cardElement);
+}
 
