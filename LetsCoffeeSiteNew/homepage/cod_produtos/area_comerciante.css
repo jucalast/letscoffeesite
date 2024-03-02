@@ -6,10 +6,11 @@ body, h2, h3, p, ul, li, figure, figcaption, div {
   box-sizing: border-box;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   flex-wrap: wrap;
+  
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: white;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -61,10 +62,11 @@ header {
   background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
                   linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.1));
   top: 0;
-  left: 0;
+  right: 0;
   right: 0;
   padding: 1em;
   z-index: 5;
+  width: 82%;
 }
 
 .menu {
@@ -75,14 +77,19 @@ header {
 
 .logo {
 width: 8rem;
+margin-bottom: 1rem;
+height: 4rem;
+margin-top: 1rem;
 }
 
 .logo-container {
   display: flex;
-  max-width: 20%;
-  width: 10%;
+  max-width: 100%;
+  width: 100%;
   justify-content: center;
-  align-items: center;
+  height: 6.5rem;
+  background-color: #191919;
+
 }
 
 ul {
@@ -156,6 +163,13 @@ a {
 
 .dark-mode-toggle input[type="checkbox"]:checked + label:after {
   transform: translateX(100%); /* Usando uma porcentagem para garantir uma transição completa */
+}
+
+.corpo-maior {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
   
@@ -303,7 +317,7 @@ a {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
 
-  img {
+  .imglist {
     width: 7rem;
     border-radius: 1rem;
   }
@@ -505,7 +519,8 @@ a {
     align-content: flex-start;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 100%;
+    width: 85%;
+    background-color: white;
   }
   .corpodedentro {
     width: 100%;
@@ -887,3 +902,7 @@ div.buttons {
     background-color: #6eec07;
   }
   
+
+  .dark-mode aside {
+    background-color: #282828;
+}
