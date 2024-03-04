@@ -1,4 +1,4 @@
-body, h2, h3, p, ul, li, figure, figcaption, div {
+body, h3, p, ul, li, figure, figcaption, div {
   line-height: 1.6;
   display: flex;
   margin: 0;
@@ -6,7 +6,6 @@ body, h2, h3, p, ul, li, figure, figcaption, div {
   box-sizing: border-box;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   flex-wrap: wrap;
-  
 }
 
 body {
@@ -53,20 +52,17 @@ body {
   /* Estilos do cabeçalho (header) */
 header {
   display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-direction: column;
+  background-color: #c1c1c100;  
   position: fixed;
-  backdrop-filter: blur(15px);
-  background-color: rgba(218, 218, 218, 0.497);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
-                  linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.1));
   top: 0;
   right: 0;
   right: 0;
-  padding: 1em;
+
   z-index: 5;
-  width: 82%;
+  width: 83.7%;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .menu {
@@ -77,19 +73,18 @@ header {
 
 .logo {
 width: 8rem;
-margin-bottom: 1rem;
-height: 4rem;
-margin-top: 1rem;
+height: 3.5rem;
+margin-top: 2rem; 
+margin-left: 3rem;
 }
 
 .logo-container {
   display: flex;
   max-width: 100%;
   width: 100%;
-  justify-content: center;
-  height: 6.5rem;
-  background-color: #191919;
+  height: 7rem;
 
+  background-color: #151515;
 }
 
 ul {
@@ -125,6 +120,10 @@ a {
   border: solid #3d3d3d30 0.08em;
   border-radius: 0.9rem;
   backdrop-filter: blur(10px);
+}
+
+.alateral {
+  width: 100%;
 }
 
 .dark-mode-toggle input[type="checkbox"] {
@@ -311,7 +310,7 @@ a {
     border: 1px solid #3939391d;
     backdrop-filter: blur(5px);
     background: #c1c1c184;
-    border-radius: 10px;
+    border-radius: 20px;
     color: #363636;
     font-size: 1.5rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -327,7 +326,7 @@ a {
   }
 
   .abrirprodutos {
-    width: 50%;
+    width: 70%;
     display: flex;
     flex-direction: column;
   }
@@ -360,7 +359,7 @@ a {
 
 /* Estilo para lista de produtos expandida */
 .lista-produtos.expandido {
-  width: 50%;
+
   max-height: 1000px; /* Ou qualquer outra altura que você deseje */
   margin-left: 2rem;
   margin-top: 1rem;
@@ -469,11 +468,6 @@ a {
     outline: none; /* Remove a borda de foco padrão */
 }
 
-
-
-
-
-
 .enviarform {
   color: #224e00;
   width: 28rem;
@@ -486,10 +480,9 @@ a {
 
   /* Estilos para o card */
   .card {
-    border: 1px solid #3939391d;
-    backdrop-filter: blur(5px);
+    border: none;
     background: #c1c1c184;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 10px;
    margin-left: 7rem;
     cursor: pointer;
@@ -502,10 +495,10 @@ a {
   }
 
   h1 {
-    color: #565656;
-    margin-top: 30rem;
-  margin-left: 7rem;
-    font-size: 3.5rem;
+    color: #161616;
+    font-size: 2.5rem;
+    line-height: 1;
+    padding: 0rem;
   }
   
   p {
@@ -524,6 +517,8 @@ a {
   }
   .corpodedentro {
     width: 100%;
+    margin-top: 30rem;
+
   }
 
 
@@ -534,7 +529,7 @@ a {
   border: 1px solid #3939391d;
   backdrop-filter: blur(5px);
   background: #d0d0d084;;
-    border-radius: 10px; /* Bordas arredondadas */
+    border-radius: 20px; /* Bordas arredondadas */
     padding: 15px; /* Espaçamento interno */
     display: flex;
     justify-content: space-between;
@@ -734,10 +729,7 @@ div.buttons {
 .dark-mode ::-webkit-scrollbar-track {
   background-color: #1a1a1a; /* cor do fundo da barra de rolagem */
 }
-.dark-mode body, html {
-  background-color: #191919;
 
-}
 .dark-mode .corpo {
   background-color: #191919;
 }
@@ -745,20 +737,21 @@ div.buttons {
   background-color: #191919;
 }
 .dark-mode .card  {
-  border: 1px solid #bbbbbb1d;
-  background: #30303084;
+  border: none;
+  background: #1f1f1f;
   color: #cfcfcf;
 }
 .dark-mode .produto  {
-  border: 1px solid #bbbbbb1d;
-  background: #30303084;
+  border: none;
+  background: #1f1f1f;
   color: #cfcfcf;
 }
 
+
 .dark-mode .botãoprodutos {
-  border: 1px solid #bbbbbb1d;
-  background: #30303084;
-  color: #cfcfcf;
+    border: none;
+    background: #1f1f1f;
+    color: #cfcfcf;
 }
 
   .dark-mode-toggle input[type="checkbox"] {
@@ -843,25 +836,22 @@ div.buttons {
     transform: translateX(100%); /* Usando uma porcentagem para garantir uma transição completa */
   }
   
-  .dark-mode {
-    color: #272727;
-  }
   
   .dark-mode .logo {
     filter: brightness(0) invert(1);
   }
   
   .dark-mode a {
-    color: white;
+    color: rgb(145, 145, 145);
     display: flex;
     flex-wrap: wrap;
     text-decoration: none;
-    padding: 0.7rem;
-    font-size: 1rem;
-    
-    border: solid #ffffff30 0.08em;
-    border-radius: 0.9rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: rem;
     backdrop-filter: blur(50px);
+    background-color: #181818;
   }
   
   .dark-mode .menu-icon{
@@ -869,14 +859,11 @@ div.buttons {
   }
   
   .dark-mode header {
-    background-color: rgba(0, 0, 0, 0.279);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-                    linear-gradient(rgba(0, 0, 0, 0.09), rgba(0, 0, 0, 0.1));
-   
+   background-color: #141414;
   }
   
   .dark-mode .product-details {
-    border: 1px solid #cccccc1d;
+    border: 1px solid #171717;
   backdrop-filter: blur(8px);
 
   }
@@ -904,5 +891,21 @@ div.buttons {
   
 
   .dark-mode aside {
-    background-color: #282828;
+    background-color: #151515;
+}
+
+.dark-mode .alateral {
+  background-color: #151515;
+  font-size: 1.5rem;
+}
+
+.dark-mode h1 {
+  color: #d8d8d8;
+  font-size: 2.5rem;
+  line-height: 1;
+  padding: 0rem;
+}
+
+.dark-mode body {
+  background-color: #141414;
 }

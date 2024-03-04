@@ -36,11 +36,20 @@
         .ul-lateral {
             list-style-type: none;
             padding: 0;
-            margin-top: 8rem;
+            margin-top: 3rem;
+            margin-left: 0rem;
+            width: 100%;
+        }
+
+        .alateral:hover {
+            background-color: rgb(33, 33, 33);
+            width: 100%;
+
         }
         
         .li-lateral {
             padding: 10px 20px;
+            width: 100%;
         }
         
         
@@ -49,23 +58,14 @@
     </style>
     
     <header>
-        <nav class="menu">
-            
-            <ul>
-                <li><a href="https://letscoffee.goomer.app/menu">Cardápio</a></li>
-                <li><a href="nossosgrãos.html">Nossos Grãos</a></li>
-                <li><a href="#">Faça seu Coado</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="login.html" id="login-btn">Já tem uma conta?</a></li>
-            </ul>
-
-            <button id="toggle-btn" class="menu-button"><i class="fas fa-bars menu-icon"></i></button>
+            <div>
+            <h1>bem-vindo ao seu espaço de gerenciamento</h1>
+            </div>
 
             <div class="dark-mode-toggle">
                 <input type="checkbox" id="darkModeToggle" />
                 <label for="darkModeToggle"></label>
             </div>
-        </nav>
     </header>
     <div class="corpo-maior" >
     <div class="corpo">
@@ -75,33 +75,33 @@
                 <img class="logo" src="media/Logo.png" alt="Logo Let's Coffee">
             </div>
             <ul class="ul-lateral">
-                <li class="li-lateral"><a href="#">Dashboard</a></li>
-                <li class="li-lateral"><a href="#">Pedidos</a></li>
-                <li class="li-lateral"><a href="#">Produtos</a></li>
-                <li class="li-lateral"><a href="#">Clientes</a></li>
-                <li class="li-lateral"><a href="#">Relatórios</a></li>
-                <li class="li-lateral"><a href="#">Configurações</a></li>
+                <li class="li-lateral"><a class="alateral" href="#">Dashboard</a></li>
+                <li class="li-lateral"><a class="alateral" href="#">Pedidos</a></li>
+                <li class="li-lateral"><a class="alateral" href="LetsCoffeeSiteNew\homepage\cod_produtos\produtos.html">Produtos</a></li>
+                <li class="li-lateral"><a class="alateral" href="#">Clientes</a></li>
+                <li class="li-lateral"><a class="alateral" href="#">Relatórios</a></li>
+                <li class="li-lateral"><a class="alateral" href="#">Configurações</a></li>
             </ul>
         </aside>
-        <h1>Bem-vindo ao seu<br>espaço de gerenciamento</h1>
+        
 
         <div class="corpodedentro">
-            <div class="card" onclick="openModal()">Vamos adicionar <br>um produto?
-                <p>Nunca foi tão simples cadastrar <br> um produto</p>
+            <div class="card" onclick="openModal()">vamos adicionar <br>um produto?
+                <p>nunca foi tão simples cadastrar <br> um produto</p>
             </div>
 
             <!-- Modal -->
             <div id="myModal" class="modal" onclick="closeModal()">
                 <div class="modal-content" onclick="event.stopPropagation()">
                     <div id="uploadContainer" class="upload-container">
-                        <h2>Adicione imagens ao seu produto</h2>
+                        <h2>adicione imagens ao seu produto</h2>
                         <form id="uploadForm" enctype="multipart/form-data">
                             <input type="file" id="fileInput" accept="image/*" class="input-file" multiple>
                             <label for="fileInput" class="file-label">
-                                <i class="fas fa-cloud-upload-alt"></i> Escolher Imagens ou Arrastar e Soltar
+                                <i class="fas fa-cloud-upload-alt"></i> escolher imagens ou arrastar e soltar
                             </label>
                             <button type="submit" class="upload-button">
-                                <i class="fas fa-check"></i> Enviar
+                                <i class="fas fa-check"></i> enviar
                             </button>
                         </form>
                         <div id="imagemContainer" class="imagem-container">
@@ -119,7 +119,7 @@
                             <input type="text" id="cores" name="cores" placeholder="Cores">
                             <textarea id="descricao" name="descricao" placeholder="Descrição"></textarea>
                         </div>
-                        <button class="enviarform" type="submit">Adicionar Produto</button>
+                        <button class="enviarform" type="submit">adicionar Produto</button>
                     </form>
                 </div>
             </div>
