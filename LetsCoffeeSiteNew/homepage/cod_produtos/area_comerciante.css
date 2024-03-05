@@ -256,14 +256,15 @@ aside {
 
 }
 
-@media screen and (min-width: 377px) and (max-width: 768px) {
+@media screen and (min-width: 1000px) and (max-width: 1469px) {
   #coisas {
-    margin-bottom: -22rem;
+    margin-bottom: -16rem;
   }
 
   .menu {
     flex-wrap: wrap;
   }
+
 
   ul {
     margin-top: 2rem;
@@ -276,9 +277,90 @@ aside {
     font-size: 1rem;
   }
 
+  header {
+    width: 85%;
+  }
+
+  aside {
+    width: 15%;
+  }
+
+  .li-lateral {
+    width: 100%;
+  }
+
+  a.alateral {
+    width: 100%;
+  }
+
+  .card {
+    width: 25rem;
+    height: 17rem;
+    border-radius: 2rem;
+    font-size: 2.8rem;
+    line-height: 1.2;
+  }
+
+  .botãoprodutos {
+    width: 50rem;
+    height: 5rem;
+    font-size: 2.8rem;
+  }
+
+  .produto {
+    width: 100%;
+    height: 15%;
+  }
+  .imglist {
+    width: 11rem;
+  }
+
+  .nomeproduto {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    height: 30%;
+  }
+
+  .produto p {
+    height: 70%;
+    font-size: 2rem;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+ .delete-button {
+  width: 7rem;
+  height: 4.5rem;
+  font-size: 1.5rem;
+  border-radius: 1.2rem;
+
+ }
+
+ .edit-button {
+  width: 7rem;
+  height: 4.5rem;
+  font-size: 1.5rem;
+  border-radius: 1.2rem;
+
+ }
+
+ .infoprod {
+  margin-left: 1rem;
+ }
+
+ div.buttons {
+  height: 100%;
+ }
+
+ .lista-produtos.expandido {
+  max-height: 80%;
+ }
+
+
 }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 1470px) and (max-width: 1900px) {
 
 
   #coisas {
@@ -301,9 +383,89 @@ aside {
     font-size: 1rem;
   }
 
+  header {
+    width: 85%;
+  }
+
+  aside {
+    width: 15%;
+  }
+
+  .li-lateral {
+    width: 100%;
+  }
+
+  a.alateral {
+    width: 100%;
+  }
+
+  .card {
+    width: 25rem;
+    height: 17rem;
+    border-radius: 2rem;
+    font-size: 2.8rem;
+    line-height: 1.2;
+  }
+
+  .botãoprodutos {
+    width: 50rem;
+    height: 5rem;
+    font-size: 2.8rem;
+  }
+
+  .produto {
+    width: 100%;
+    height: 20%;
+  }
+  .imglist {
+    width: 11rem;
+  }
+
+  .nomeproduto {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    height: 30%;
+  }
+
+  .produto p {
+    height: 70%;
+    font-size: 2rem;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+ .delete-button {
+  width: 7rem;
+  height: 4.5rem;
+  font-size: 1.5rem;
+  border-radius: 1.2rem;
+
+ }
+
+ .edit-button {
+  width: 7rem;
+  height: 4.5rem;
+  font-size: 1.5rem;
+  border-radius: 1.2rem;
+
+ }
+
+ .infoprod {
+  margin-left: 1rem;
+ }
+
+ div.buttons {
+  height: 100%;
+ }
+
+ .lista-produtos.expandido {
+  max-height: 100%;
+ }
+
 }
 
-@media screen and (min-width: 1020px) and (max-width: 2560px) {
+@media screen and (min-width: 1670px) and (max-width: 2560px) {
 
 
 
@@ -392,6 +554,14 @@ aside {
 
  }
 
+ div.buttons {
+  height: 100%;
+ }
+
+ .lista-produtos.expandido {
+  max-height: 100%;
+ }
+
 }
 
 .modal {
@@ -436,7 +606,9 @@ img {
 }
 
 .abrirprodutos {
+  max-width: 100%;
   width: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -468,7 +640,6 @@ img {
 /* Estilo para lista de produtos expandida */
 .lista-produtos.expandido {
 
-  max-height: 1000px;
   /* Ou qualquer outra altura que você deseje */
   margin-left: 2rem;
   margin-top: 1rem;
@@ -814,7 +985,7 @@ form#uploadForm {
 div.buttons {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  
   justify-content: space-around;
   margin-right: 1rem;
 }
