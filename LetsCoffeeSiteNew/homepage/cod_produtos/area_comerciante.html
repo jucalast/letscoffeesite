@@ -45,10 +45,12 @@
         </aside>
         
 
-        <div class="corpodedentro">
+        <div class="corpodedentro" id="expandir">
             <div class="card" onclick="openModal()">vamos adicionar <br>um produto?
                 <p>nunca foi tão simples cadastrar <br> um produto</p>
             </div>
+
+            <button onclick="alterarLargura()">Alterar Largura</button>
 
             <!-- Modal -->
             <div id="myModal" class="modal" onclick="closeModal()">
@@ -97,6 +99,17 @@
 </div>
   
   <script>
+
+function alterarLargura() {
+        var div = document.getElementById('expandir');
+        if (div.style.width === '120%') {
+            div.style.width = ''; // Remove a largura definida
+            div.style.marginLeft = ''; // Remove a margem definida
+        } else {
+            div.style.width = '120%'; // Define a largura como 120%
+            div.style.marginLeft = '5rem'; // Define a margem esquerda como 5rem
+        }
+    }
 // Função para abrir o modal
 function openModal() {
         document.getElementById('myModal').style.display = "block";

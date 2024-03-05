@@ -55,5 +55,13 @@ function toggleListaProdutos() {
       listaProdutos.style.display = 'none';
       cardOpcoes.style.transform = 'none';
   }
+  
+  function alterarLargura() {
+    var div = document.getElementById('expandir');
+    div.style.width = '200px'; // Altera a largura para 200px
 }
+
+}
+
+
 
