@@ -31,7 +31,7 @@ body {
 
 .corpodedentro {
   background-color: #f5f5f5;
-  z-index: 999;
+
   transition: width 0.3s ease; /* Adiciona uma transição suave */
 }
 
@@ -85,7 +85,17 @@ header {
   align-items: center;
 }
 
+/* Estilo para link ativo */
+.active.alateral {
+  color: rgb(220, 220, 220) !important; /* !important garante que este estilo prevaleça */
+}
+
+
+
+
+
 .logo {
+  border-radius: 0;
   width: 6rem;
   height: 2.5rem;
   margin-top: 2rem;
@@ -204,6 +214,36 @@ aside {
   justify-content: flex-start;
   align-items: center;
 }
+
+.toggle-btn {
+  height: 2rem;
+}
+
+.toggle-btn i {
+  color: #4a4a4a;
+  font-size: 2rem;
+  margin-left: 2rem;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease; /* Adiciona uma transição suave para a mudança de cor e rotação */
+  transform: rotate(180deg); /* Mantém a mesma rotação quando o botão está ativo */
+}
+
+.toggle-btn:hover i {
+  color: white; /* Muda a cor para branco quando o mouse está sobre o botão */
+}
+
+.toggle-btn.active i {
+  transform: rotate(0deg); /* Inverte a rotação quando o botão está ativo */
+  color: #4a4a4a;
+  margin-left: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.toggle-btn:hover i {
+  color: white;
+}
+
 
 .ul-lateral {
   list-style-type: none;
@@ -1040,6 +1080,12 @@ p {
   background-color: white;
 }
 
+.corpo {
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
 .corpodedentro {
   width: 100%;
   margin-top: 10rem;
@@ -1400,7 +1446,7 @@ div.buttons {
 }
 
 .dark-mode a {
-  color: rgb(145, 145, 145);
+  color: rgb(70, 70, 70);
   display: flex;
   flex-wrap: wrap;
   text-decoration: none;

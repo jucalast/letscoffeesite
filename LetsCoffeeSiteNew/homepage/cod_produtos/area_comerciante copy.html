@@ -38,17 +38,71 @@
             <ul class="ul-lateral">
                 <li class="li-lateral"><a class="alateral" href="area_comerciante.html">Dashboard</a></li>
                 <li class="li-lateral"><a class="alateral" href="#">Pedidos</a></li>
-                <li class="li-lateral select"><a class="alateral" href="area_comerciante copy.html">Produtos</a></li>
+                <li class="li-lateral"><a class="alateral active" href="area_comerciante copy.html">Produtos</a></li>
                 <li class="li-lateral"><a class="alateral" href="#">Clientes</a></li>
                 <li class="li-lateral"><a class="alateral" href="#">Relatórios</a></li>
                 <li class="li-lateral"><a class="alateral" href="#">Configurações</a></li>
             </ul>
+            
         </aside>
 
         
         
         
-    
+        <div class="corpodedentro">
+            <div class="toggle-btn">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            
+      
+            <div class="card" onclick="openModal()">vamos adicionar <br>um produto?
+                <p>nunca foi tão simples cadastrar <br> um produto</p>
+            </div>
+
+         
+            <!-- Modal -->
+            <div id="myModal" class="modal" onclick="closeModal()">
+                <div class="modal-content" onclick="event.stopPropagation()">
+                    <div id="uploadContainer" class="upload-container">
+                        <h2>adicione imagens ao seu produto</h2>
+                        <form id="uploadForm" enctype="multipart/form-data">
+                            <input type="file" id="fileInput" accept="image/*" class="input-file" multiple>
+                            <label for="fileInput" class="file-label">
+                                <i class="fas fa-cloud-upload-alt"></i> escolher imagens ou arrastar e soltar
+                            </label>
+                            <button type="submit" class="upload-button">
+                                <i class="fas fa-check"></i> enviar
+                            </button>
+                        </form>
+                        <div id="imagemContainer" class="imagem-container">
+                            <!-- Aqui serão adicionadas as imagens -->
+                        </div>
+                    </div>
+                
+                    <form id="formulario">
+                        <div class="grid-container">
+                            <input type="text" id="nome" name="nome" placeholder="Nome">
+                            <input type="number" id="preco" name="preco" placeholder="Preço">
+                            <input type="text" id="origem" name="origem" placeholder="Origem">
+                            <input type="text" id="torra" name="torra" placeholder="Torra">
+                            <input type="text" id="tamanhos" name="tamanhos" placeholder="Tamanhos">
+                            <input type="text" id="cores" name="cores" placeholder="Cores">
+                            <textarea id="descricao" name="descricao" placeholder="Descrição"></textarea>
+                        </div>
+                        <button class="enviarform" type="submit">adicionar Produto</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="abrirprodutos">
+                <div id="opcoesProdutos" class="opcoes-produtos">
+                    <button class="botãoprodutos" onclick="expandirProdutos()">veja, edite ou delete seus produtos</button>
+                </div>
+                
+                <!-- Lista de produtos -->
+                <div id="listaProdutos" class="lista-produtos"></div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -89,21 +143,22 @@
   <script>
 
 document.addEventListener("DOMContentLoaded", function() {
-  // Obtém o URL completo da página atual
-  var url = window.location.href;
+  // Obtém o caminho da URL da página atual
+  var path = window.location.pathname;
 
   // Obtém todos os links do menu lateral
   var links = document.querySelectorAll(".ul-lateral .alateral");
 
   // Itera sobre os links do menu lateral
   links.forEach(function(link) {
-    // Verifica se o atributo href do link corresponde ao URL completo da página atual
-    if (link.href === url) {
+    // Verifica se o atributo href do link corresponde ao caminho da página atual
+    if (link.getAttribute("href") === path) {
       // Adiciona uma classe CSS para destacar o link ativo
       link.classList.add("active");
     }
   });
 });
+
 
 // Função para abrir o modal
 function openModal() {

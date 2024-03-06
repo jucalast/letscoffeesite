@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toggle Sidebar</title>
+<style>
+    body {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Evita rolagem horizontal */
+    }
+    .container {
+        display: flex;
+    }
+    aside {
+        background-color: #f4f4f4;
+        transition: width 0.3s ease, opacity 0.3s ease; /* Adiciona transição para opacidade */
+        width: 200px;
+        flex: 0 0 200px; /* Define um tamanho inicial fixo */
+        opacity: 1; /* Define a opacidade inicial */
+    }
+    aside.show {
+        width: 0;
+        flex: 0 0 0; /* Reduz a largura do aside para zero */
+        opacity: 0; /* Define a opacidade para 0 para tornar o aside invisível */
+    }
+    main {
+        flex: 1;
+        padding: 20px;
+    }
+    .toggle-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<aside>
+    <h2>Sidebar</h2>
+    <p>Content goes here...</p>
+</aside>
+
+<div class="container">
+    <main>
+        <h1>Main Content</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
+    </main>
+</div>
+
+<div class="toggle-btn">&#9654;</div>
+
+<script>
+    const toggleBtn = document.querySelector('.toggle-btn');
+    const sidebar = document.querySelector('aside');
+
+    toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('show');
+    });
+</script>
+
+</body>
+</html>
