@@ -1,0 +1,105 @@
+/* Adicione este CSS ao seu arquivo styles.css */
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #dbdbdb;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.logo {
+    width: 10rem;
+    margin-bottom: 5rem;
+}
+
+.login-container {
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #555;
+}
+
+input {
+    padding: 8px;
+    margin-bottom: 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #ededed;
+}
+
+button {
+    padding: 10px;
+    background-color: #00d0db51;
+    border: 1px solid #00d0dbd6;
+    font-size: 1rem;
+    color: #00474bd6;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color:  #00d0db38;
+}
+
+/* Adicione este CSS ao seu arquivo styles.css */
+
+.dark-mode {
+    background-color: #1d1d1d;
+}
+
+.dark-mode .login-container {
+    background-color: #272727;
+    color: #fff;
+    border: solid 1px rgba(91, 91, 91, 0.607);
+}
+
+.dark-mode h2, .dark-mode label, .dark-mode input, .dark-mode button {
+    color: #cccccc;
+}
+
+.dark-mode input {
+    border: 1px solid #88888860;
+    background-color: #1d1d1d;
+}
+
+.dark-mode button {
+    background-color: #00d0db51;
+    border: 1px solid #00d0dbd6;
+    font-size: 1rem;
+    color: #c2fcffd6;
+}
+
+.dark-mode button:hover {
+    background-color:  #00d0db38;
+}
+
+.dark {
+    visibility: hidden;
+}
+
+.dark-mode .logo {
+    filter: brightness(0) invert(1);
+}

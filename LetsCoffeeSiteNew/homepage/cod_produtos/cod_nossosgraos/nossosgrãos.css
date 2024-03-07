@@ -1,0 +1,1237 @@
+body, h1, h2, h3, h5, p, ul, li, figure, figcaption, div {
+  line-height: 1.6;
+  display: flex;
+
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  flex-wrap: wrap;
+
+}
+
+body {
+  display: flex;
+  overflow-y: scroll;
+  scrollbar-width: thin; /* Adiciona uma barra de rolagem mais fina no Firefox */
+  scrollbar-color: transparent transparent; /* Adiciona uma barra de rolagem mais fina no Firefox */
+}
+
+::-webkit-scrollbar {
+  width: 12px; /* Largura da barra de rolagem no Chrome/Safari/Edge */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Cor do polegar da barra de rolagem no Chrome/Safari/Edge */
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Cor da pista da barra de rolagem no Chrome/Safari/Edge */
+}
+
+
+/* Estilos do cabeçalho (header) */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+  position: fixed;
+  backdrop-filter: blur(15px);
+  background-color: rgba(218, 218, 218, 0.497);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+                  linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.1));
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1em;
+  z-index: 5;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+width: 8rem;
+}
+
+.logo-container {
+  display: flex;
+  max-width: 20%;
+  width: 10%;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+.menu-button {
+  background-color: #3498db00;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menu-icon {
+  font-size: 2em;
+  color: rgb(1, 1, 1);
+}
+
+h2,p {
+  margin-left: 1rem;
+  margin-top: 0.1rem;
+  margin-bottom: 0;
+}
+ul li {
+  margin-right: 2vw;
+}
+
+a {
+  display: flex;
+  flex-wrap: wrap;
+  text-decoration: none;
+  padding: 0.7rem;
+  color: #2c2c2c;
+  font-size: 1rem;
+  background: #3b3b3b00;
+  border: solid #3d3d3d30 0.08em;
+  border-radius: 0.9rem;
+  backdrop-filter: blur(10px);
+}
+
+.dark-mode-toggle input[type="checkbox"] {
+  display: none;
+}
+
+.dark-mode-toggle label {
+  margin-right: 1rem;
+  display: block;
+  width: 2.7em; /* Tamanho relativo para melhor responsividade */
+  height: 1.5em; /* Tamanho relativo para melhor responsividade */
+  background-color: #ddd;
+  border-radius: 2rem;
+  position: relative;
+  cursor: pointer;
+  
+}
+
+.dark-mode-toggle label:after {
+  content: "";
+  display: block;
+  width: 1.2em; /* Tamanho relativo para melhor responsividade */
+  height: 1.2em; /* Tamanho relativo para melhor responsividade */
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked + label {
+  background-color: #6eec07;
+  box-shadow: 0 0 30px 20px #6eec074f;
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked + label:after {
+  transform: translateX(100%); /* Usando uma porcentagem para garantir uma transição completa */
+}
+
+/* Estilos específicos para telas menores (max-width: 600px) */
+@media screen and (max-width: 600px) {
+  body, html {
+    height: auto;
+    margin-top: 0;
+  }
+
+  #coisas {
+    margin-bottom: -26rem;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+  }
+
+  ul {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  a {
+    font-size: 1rem;
+  }
+
+  .conteiner {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+}
+
+@media screen and (min-width: 377px) and (max-width: 768px) {
+  body, html {
+    height: auto; /* Remova a altura fixa */
+    margin-top: 0; /* Remova o deslocamento negativo no topo */
+  }
+
+  #coisas {
+    margin-bottom: -22rem;
+  }
+
+  .menu {
+      flex-wrap: wrap;
+  }
+
+  ul {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+  }
+
+  a {
+      font-size: 1rem;
+  }
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  body, html {
+    height: auto; /* Remova a altura fixa */
+    margin-top: 0; /* Remova o deslocamento negativo no topo */
+  }
+
+  #coisas {
+    margin-bottom: -16rem;
+  }
+  
+  .menu {
+      flex-wrap: wrap;
+  }
+
+
+  ul {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+  }
+
+  a {
+      font-size: 1rem;
+  }
+
+}
+
+@media screen and (min-width: 1020px) {
+  body, html {
+    height: auto; /* Remova a altura fixa */
+    margin-top: 0; /* Remova o deslocamento negativo no topo */
+  }
+
+  
+  .menu {
+      flex-wrap: wrap;
+  }
+
+
+  ul {
+      margin-top: 0.7rem;
+      margin-bottom: 0.7rem;
+      margin-left: 7rem;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+  }
+
+  a {
+    display: flex;
+    flex-wrap: wrap;
+    text-decoration: none;
+    padding: 0.7rem;
+  
+    font-size: 1rem;
+    border-radius: 0.9rem;
+    backdrop-filter: blur(10px);
+  }
+}
+
+.filter-container {
+  margin-top: 8.5rem;
+  margin-left: 15rem;
+  position: absolute;
+}
+
+/* Estilo para o nome do filtro */
+.filter-name {
+  font-weight: bold;
+  color: #00b3ff; /* Cor desejada para o nome do filtro */
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  background: #00b3ff3d;
+  padding: 0.1rem 0.3rem 0.2rem 0.3rem;
+  border-radius: 0.3rem;
+  border: solid 0.001rem #00b3ff4d;
+}
+
+
+.filter-text {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Estilo para os cards visíveis */
+.card.visible {
+  display: block;
+}
+
+/* Estilo para os cards ocultos */
+.card.hidden {
+  display: none;
+}
+
+
+.conjunto {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-top: 12rem;
+  height: 50rem;
+  width: 100%;
+  margin-left: -1rem;
+}
+
+.filter-header .arrow-down {
+  font-size: 1.5em; /* Ajuste o valor conforme necessário */
+}
+
+
+/* General Styles */
+.filters-container {
+  display: flex;
+  align-content: space-between;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 20% ;
+  height: 100%;
+ 
+}
+
+
+.filtro {
+  margin-left: 2rem;
+  margin-right: 5rem;
+}
+
+#color-options,
+#size-options,
+#weight-options,
+#price-options {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  
+}
+
+
+#filter-options {
+  display: flex ;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100vw;
+  margin: 0;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 0.01rem solid #afafaf;
+}
+
+.filter-header {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: #ffffff;
+  border: none;
+  color: rgb(55, 55, 55);
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: 1.7vw;
+  max-width: 9vw;
+}
+
+.product-image{
+  width: 100%;
+}
+
+.filter-options input[type="checkbox"] {
+  border-radius: 50%;
+  border: none;
+  outline: none;
+}
+
+.filter-options label {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  cursor: pointer;
+  position: relative;
+  padding-left: 35px; /* Adjust this value as necessary */
+}
+
+
+ /* Estilizando o checkbox padrão para ficar invisível */
+ input[type="checkbox"] {
+  display: none;
+}
+
+/* Estilizando o rótulo para se parecer com o checkbox personalizado */
+label.checkbox-container {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px; /* Espaço para a bolinha */
+  cursor: pointer;
+}
+
+/* Criando o círculo exterior */
+label.checkbox-container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px; /* Diâmetro do círculo */
+  height: 20px;
+  border: 2px solid rgb(188, 188, 188); /* Cor da borda inicial */
+  border-radius: 50%; /* Tornando-o circular */
+}
+
+/* Adicionando a bolinha colorida para cada checkbox */
+label.checkbox-container::after {
+  content: '';
+  position: absolute;
+  left: 4.5px; /* Posição da bolinha dentro do círculo */
+  transform: translateY(-40%);
+  width: 15px; /* Diâmetro da bolinha */
+  height: 15px;
+  border-radius: 50%; /* Tornando-a circular */
+  background-color: rgb(40, 160, 220); /* Cor da bolinha inicial (cinza) */
+  transform: scale(0); /* Inicialmente, a bolinha está invisível */
+  transition: transform 0.3s ease-in-out; /* Adicionando transição suave */
+}
+
+/* Estilizando a bolinha para aparecer quando o checkbox está marcado */
+input[type="checkbox"]:checked + label.checkbox-container::after {
+  transform: scale(1); /* Aumenta o tamanho da bolinha para 100% */
+}
+
+/* Adicionando estilo para a borda do círculo quando o rótulo é tocado ou hover */
+label.checkbox-container:hover::before,
+input[type="checkbox"]:checked + label.checkbox-container::before {
+  border-color: rgb(40, 160, 220); /* Cor da borda ao tocar ou quando marcado */
+}
+
+/* Adicionando margem à esquerda para criar espaço entre o círculo e o texto */
+label.checkbox-container {
+  margin-bottom: 30px;
+  margin-left: 0px; /* Ajuste o valor conforme necessário */
+  display: flex;
+  align-items: center; /* Alinhar verticalmente */
+}
+
+#cards-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 80%;
+}
+
+.card {
+  width: 100vw;
+  height: auto;
+  border-radius: 15px;
+  backdrop-filter: blur(15px);
+  background-color: #dcdcdcaa;
+  border: 1px solid rgb(215, 215, 215);
+  margin-top: 2rem;
+  margin-right: 2rem;
+}
+
+.card:hover {
+  border-radius: 15px;
+  transform: scale(1.1);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.434);
+  background-color: #dcdcdcaa;
+  border: 1px solid rgb(215, 215, 215);
+}
+
+.card .image-default,
+.card .image-hover {
+  width: 100%;
+  height: 100vh;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.card .image-hover {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.card:hover .image-default {
+  visibility: hidden;
+  transition: all 0.7s;
+}
+
+.card:hover .image-hover {
+  visibility: visible;
+  transition: all 0.1s;
+}
+
+.card img {
+  border-radius: 10px;
+
+}
+
+.card h3,
+.card p {
+  margin-left: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.card h3 {
+  font-size: 1.2em;
+  padding-top: 1rem;
+}
+
+.card p {
+  font-size: 1em;
+  color: #888888;
+  margin-bottom: 1rem;
+}
+
+/* Adicione esta regra ao seu arquivo CSS */
+.card.visible {
+  display: flex ;
+  width: 17%;
+  height: 62.5%;
+}
+
+.card.hidden {
+  display: none; /* Tornar os cards invisíveis */
+}
+
+.variety,
+.price {
+  margin: 0;
+}
+
+
+@media (min-width: 100px) and (max-width: 400px){
+  .conteiner {
+    display: flex;
+    gap: 4%;
+    max-width: 100vw;
+    margin-right: 0.5rem;
+    justify-content: flex-start;
+  }
+  .card {
+    width: 40%; margin-right: 2re
+  }
+
+  .filtro {
+    margin-left: 0.5REM;
+  }
+
+  .filter-header {
+    font-size: 1rem;
+  }
+}
+
+
+@media only screen and (min-width: 400px) and (max-width: 600px){
+  .conteiner {
+    display: flex;
+    gap: 4%;
+    max-width: 100vw;
+    margin-right: 1rem;
+    justify-content: flex-start;
+  }
+  .card {
+    width: 40%;
+    margin-right: 2re
+  }
+
+  .filtro {
+    margin-left: 1REM;
+  }
+}
+
+
+@media only screen and (min-width: 600px) {
+  .conteiner {
+    display: flex;
+    gap: 5%;
+    max-width: 100vw;
+    margin-right: 3rem;
+    justify-content: flex-start;
+  }
+  .card {
+    width: 40%;
+    margin-right: 2re
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .conteiner {
+    display: flex;
+    gap: 1.5rem;
+    max-width: 100vw;
+    margin-left: 5rem;
+    justify-content: flex-start;
+  }
+
+  .card {
+    width: 28%;
+    margin-right: 2re
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .conteiner {
+    display: flex;
+    gap: 3rem;
+    max-width: 100vw;
+    margin-left: 5rem;
+    justify-content: flex-start;
+  }
+
+  .card {
+    width: 26.5%;
+    margin-right: 2re
+  }
+
+  /* Adicione esta regra ao seu arquivo CSS */
+  .card.visible {
+    display: flex ;
+    width: 26.5%;
+    height: 80%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .conteiner {
+    display: flex;
+    gap: 2rem;
+    max-width: 100vw;
+    justify-content: flex-start;
+    margin-left: 5rem;
+  }
+
+  .card {
+    width: 30%;
+    height: 75%;
+    margin-right: 2re
+  }
+  /* Adicione esta regra ao seu arquivo CSS */
+  .card.visible {
+    display: flex ;
+    width: 22%;
+    height: 73%;
+  }
+}
+
+@media only screen and (min-width: 1300px) and (max-width:1650px) {
+  .conteiner {
+    display: flex;
+    gap: 2rem;
+    max-width: 100vw;
+    justify-content: flex-start;
+  }
+
+    /* Adicione esta regra ao seu arquivo CSS */
+  .card.visible {
+    display: flex ;
+    width: 22%;
+    height: 81%;
+  }
+
+  .card {
+    width: 17%;
+    height: 46%;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    margin-right: 2re
+  }
+
+  .filtro {
+    display: flex;
+    flex-direction: column;
+    margin-left:5rem ;
+  }
+}
+
+.card.hidden {
+  display: none;
+}
+
+/* Estilização básica do modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px);
+  background-color: rgba(30, 30, 30, 0.8);
+  overflow: hidden;
+}
+
+.modal-content {
+  display: flex;
+  font-size: 16px;
+  color: #222;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  width: 90%;
+  height: 80%;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+#closeModalButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+}
+
+.imColumn {
+  width: 20%;
+}
+
+/* Adicione estilos para a grade de imagens no modal */
+.imgselect {
+  height: 17em;
+  width: 7rem;
+  display: grid;
+  justify-items: center;
+  align-content: space-between;
+  grid-template-columns: 1fr;
+}
+
+/* Adicione estilos para as imagens na grade no modal */
+.imgselect img {
+  width: 70%;
+  height: auto;
+  border-radius: 10px;
+}
+.modalimages {
+  display: flex;
+  flex-direction: row;
+    flex-wrap: nowrap;
+    max-width: 60%;
+}
+
+
+/* Adicione estilos para a imagem maior no modal */
+.largerImageContainer {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.largerImage {
+  width: 40vw; /* Ajuste a largura conforme necessário */
+  height:65vh;
+  object-fit: cover; /* Redimensiona a imagem mantendo a proporção */
+  border-radius: 20px;
+  margin-left: 1rem;
+}
+
+.descriptionColumn {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 31rem;
+    height: 95%;
+    max-width: 35rem;
+   margin-right: 3rem;
+   margin-top: 0.5rem;
+   
+}
+
+#closeModalButton:hover {
+  color: #555;
+}
+
+.content {
+  width: 100%;
+  height: 92%;
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+ 
+}
+
+#modalTitle {
+  display: block;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  max-width: 150%;
+}
+
+.img.image-modal {
+  width: 3rem;
+}
+
+.imgselect {
+  margin-top: 20px;
+}
+
+.imgColumn {
+  width: 20%;
+}
+
+#modalDetails {
+  display: block;
+  margin-top: 20px;
+  width: 100%;
+  height: 40%;
+  border-radius: 20px;
+  background: #e4e4e4;
+}
+
+#modalFilters {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.bubble {
+  width: 100%;
+  height: 50px;
+  background-color: #bcbcbc;
+  border-radius: 25px;
+  margin-top: 20px;
+}
+
+.adicionar {
+  border: none;
+  background-color: #28fa1c;
+  color: rgb(16, 72, 1);
+  padding: 15px 15px;
+  font-size: 2.5rem;
+  border-radius: 15px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.adicionar:hover {
+  box-shadow: 0 2px 5px rgba(3, 151, 0, 0.418);
+}
+
+.close-cart-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+}
+
+
+
+
+/*.filter-container {
+  height: 2000px;
+  background-color: #00ff00;
+}
+
+Estilo para o texto do filtro 
+.filter-text {
+  position:absolute;
+  top: 200px;
+  left:720px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+  margin: 0;
+  color: #808080;
+}
+
+.modal-content-carrinho {
+  font-size: 22px;
+  color: #222;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: rgb(226, 226, 226);
+  margin: 15% auto;
+  padding: 50px;
+  border: none;
+  text-align: center;
+  border-radius: 40px;
+  position: relative;
+  bottom: 200px;
+  right: 100px;
+  height: 650px;
+  float: right;
+  width: 40%;
+  max-width: 1000px;
+  display: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+
+.modal-content-carrinho::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content-carrinho::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.modal-content-carrinho::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+
+.close {
+  visibility: hidden;
+}
+
+
+
+
+.modal-content-carrinho h2 {
+  background-color: #272727;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-top-left-radius: 37px;
+  border-top-right-radius: 39px;
+  height: 80px;
+  width: 973px;
+  line-height: 80px;
+  left: -50px;
+  bottom: 80px;
+  position: relative;
+}
+
+
+.close-cart-modal {
+  visibility: hidden;
+}
+
+
+.cart-products {
+  position: relative;
+  bottom: 70px;
+  padding: 10px;
+}
+
+
+.cart-product {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  padding: 0px;
+  border-radius: 30px;
+  background-color: rgb(255, 255, 255);
+}
+
+.cart-product img {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-right: 50px;
+  border-radius: 20px;
+}
+
+.product-details h3 {
+  display: flex;
+  margin: 0;
+  font-size: 40px;
+}
+
+.product-details p {
+  font-size: 25px;
+  margin: 5px 0;
+}
+
+.product-details input {
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  font-size: 25px;
+  position: relative;
+  left: 400px;
+  bottom: 40px;
+  border: none;
+  background-color: #e9e9e9;
+  border-radius: 10px;
+}
+
+.remove-product {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  margin-left: auto;
+  cursor: pointer;
+  position: relative;
+  right: -20px;
+}
+
+
+h3 {
+  position: relative;
+  margin-top: 20px;
+  font-size: 50px;
+}
+
+h4 {
+  display: flex;
+  margin-top: 30px;
+  font-size: 30px;
+  position: relative;
+  left: 30px;
+  color: #515151;
+}
+
+input[type="text"] {
+  width: 90%;
+  padding: 10px;
+  margin-top: 0px;
+  border: none;
+  border-radius: 10px;
+  height: 50px;
+  font-size: 25px;
+  padding-left: 30px;
+}
+
+.checkout-button {
+  background-color: #44d600;
+  color: #e7ffdd;
+  padding: 25px 20px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 50px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.checkout-button:hover {
+  background-color: #b3ffb6;
+}
+
+
+.modal-content-carrinho-com-overflow {
+  
+  max-height: 300px;
+
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+
+.modal-content-carrinho-com-overflow::-webkit-scrollbar {
+  width: 8px;
+
+
+.modal-content-carrinho-com-overflow::-webkit-scrollbar-thumb {
+  background-color: transparent; 
+}
+
+
+
+/*
+.filter-container {
+  margin-top: 20px;
+}
+
+.filter-container label {
+  margin-right: 10px;
+}
+
+
+.filter-button {
+  visibility: hidden;
+}
+
+
+
+.close1 {
+  visibility: hidden;
+}
+
+
+.filter-options {
+  margin-bottom: 50px;
+  
+}
+
+
+
+
+.apli {
+  border: none;
+  width: 200px;
+  height: 50px;
+  font-size: 25px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border-radius: 5px;
+  position: relative;
+  bottom: 180px;
+  left: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+
+.apli:hover {
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.16);
+}
+
+
+
+#modalTitle {
+  position: relative;
+  left: -150px;
+  margin-top: 30px;
+  font-size: 74px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+#modalDetails {
+  position: relative;
+  left: 50px;
+  top: 150px;
+  font-size: 35px;
+  text-align: left;
+  white-space: pre-wrap;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+*/
+
+.dark-mode {
+  background-color: #222;
+  color: #fff;
+}
+
+.dark-mode .logo {
+  filter: brightness(0) invert(1);
+}
+
+.dark-mode a {
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  text-decoration: none;
+  padding: 0.7rem;
+  font-size: 1rem;
+  
+  border: solid #ffffff30 0.08em;
+  border-radius: 0.9rem;
+  backdrop-filter: blur(50px);
+}
+
+.dark-mode .menu-icon{
+  color: white;
+}
+
+.dark-mode header {
+  background-color: rgba(0, 0, 0, 0.279);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+                  linear-gradient(rgba(0, 0, 0, 0.09), rgba(0, 0, 0, 0.1));
+ 
+}
+
+.dark-mode .filter-header {
+  background-color: #222;
+  color: white;
+}
+
+.dark-mode .filter {
+  border-bottom: 0.01rem solid #3e3e3e;
+}
+
+
+.dark-mode .filter-options label:before {
+ 
+  background-color: #222;
+  border: 3px solid #363636;
+}
+
+.dark-mode .card {
+  background-color: #2f2f2faa;
+  border: 1px solid rgb(50, 50, 50);
+}
+
+
+.dark-mode .card:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.434);
+  background-color: #2f2f2faa;
+  border: 1px solid rgb(50, 50, 50);
+}
+
+.dark-mode .card p {
+  color: #888888;
+}
+
+.dark-mode 
+
+.dark-mode 
+
+.dark-mode 
+
+.dark-mode 
+
+.dark-mode 
+
+.dark-mode 
+
+.dark-mode 
+
+.dark-mode 
