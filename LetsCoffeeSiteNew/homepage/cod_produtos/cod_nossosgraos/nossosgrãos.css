@@ -734,25 +734,49 @@ label.checkbox-container {
   color: #888;
 }
 
-.imColumn {
-  width: 20%;
-}
-
 /* Adicione estilos para a grade de imagens no modal */
 .imgselect {
-  height: 17em;
-  width: 7rem;
+  height: 20em;
+  width: 10rem;
+  margin-left: 1rem;
   display: grid;
   justify-items: center;
   align-content: space-between;
   grid-template-columns: 1fr;
 }
 
+.modal-images {
+  display: flex;
+  flex-direction: row;
+    flex-wrap: nowrap;
+    width: 60%;
+}
+
+.largerImageContainer {
+  width: 100%;
+}
+
+.largerImageColumn {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: flex-start;
+}
+
+#mainImage{
+  width: 60%;
+ margin-top: 2rem;
+ border-radius: 1rem;
+  margin-left: 2rem;
+}
 /* Adicione estilos para as imagens na grade no modal */
 .imgselect img {
-  width: 70%;
+  width: 100%;
   height: auto;
   border-radius: 10px;
+  margin-top: 1rem;
 }
 .modalimages {
   display: flex;
@@ -762,11 +786,7 @@ label.checkbox-container {
 }
 
 
-/* Adicione estilos para a imagem maior no modal */
-.largerImageContainer {
-  margin-top: 15px;
-  text-align: center;
-}
+
 
 .largerImage {
   width: 40vw; /* Ajuste a largura conforme necessário */
@@ -818,10 +838,6 @@ label.checkbox-container {
 
 .imgselect {
   margin-top: 20px;
-}
-
-.imgColumn {
-  width: 20%;
 }
 
 #modalDetails {
@@ -1220,18 +1236,4 @@ input[type="text"] {
   color: #888888;
 }
 
-.dark-mode 
 
-.dark-mode 
-
-.dark-mode 
-
-.dark-mode 
-
-.dark-mode 
-
-.dark-mode 
-
-.dark-mode 
-
-.dark-mode 

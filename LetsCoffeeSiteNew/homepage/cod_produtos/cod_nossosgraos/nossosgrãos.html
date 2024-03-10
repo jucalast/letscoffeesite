@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nossos Grãos</title>
     <link rel="stylesheet" href="nossosgrãos.css">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="new-integrity-value" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://unpkg.com/feather-icons/dist/feather.min.css">
@@ -33,74 +32,56 @@
         </nav>
     </header>
 
-    
-
     <div class="conjunto">
-       
-        
         <div class="filters-container">
-            
             <div class="filtro">
-               
                 <div class="filter-header" onclick="toggleCategories()">filtros <span class="arrow-down" data-feather="chevron-down"></span></div>
                 <div class="filter-options" id="filter-options">
-                    <!-- Categoria "Variedade" -->
                     <div class="filter">
                         <div class="filter-header variety" onclick="toggleFilter('variedade')">variedade <span class="arrow-down" data-feather="chevron-down"></span></div>
                         <div class="filter-options" id="variedade-options">
-                            <!-- Opções de filtro para a categoria "Variedade" -->
                             <input type="checkbox" id="variedade_checkbox_guesha" onclick="filterCards('guesha')"><label class="checkbox-container" for="variedade_checkbox_guesha">guesha</label>
                             <input type="checkbox" id="variedade_checkbox_catuai" onclick="filterCards('catuaí')"><label class="checkbox-container" for="variedade_checkbox_catuai">catuaí</label>
                             <input type="checkbox" id="variedade_checkbox_bourbon" onclick="filterCards('bourbon')"><label class="checkbox-container" for="variedade_checkbox_bourbon">bourbon</label>
                         </div>
                     </div>
-    
-                    <!-- Categoria "Preço" -->
                     <div class="filter">
                         <div class="filter-header price" onclick="toggleFilter('preco')">preço <span class="arrow-down" data-feather="chevron-down"></span></div>
                         <div class="filter-options" id="preco-options">
-                            <!-- Opções de filtro para a categoria "Preço" -->
                             <input type="checkbox" id="preco_checkbox_low" onclick="filterCards('low')"><label class="checkbox-container" for="preco_checkbox_low">baixo</label>
                             <input type="checkbox" id="preco_checkbox_medium" onclick="filterCards('medium')"><label class="checkbox-container" for="preco_checkbox_medium">médio</label>
                             <input type="checkbox" id="preco_checkbox_high" onclick="filterCards('high')"><label class="checkbox-container" for="preco_checkbox_high">alto</label>
                         </div>
                     </div>
-    
-                    <!-- Adicione mais categorias conforme necessário -->
                 </div>
             </div>
         </div>
-        
         <span class="filter-text"></span>
-    
-    <!-- HTML para exibir os cards dos produtos -->
-<div id="cards-container"></div>
-
-<!-- Modal para exibir mais informações do produto -->
-<div id="myModal" class="modal">
-    <div id="modalContent" class="modal-content">
-        <span id="closeModalButton" class="close">&times;</span>
-        <div class="content">
-            <div class="modal-images">
-                <!-- Coluna esquerda com as imagens -->
-                <div class="imgColumn">
-                    <div class="imgselect"></div>
+        <div id="cards-container"></div>
+        <div id="myModal" class="modal">
+            <div id="modalContent" class="modal-content">
+                <span id="closeModalButton" class="close">&times;</span>
+                <div class="content">
+                    <div class="modal-images">
+                        <div class="imgColumn">
+                            <div class="imgselect"></div>
+                        </div>
+                        <div class="largerImageColumn">
+                            <div class="largerImageContainer">
+                                <img id="mainImage" src="" alt="" class="main-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="descriptionColumn">
+                        <h2 id="modalTitle"></h2>
+                        <div id="modalFilters"></div>
+                        <p id="modalDetails"></p>
+                        <button class="adicionar">Comprar</button>
+                    </div>
                 </div>
-                <!-- Coluna do meio com a imagem maior -->
-                <div class="largerImageColumn">
-                    <div class="largerImageContainer"></div>
-                </div>
-            </div>
-            <!-- Coluna direita com a descrição e botão -->
-            <div class="descriptionColumn">
-                <h2 id="modalTitle"></h2>
-                <div id="modalFilters"></div>
-                <p id="modalDetails"></p>
-                <button class="adicionar">Comprar</button>
             </div>
         </div>
     </div>
-</div>
 
 <script type="module">
     // Import the functions you need from the SDKs you need
@@ -147,73 +128,92 @@ function renderizarCards(produtos) {
             </div>
         `;
         cardsContainer.innerHTML += cardHTML; // Adiciona o card ao contêiner
-    });
-
-    // Adicionar evento de clique a todos os cards
-    const cards = document.querySelectorAll('.card');
-    cards.forEach((card) => {
-        card.addEventListener('click', () => {
-            const index = card.getAttribute('data-index');
-            abrirModalComDadosDoProduto(produtos[index]);
-        });
-    });
-}
-
-
-
-
-
-
-    // Função para abrir o modal com as informações do produto
-    function abrirModalComDadosDoProduto(produto) {
-        const modal = document.getElementById('myModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDetails = document.getElementById('modalDetails');
-        const modalFilters = document.getElementById('modalFilters');
-        const imgSelect = document.querySelector('.imgselect');
-        const largerImageContainer = document.querySelector('.largerImageContainer');
-
-        // Configurar as informações do modal com base no produto
-        modalTitle.textContent = produto.nome;
-        modalDetails.textContent = produto.descricao || "Sem descrição disponível";
-
-        // Limpando o conteúdo anterior do modalFilters
-        modalFilters.innerHTML = '';
-
-        // Adicionar filtros ao modalFilters, se existirem
-        const filters = ['filtro1', 'filtro2', 'filtro3'];
-        filters.forEach((filtro) => {
-            const filtroValue = produto[filtro];
-            if (filtroValue) {
-                const filtroElement = document.createElement('div');
-                filtroElement.textContent = `${filtro}: ${filtroValue}`;
-                modalFilters.appendChild(filtroElement);
-            }
         });
 
-        // Abrir o modal
-        modal.style.display = "block";
+        // Adicionar evento de clique a todos os cards
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card) => {
+            card.addEventListener('click', () => {
+                const index = card.getAttribute('data-index');
+                abrirModalComDadosDoProduto(produtos[index]);
+            });
+        });
     }
 
-    // Evento 'value' para ouvir alterações nos dados do banco de dados
-    onValue(produtosRef, (snapshot) => {
-        const data = snapshot.val(); // Obter os dados do snapshot
-        const produtos = Object.values(data || {}); // Converter os dados em um array de produtos
-        renderizarCards(produtos); // Renderizar os cards dos produtos
-    });
+    function abrirModalComDadosDoProduto(produto) {
+    const modal = document.getElementById('myModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDetails = document.getElementById('modalDetails');
+    const modalFilters = document.getElementById('modalFilters');
+    const imgSelect = document.querySelector('.imgselect');
+    const largerImageContainer = document.querySelector('.largerImageContainer');
 
-    // Fechar o modal quando o botão de fechar for clicado
-    document.getElementById('closeModalButton').addEventListener('click', () => {
-        document.getElementById('myModal').style.display = "none";
-    });
+    // Limpar imgSelect antes de adicionar novas imagens
+    imgSelect.innerHTML = '';
 
-    // Fechar o modal quando clicar fora dele
-    window.addEventListener('click', (event) => {
-        const modal = document.getElementById('myModal');
-        if (event.target == modal) {
-            modal.style.display = "none";
+    // Configurar as informações do modal com base no produto
+    modalTitle.textContent = produto.nome;
+    modalDetails.textContent = produto.descricao || "Sem descrição disponível";
+
+    // Exibir imagem principal do produto
+    if (produto.imagens) {
+        const mainImage = document.getElementById('mainImage');
+        mainImage.src = produto.imagens[0];
+        mainImage.alt = produto.nome;
+
+        // Exibir imagens adicionais, se existirem
+        if (produto.imagens.length > 1) {
+            produto.imagens.slice(1).forEach((image, index) => {
+                const img = document.createElement('img');
+                img.src = image;
+                img.alt = produto.nome;
+                img.classList.add('additional-image');
+                img.addEventListener('click', () => {
+                    mainImage.src = image;
+                    mainImage.alt = produto.nome;
+                });
+                imgSelect.appendChild(img);
+            });
+        }
+    }
+
+    // Limpando o conteúdo anterior do modalFilters
+    modalFilters.innerHTML = '';
+
+    // Adicionar filtros ao modalFilters, se existirem
+    const filters = ['filtro1', 'filtro2', 'filtro3'];
+    filters.forEach((filtro) => {
+        const filtroValue = produto[filtro];
+        if (filtroValue) {
+            const filtroElement = document.createElement('div');
+            filtroElement.textContent = `${filtro}: ${filtroValue}`;
+            modalFilters.appendChild(filtroElement);
         }
     });
+
+    // Abrir o modal
+    modal.style.display = "block";
+}
+
+// Evento 'value' para ouvir alterações nos dados do banco de dados
+onValue(produtosRef, (snapshot) => {
+    const data = snapshot.val(); // Obter os dados do snapshot
+    const produtos = Object.values(data || {}); // Converter os dados em um array de produtos
+    renderizarCards(produtos); // Renderizar os cards dos produtos
+});
+
+// Fechar o modal quando o botão de fechar for clicado
+document.getElementById('closeModalButton').addEventListener('click', () => {
+    document.getElementById('myModal').style.display = "none";
+});
+
+// Fechar o modal quando clicar fora dele
+window.addEventListener('click', (event) => {
+    const modal = document.getElementById('myModal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+});
 </script>
 
 
@@ -226,20 +226,3 @@ function renderizarCards(produtos) {
 
 </body>
 </html>
-
-
-
-  <!--<div id="modalContent" class="modal-content-carrinho">
-      <h2>Seu Carrinho</h2>
-      <div class="cart-products">
-       
-      </div>
-
-      <h3>Informações de Pagamento</h3>
-      <h4 for="card-number">Número do Cartão</h4>
-      <input type="text" id="card-number" placeholder="XXXX-XXXX-XXXX-XXXX">
-      <h4 for="card-name">Nome no Cartão</h4>
-      <input type="text" id="card-name" placeholder="Seu Nome">
-      <button class="checkout-button" onclick="checkout()">Finalizar Compra</button>
-  </div>
-</div>-->
