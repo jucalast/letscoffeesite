@@ -22,7 +22,7 @@
                 <li><a href="nossosgrãos.html">nossos grãos</a></li>
                 <li><a href="#">faça seu coado</a></li>
                 <li><a href="#">blog</a></li>
-                <li><a href="login.html" id="Inscreva-se-btn">já tem uma conta?</a></li>
+                <li><a href="../cod_login/login.html" id="Inscreva-se-btn">já tem uma conta?</a></li>
             </ul>
             <button id="toggle-btn" class="menu-button"><i class="fas fa-bars menu-icon"></i></button>
             <div class="dark-mode-toggle">
@@ -33,196 +33,199 @@
     </header>
 
     <div class="conjunto">
-        <div class="filters-container">
-            <div class="filtro">
-                <div class="filter-header" onclick="toggleCategories()">filtros <span class="arrow-down" data-feather="chevron-down"></span></div>
-                <div class="filter-options" id="filter-options">
-                    <div class="filter">
-                        <div class="filter-header variety" onclick="toggleFilter('variedade')">variedade <span class="arrow-down" data-feather="chevron-down"></span></div>
-                        <div class="filter-options" id="variedade-options">
-                            <input type="checkbox" id="variedade_checkbox_guesha" onclick="filterCards('guesha')"><label class="checkbox-container" for="variedade_checkbox_guesha">guesha</label>
-                            <input type="checkbox" id="variedade_checkbox_catuai" onclick="filterCards('catuaí')"><label class="checkbox-container" for="variedade_checkbox_catuai">catuaí</label>
-                            <input type="checkbox" id="variedade_checkbox_bourbon" onclick="filterCards('bourbon')"><label class="checkbox-container" for="variedade_checkbox_bourbon">bourbon</label>
+        <!-- Coluna lateral com filtros -->
+        <div class="sidebar">
+            <div class="filters-container">
+                <div class="filtro">
+                    <div class="filter-header" onclick="toggleCategories()">filtros <span class="arrow-down" data-feather="chevron-down"></span></div>
+                    <div class="filter-options" id="filter-options">
+                        <div class="filter">
+                            <div class="filter-header variety" onclick="toggleFilter('variedade')">variedade <span class="arrow-down" data-feather="chevron-down"></span></div>
+                            <div class="filter-options" id="variedade-options">
+                                <input type="checkbox" id="variedade_checkbox_guesha" onclick="filterCards('guesha')"><label class="checkbox-container" for="variedade_checkbox_guesha">guesha</label>
+                                <input type="checkbox" id="variedade_checkbox_catuai" onclick="filterCards('catuaí')"><label class="checkbox-container" for="variedade_checkbox_catuai">catuaí</label>
+                                <input type="checkbox" id="variedade_checkbox_bourbon" onclick="filterCards('bourbon')"><label class="checkbox-container" for="variedade_checkbox_bourbon">bourbon</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="filter">
-                        <div class="filter-header price" onclick="toggleFilter('preco')">preço <span class="arrow-down" data-feather="chevron-down"></span></div>
-                        <div class="filter-options" id="preco-options">
-                            <input type="checkbox" id="preco_checkbox_low" onclick="filterCards('low')"><label class="checkbox-container" for="preco_checkbox_low">baixo</label>
-                            <input type="checkbox" id="preco_checkbox_medium" onclick="filterCards('medium')"><label class="checkbox-container" for="preco_checkbox_medium">médio</label>
-                            <input type="checkbox" id="preco_checkbox_high" onclick="filterCards('high')"><label class="checkbox-container" for="preco_checkbox_high">alto</label>
+                        <div class="filter">
+                            <div class="filter-header price" onclick="toggleFilter('preco')">preço <span class="arrow-down" data-feather="chevron-down"></span></div>
+                            <div class="filter-options" id="preco-options">
+                                <input type="checkbox" id="preco_checkbox_low" onclick="filterCards('low')"><label class="checkbox-container" for="preco_checkbox_low">baixo</label>
+                                <input type="checkbox" id="preco_checkbox_medium" onclick="filterCards('medium')"><label class="checkbox-container" for="preco_checkbox_medium">médio</label>
+                                <input type="checkbox" id="preco_checkbox_high" onclick="filterCards('high')"><label class="checkbox-container" for="preco_checkbox_high">alto</label>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <span class="filter-text"></span>
-        <div id="cards-container"></div>
-        <div id="myModal" class="modal">
-            <div id="modalContent" class="modal-content">
-                <span id="closeModalButton" class="close">&times;</span>
-                <div class="content">
-                    <div class="modal-images">
-                        <div class="imgColumn">
-                            <div class="imgselect"></div>
-                        </div>
-                        <div class="largerImageColumn">
-                            <div class="largerImageContainer">
-                                <img id="mainImage" src="" alt="" class="main-image">
+        <!-- Conteúdo principal -->
+        <div class="main-content">
+            <span class="filter-text"></span>
+            <div id="cards-container"></div>
+            <div id="myModal" class="modal">
+                <div id="modalContent" class="modal-content">
+                    <span id="closeModalButton" class="close">&times;</span>
+                    <div class="content">
+                        <div class="modal-images">
+                            <div class="imgColumn">
+                                <div class="imgselect"></div>
+                            </div>
+                            <div class="largerImageColumn">
+                                <div class="largerImageContainer">
+                                    <img id="mainImage" src="" alt="" class="main-image">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="descriptionColumn">
-                        <h2 id="modalTitle"></h2>
-                        <div id="modalFilters"></div>
-                        <p id="modalDetails"></p>
-                        <button class="adicionar">Comprar</button>
+                        <div class="descriptionColumn">
+                            <h2 id="modalTitle"></h2>
+                            <div id="modalFilters"></div>
+                            <p id="modalDetails"></p>
+                            <button class="adicionar">Comprar</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
-    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-    // Your web app's Firebase configuration (certifique-se de usar a mesma configuração que na página original)
-    const firebaseConfig = {
-      apiKey: "AIzaSyD8m3pK1ybzcbz_c655G22L9AlM8tSjzd4",
-      authDomain: "let-s-coffee-site.firebaseapp.com",
-      projectId: "let-s-coffee-site",
-      storageBucket: "let-s-coffee-site.appspot.com",
-      messagingSenderId: "400929193396",
-      appId: "1:400929193396:web:15ab2756687b91f55d86e1",
-      measurementId: "G-G1H9QGKYJ9"
-    };
-    
+        // Your web app's Firebase configuration (certifique-se de usar a mesma configuração que na página original)
+        const firebaseConfig = {
+            apiKey: "AIzaSyD8m3pK1ybzcbz_c655G22L9AlM8tSjzd4",
+            authDomain: "let-s-coffee-site.firebaseapp.com",
+            projectId: "let-s-coffee-site",
+            storageBucket: "let-s-coffee-site.appspot.com",
+            messagingSenderId: "400929193396",
+            appId: "1:400929193396:web:15ab2756687b91f55d86e1",
+            measurementId: "G-G1H9QGKYJ9"
+        };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
 
-    // Referência ao banco de dados do Firebase
-    const database = getDatabase();
-    const produtosRef = ref(database, 'produtos');
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
 
-// Função para renderizar os cards dos produtos
-function renderizarCards(produtos) {
-    const cardsContainer = document.getElementById('cards-container');
-    cardsContainer.innerHTML = ''; // Limpa o conteúdo atual
+        // Referência ao banco de dados do Firebase
+        const database = getDatabase();
+        const produtosRef = ref(database, 'produtos');
 
-    // Itera sobre os produtos e cria um card para cada um
-    produtos.forEach((produto, index) => {
-        // Verifica se a propriedade 'imagem' existe e não é 'undefined'
-        const imagens = produto.imagens ? produto.imagens : ''; 
+        // Função para renderizar os cards dos produtos
+        function renderizarCards(produtos) {
+            const cardsContainer = document.getElementById('cards-container');
+            cardsContainer.innerHTML = ''; // Limpa o conteúdo atual
 
-        const cardHTML = `
+            // Itera sobre os produtos e cria um card para cada um
+            produtos.forEach((produto, index) => {
+                // Verifica se a propriedade 'imagem' existe e não é 'undefined'
+                const imagens = produto.imagens ? produto.imagens : '';
+
+                const cardHTML = `
             <div class="card" data-index="${index}">
-                
+
                 <img src="${imagens}" alt="${produto.nome}" class="product-image">
+                <div class="infoprods">
                 <h2>${produto.nome}</h2>
-                <p>Preço: ${produto.preco}</p>
+                <p>preço: ${produto.preco}</p>
+                </div>
             </div>
         `;
-        cardsContainer.innerHTML += cardHTML; // Adiciona o card ao contêiner
-        });
-
-        // Adicionar evento de clique a todos os cards
-        const cards = document.querySelectorAll('.card');
-        cards.forEach((card) => {
-            card.addEventListener('click', () => {
-                const index = card.getAttribute('data-index');
-                abrirModalComDadosDoProduto(produtos[index]);
+                cardsContainer.innerHTML += cardHTML; // Adiciona o card ao contêiner
             });
-        });
-    }
 
-    function abrirModalComDadosDoProduto(produto) {
-    const modal = document.getElementById('myModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDetails = document.getElementById('modalDetails');
-    const modalFilters = document.getElementById('modalFilters');
-    const imgSelect = document.querySelector('.imgselect');
-    const largerImageContainer = document.querySelector('.largerImageContainer');
-
-    // Limpar imgSelect antes de adicionar novas imagens
-    imgSelect.innerHTML = '';
-
-    // Configurar as informações do modal com base no produto
-    modalTitle.textContent = produto.nome;
-    modalDetails.textContent = produto.descricao || "Sem descrição disponível";
-
-    // Exibir imagem principal do produto
-    if (produto.imagens) {
-        const mainImage = document.getElementById('mainImage');
-        mainImage.src = produto.imagens[0];
-        mainImage.alt = produto.nome;
-
-        // Exibir imagens adicionais, se existirem
-        if (produto.imagens.length > 1) {
-            produto.imagens.slice(1).forEach((image, index) => {
-                const img = document.createElement('img');
-                img.src = image;
-                img.alt = produto.nome;
-                img.classList.add('additional-image');
-                img.addEventListener('click', () => {
-                    mainImage.src = image;
-                    mainImage.alt = produto.nome;
+            // Adicionar evento de clique a todos os cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card) => {
+                card.addEventListener('click', () => {
+                    const index = card.getAttribute('data-index');
+                    abrirModalComDadosDoProduto(produtos[index]);
                 });
-                imgSelect.appendChild(img);
             });
         }
-    }
 
-    // Limpando o conteúdo anterior do modalFilters
-    modalFilters.innerHTML = '';
+        function abrirModalComDadosDoProduto(produto) {
+            const modal = document.getElementById('myModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDetails = document.getElementById('modalDetails');
+            const modalFilters = document.getElementById('modalFilters');
+            const imgSelect = document.querySelector('.imgselect');
+            const largerImageContainer = document.querySelector('.largerImageContainer');
 
-    // Adicionar filtros ao modalFilters, se existirem
-    const filters = ['filtro1', 'filtro2', 'filtro3'];
-    filters.forEach((filtro) => {
-        const filtroValue = produto[filtro];
-        if (filtroValue) {
-            const filtroElement = document.createElement('div');
-            filtroElement.textContent = `${filtro}: ${filtroValue}`;
-            modalFilters.appendChild(filtroElement);
+            // Limpar imgSelect antes de adicionar novas imagens
+            imgSelect.innerHTML = '';
+
+            // Configurar as informações do modal com base no produto
+            modalTitle.textContent = produto.nome;
+            modalDetails.textContent = produto.descricao || "Sem descrição disponível";
+
+            // Exibir imagem principal do produto
+            if (produto.imagens) {
+                const mainImage = document.getElementById('mainImage');
+                mainImage.src = produto.imagens[0];
+                mainImage.alt = produto.nome;
+
+                // Exibir imagens adicionais, se existirem
+                if (produto.imagens.length > 1) {
+                    produto.imagens.slice(1).forEach((image, index) => {
+                        const img = document.createElement('img');
+                        img.src = image;
+                        img.alt = produto.nome;
+                        img.classList.add('additional-image');
+                        img.addEventListener('click', () => {
+                            mainImage.src = image;
+                            mainImage.alt = produto.nome;
+                        });
+                        imgSelect.appendChild(img);
+                    });
+                }
+            }
+
+            // Limpando o conteúdo anterior do modalFilters
+            modalFilters.innerHTML = '';
+
+            // Adicionar filtros ao modalFilters, se existirem
+            const filters = ['filtro1', 'filtro2', 'filtro3'];
+            filters.forEach((filtro) => {
+                const filtroValue = produto[filtro];
+                if (filtroValue) {
+                    const filtroElement = document.createElement('div');
+                    filtroElement.textContent = `${filtro}: ${filtroValue}`;
+                    modalFilters.appendChild(filtroElement);
+                }
+            });
+
+            // Abrir o modal
+            modal.style.display = "block";
         }
-    });
 
-    // Abrir o modal
-    modal.style.display = "block";
-}
+        // Evento 'value' para ouvir alterações nos dados do banco de dados
+        onValue(produtosRef, (snapshot) => {
+            const data = snapshot.val(); // Obter os dados do snapshot
+            const produtos = Object.values(data || {}); // Converter os dados em um array de produtos
+            renderizarCards(produtos); // Renderizar os cards dos produtos
+        });
 
-// Evento 'value' para ouvir alterações nos dados do banco de dados
-onValue(produtosRef, (snapshot) => {
-    const data = snapshot.val(); // Obter os dados do snapshot
-    const produtos = Object.values(data || {}); // Converter os dados em um array de produtos
-    renderizarCards(produtos); // Renderizar os cards dos produtos
-});
+        // Fechar o modal quando o botão de fechar for clicado
+        document.getElementById('closeModalButton').addEventListener('click', () => {
+            document.getElementById('myModal').style.display = "none";
+        });
 
-// Fechar o modal quando o botão de fechar for clicado
-document.getElementById('closeModalButton').addEventListener('click', () => {
-    document.getElementById('myModal').style.display = "none";
-});
-
-// Fechar o modal quando clicar fora dele
-window.addEventListener('click', (event) => {
-    const modal = document.getElementById('myModal');
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-});
-</script>
-
-
-      
-
+        // Fechar o modal quando clicar fora dele
+        window.addEventListener('click', (event) => {
+            const modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
 
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script src="grãos.js"></script>
-
-
 </body>
+
 </html>

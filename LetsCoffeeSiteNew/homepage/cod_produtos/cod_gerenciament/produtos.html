@@ -27,6 +27,8 @@
         <input type="checkbox" id="darkModeToggle" />
         <label for="darkModeToggle"></label>
     </div>
+
+    <button id="openModalver" class="verprodutos">ver</button>
 </header>
 
 <div class="corpo-maior">
@@ -103,7 +105,7 @@
                 <div id="listaProdutos" class="lista-produtos"></div>
             </div>
 
-            <button id="openModalver" class="verprodutos">ver</button>
+          
 
             <!-- O modal -->
             <div id="myModalVer" class="modal">
@@ -146,38 +148,87 @@ window.onclick = function(event) {
 </script>
 
 <script>
+const aside = document.querySelector('aside');
+const corpo = document.querySelector('.corpo');
+const header = document.querySelector('header');
+const toggleBtn = document.querySelector('.toggle-btn');
+let isAsideVisible = true;
 
-    const aside = document.querySelector('aside');
-    const corpo = document.querySelector('.corpo');
-    const header = document.querySelector('header');
-    const toggleBtn = document.querySelector('.toggle-btn');
-    let isAsideVisible = true;
-
-    function toggleAside() {
-        if (isAsideVisible) {
-            aside.style.width = "0";
-            aside.style.opacity = "0";
-            corpo.style.width = "100%";
-            header.style.width = "100%";
+function toggleAside() {
+    if (isAsideVisible) {
+        aside.style.width = "0";
+        aside.style.opacity = "0";
+        corpo.style.width = "100%";
+        header.style.width = "100%";
+    } else {
+        const windowWidth = window.innerWidth;
+        if (windowWidth <= 1463) {
+            aside.style.width = "224.4px";
         } else {
-            aside.style.width = "310px";
-            aside.style.opacity = "1";
-            corpo.style.width = "85%";
-            header.style.width = "85%";
+            aside.style.width = "15%";
         }
-        isAsideVisible = !isAsideVisible;
+        aside.style.opacity = "100%";
+        corpo.style.width = "calc(100% - " + aside.style.width + ")";
+        header.style.width = "calc(100% - " + aside.style.width + ")";
+    }
+    isAsideVisible = !isAsideVisible;
 
-        // Adicione ou remova a classe 'active' para alternar a aparência da seta
-        toggleBtn.classList.toggle('active');
+    // Adicione ou remova a classe 'active' para alternar a aparência da seta
+    toggleBtn.classList.toggle('active');
+}
+
+// Adicionando uma transição suave
+aside.style.transition = "width 0.3s ease, opacity 0.3s ease";
+
+// Adicionando um ouvinte de evento de clique para a classe toggle-btn
+toggleBtn.addEventListener('click', toggleAside);
+
+// Adicionando um ouvinte de evento de redimensionamento para a janela
+window.addEventListener('resize', () => {
+    const windowWidth = window.innerWidth;
+
+    // Verificando o tamanho da tela e ajustando dinamicamente o tamanho do aside
+    if (!isAsideVisible) {
+        aside.style.width = "0";
+        aside.style.opacity = "0";
+        corpo.style.width = "100%";
+        header.style.width = "100%";
+        toggleBtn.classList.add('active');
+        return; // Return para evitar a execução do código abaixo se o aside estiver fechado
     }
 
-    // Adicionando uma transição suave
-    aside.style.transition = "width 0.3s ease, opacity 0.3s ease";
+    if (windowWidth > 1463) {
+        aside.style.width = "15%";
+    } else if (windowWidth <= 1463 && windowWidth > 1026) {
+        aside.style.width = "224.4px";
+    } else if (windowWidth <= 1026) {
+        aside.style.width = "0";
+        aside.style.opacity = "0";
+        corpo.style.width = "100%";
+        header.style.width = "100%";
+        toggleBtn.classList.add('active');
+        isAsideVisible = false;
+        return; // Return para evitar a execução do código abaixo em tamanhos menores que 1026 pixels
+    }
 
-    // Adicionando um ouvinte de evento de clique para a classe toggle-btn
-    toggleBtn.addEventListener('click', toggleAside);
+    // Resetando para o estado original se a tela for maior que 1026 pixels
+    corpo.style.width = "calc(100% - " + aside.style.width + ")";
+    header.style.width = "calc(100% - " + aside.style.width + ")";
+});
 
-    
+// Verificar o tamanho da tela quando a página é carregada pela primeira vez
+const windowWidth = window.innerWidth;
+if (windowWidth <= 1026) {
+    aside.style.width = "0";
+    aside.style.opacity = "0";
+    corpo.style.width = "100%";
+    header.style.width = "100%";
+    toggleBtn.classList.add('active');
+    isAsideVisible = false;
+} else if (windowWidth <= 1463) {
+    aside.style.width = "224.4px";
+}
+
 
 </script>
 
