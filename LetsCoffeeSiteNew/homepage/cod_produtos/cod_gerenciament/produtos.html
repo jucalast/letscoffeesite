@@ -16,8 +16,7 @@
 
 <body>
 
-    
-    
+
 <header>
     <div>
         <h1>bem-vindo ao seu espaço de gerenciamento</h1>
@@ -31,7 +30,7 @@
     <button id="openModalver" class="verprodutos">ver</button>
 </header>
 
-<div class="corpo-maior">
+
     <div class="corpo">
         <aside>
             <div class="logo-container">
@@ -48,14 +47,11 @@
             
         </aside>
 
-        
-        
-        
         <div class="corpodedentro">
             <div class="toggle-btn">
                 <i class="fas fa-chevron-right"></i>
             </div>
-            
+
       
             <div class="card" onclick="openModal()">vamos adicionar <br>um produto?
                 <p>nunca foi tão simples cadastrar <br> um produto</p>
@@ -116,7 +112,6 @@
             </div>
 
         </div>
-    </div>
 </div>
 
 <script>
@@ -158,18 +153,14 @@ function toggleAside() {
     if (isAsideVisible) {
         aside.style.width = "0";
         aside.style.opacity = "0";
-        corpo.style.width = "100%";
+        corpo.style.marginLeft = "0";
         header.style.width = "100%";
     } else {
-        const windowWidth = window.innerWidth;
-        if (windowWidth <= 1463) {
-            aside.style.width = "224.4px";
-        } else {
-            aside.style.width = "15%";
-        }
+        const asideWidth = window.innerWidth <= 1463 ? "224.4px" : "15%";
+        aside.style.width = asideWidth;
         aside.style.opacity = "100%";
-        corpo.style.width = "calc(100% - " + aside.style.width + ")";
-        header.style.width = "calc(100% - " + aside.style.width + ")";
+        corpo.style.marginLeft = asideWidth;
+        header.style.width = "calc(100% - " + asideWidth + ")";
     }
     isAsideVisible = !isAsideVisible;
 
@@ -194,6 +185,7 @@ window.addEventListener('resize', () => {
         corpo.style.width = "100%";
         header.style.width = "100%";
         toggleBtn.classList.add('active');
+        corpo.style.marginLeft = "0"; // Alteração para garantir que o corpo volte ao tamanho completo quando o aside é fechado
         return; // Return para evitar a execução do código abaixo se o aside estiver fechado
     }
 
@@ -208,6 +200,7 @@ window.addEventListener('resize', () => {
         header.style.width = "100%";
         toggleBtn.classList.add('active');
         isAsideVisible = false;
+        corpo.style.marginLeft = "0"; // Alteração para garantir que o corpo volte ao tamanho completo quando o aside é fechado
         return; // Return para evitar a execução do código abaixo em tamanhos menores que 1026 pixels
     }
 
@@ -225,10 +218,10 @@ if (windowWidth <= 1026) {
     header.style.width = "100%";
     toggleBtn.classList.add('active');
     isAsideVisible = false;
+    corpo.style.marginLeft = "0"; // Alteração para garantir que o corpo volte ao tamanho completo quando o aside é fechado
 } else if (windowWidth <= 1463) {
     aside.style.width = "224.4px";
 }
-
 
 </script>
 
