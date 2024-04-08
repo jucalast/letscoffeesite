@@ -1,0 +1,89 @@
+/* Estilo para o aside (navbar-lateral) e o header (header-custom) com cantos arredondados */
+.navbar-lateral,
+.header-custom {
+    border-radius: 20px; /* Cantos superiores esquerdos arredondados */
+    border-radius: 20px; /* Cantos inferiores esquerdos arredondados */
+}
+
+/* Estilo para a barra lateral ocupar toda a altura da página */
+.navbar-lateral {
+    min-height: 100vh;
+    overflow-y: auto; /* Adicione isso para permitir rolagem se o conteúdo for maior do que a altura da página */
+}
+
+.row {
+    display: flex; /* Para fazer os elementos dentro da linha se comportarem como flexíveis */
+}
+
+/* Exemplo de personalização básica */
+::-webkit-scrollbar {
+    width: 10px;
+    /* largura da barra de rolagem */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #949494;
+    /* cor do 'thumb' (a parte que você arrasta) */
+    border-radius: 5px;
+    /* borda arredondada */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #d3d3d3;
+    /* cor do fundo da barra de rolagem */
+  }
+  
+  .dark-mode-toggle input[type="checkbox"] {
+    display: none;
+  }
+  
+  .dark-mode-toggle label {
+    margin-right: 1rem;
+    display: block;
+    width: 2.7em;
+    /* Tamanho relativo para melhor responsividade */
+    height: 1.5em;
+    /* Tamanho relativo para melhor responsividade */
+    background-color: #ddd;
+    border-radius: 2rem;
+    position: relative;
+    cursor: pointer;
+  
+  }
+  
+  .dark-mode-toggle label:after {
+    content: "";
+    display: block;
+    width: 1.2em;
+    /* Tamanho relativo para melhor responsividade */
+    height: 1.2em;
+    /* Tamanho relativo para melhor responsividade */
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .dark-mode-toggle input[type="checkbox"]:checked+label {
+    background-color: #6eec07;
+    box-shadow: 0 0 30px 20px #6eec074f;
+  }
+  
+  .dark-mode-toggle input[type="checkbox"]:checked+label:after {
+    transform: translateX(100%);
+    /* Usando uma porcentagem para garantir uma transição completa */
+  }
+
+  .dark-mode .logo {
+    /* Estilos para o modo escuro */
+    /* Por exemplo: */
+    filter: invert(1); /* Exemplo de inversão de cores */
+}
+
+.dark-mode .aside {
+    background-color: #303030;
+}
+
+

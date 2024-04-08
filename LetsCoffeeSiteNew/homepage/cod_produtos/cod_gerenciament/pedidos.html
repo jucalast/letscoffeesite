@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Let's coffee e-commerce - Sua fonte de grãos de café premium. Explore nosso cardápio, descubra nossos grãos exclusivos e faça seu coado perfeito. Leia nosso blog para dicas e novidades.">
+    <meta name="keywords" content="Let's coffee, café, grãos de café, cardápio, coado, blog, coffee shop, e-commerce">
+    <meta name="author" content="Seu Nome">
+    <title>Let's Coffee - Café Premium</title>
+    <!-- Bootstrap CSS -->
+    <link id="theme" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/darkly/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="pedido.css">
+</head>
+
+<body class="theme-dark">
+
+<div class="container-fluid  my-3">
+    <div class="row m-0">
+        <!-- Navbar -->
+        <aside class=" aside col-md-2 bg-light navbar-lateral d-none d-md-block">
+            <div class="p-4">
+                <div class="logo-container mb-4 width:250px justify-content-center">
+                    <img class="logo img-fluid" src="media/Logo.png" alt="Logo Let's Coffee" style="width: 150px; height: auto;">
+                </div>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a class="text-dark" href="dashboard.html">Dashboard</a></li>
+                    <li class="mb-2"><a class="text-dark" href="pedidos.html">Pedidos</a></li>
+                    <li class="mb-2"><a class="text-dark" href="produtos.html">Produtos</a></li>
+                    <li class="mb-2"><a class="text-dark" href="#">Clientes</a></li>
+                    <li class="mb-2"><a class="text-dark" href="#">Relatórios</a></li>
+                    <li class="mb-2"><a class="text-dark" href="#">Configurações</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Header e Conteúdo principal -->
+        <div class="col-md-10 content-wrapper"> <!-- Adicione a classe content-wrapper e remova o padding -->
+            <!-- Header -->
+            <div class="header-wrapper"> <!-- Adicione a classe header-wrapper e remova o padding -->
+                <header class="bg-dark text-light header-custom">
+                    <div class="container-fluid py-4">
+                        <h1 class="m-0">Bem-vindo ao seu espaço de gerenciamento</h1>
+                        <div class="dark-mode-toggle">
+                            <input type="checkbox" id="darkModeToggle" />
+                            <label for="darkModeToggle"></label>
+                        </div>
+                    </div>
+                    
+                </header>
+            </div>
+
+            <!-- Conteúdo principal -->
+            <div class="container-fluid">
+                <!-- Conteúdo principal aqui -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS e JavaScript personalizado -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="pedidos.js"></script> <!-- Seu script personalizado -->
+
+</body>
+</html>
