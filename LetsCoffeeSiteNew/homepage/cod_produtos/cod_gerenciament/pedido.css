@@ -130,3 +130,14 @@ body {
 .dark-mode h1, li {
   color: #cccccc;
 }
+
+/* Estilo para os nomes dos itens do menu lateral com alta especificidade */
+aside.navbar-lateral .list-unstyled .text-dark {
+  color: #0d0d0d !important; /* Altere a cor do texto conforme necessário */
+}
+
+
+.dark-mode /* Estilo para os nomes dos itens do menu lateral com alta especificidade */
+aside.navbar-lateral .list-unstyled .text-dark {
+  color: #fafafa !important; /* Altere a cor do texto conforme necessário */
+}
