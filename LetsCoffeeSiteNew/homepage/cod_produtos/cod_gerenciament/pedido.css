@@ -5,6 +5,25 @@
     border-radius: 20px; /* Cantos inferiores esquerdos arredondados */
 }
 
+/* Estilo para o header com fundo escuro e texto claro */
+.header-custom {
+  background-color: #a3a3a3; /* Cor de fundo padrão para o header */
+  color: #1a1a1a; /* Cor do texto padrão para o header */
+}
+
+/* Estilos para o modo escuro */
+.dark-mode .header-custom {
+  background-color:#0f0f0f; /* Altere o fundo do modo escuro para o header conforme necessário */
+}
+
+h1, li{
+  color: #0f0f0f;
+}
+
+body {
+  background: #d3d3d3;
+}
+
 /* Estilo para a barra lateral ocupar toda a altura da página */
 .navbar-lateral {
     min-height: 100vh;
@@ -80,10 +99,34 @@
     /* Estilos para o modo escuro */
     /* Por exemplo: */
     filter: invert(1); /* Exemplo de inversão de cores */
+  }
+
+
+  .dark-mode.body {
+    background: #161616;
+  }
+
+  .dark-mode .dark-mode-aside {
+    background: #161616; /* Altere o fundo do modo escuro para a barra lateral conforme necessário */
 }
 
-.dark-mode .aside {
-    background-color: #303030;
+/* Estilo para o aside (navbar-lateral) com cantos arredondados */
+#aside {
+  border-radius: 20px; /* Cantos superiores esquerdos e inferiores esquerdos arredondados */
+  background: #a3a3a3; /* Cor de fundo para o aside no modo escuro */
+  min-height: 100vh;
+  overflow-y: auto; /* Adicione isso para permitir rolagem se o conteúdo for maior do que a altura da página */
 }
 
+/* Estilos para o modo escuro */
+.dark-mode #aside {
+  background: #0f0f0f; /* Altere o fundo do modo escuro para a barra lateral conforme necessário */
+}
 
+.dark-mode header {
+  background: #181818;
+}
+
+.dark-mode h1, li {
+  color: #cccccc;
+}

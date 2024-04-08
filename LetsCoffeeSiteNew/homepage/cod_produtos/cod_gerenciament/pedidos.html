@@ -15,12 +15,13 @@
     <link rel="stylesheet" href="pedido.css">
 </head>
 
-<body class="theme-dark">
+<body class="body">
 
 <div class="container-fluid  my-3">
     <div class="row m-0">
         <!-- Navbar -->
-        <aside class=" aside col-md-2 bg-light navbar-lateral d-none d-md-block">
+        <aside id="aside" class="aside col-md-2 navbar-lateral d-none d-md-block">
+
             <div class="p-4">
                 <div class="logo-container mb-4 width:250px justify-content-center">
                     <img class="logo img-fluid" src="media/Logo.png" alt="Logo Let's Coffee" style="width: 150px; height: auto;">
@@ -38,20 +39,17 @@
 
         <!-- Header e Conteúdo principal -->
         <div class="col-md-10 content-wrapper"> <!-- Adicione a classe content-wrapper e remova o padding -->
-            <!-- Header -->
-            <div class="header-wrapper"> <!-- Adicione a classe header-wrapper e remova o padding -->
-                <header class="bg-dark text-light header-custom">
-                    <div class="container-fluid py-4">
-                        <h1 class="m-0">Bem-vindo ao seu espaço de gerenciamento</h1>
-                        <div class="dark-mode-toggle">
-                            <input type="checkbox" id="darkModeToggle" />
-                            <label for="darkModeToggle"></label>
-                        </div>
-                    </div>
-                    
-                </header>
-            </div>
+            <header class="header-custom text-light d-flex justify-content-between align-items-center p-4">
 
+                <div>
+                    <h1 class="m-0">Bem-vindo ao seu espaço de gerenciamento</h1>
+                </div>
+                <div class="dark-mode-toggle">
+                    <input type="checkbox" id="darkModeToggle" />
+                    <label for="darkModeToggle"></label>
+                </div>
+            </header>
+            
             <!-- Conteúdo principal -->
             <div class="container-fluid">
                 <!-- Conteúdo principal aqui -->
