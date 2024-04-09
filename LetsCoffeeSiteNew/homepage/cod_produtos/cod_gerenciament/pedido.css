@@ -11,10 +11,6 @@
   color: #1a1a1a; /* Cor do texto padrão para o header */
 }
 
-/* Estilos para o modo escuro */
-.dark-mode .header-custom {
-  background-color:#0f0f0f; /* Altere o fundo do modo escuro para o header conforme necessário */
-}
 
 h1, li{
   color: #0f0f0f;
@@ -95,6 +91,51 @@ body {
     /* Usando uma porcentagem para garantir uma transição completa */
   }
 
+  /* Estilo para o aside (navbar-lateral) com cantos arredondados */
+  #aside {
+    border-radius: 20px; /* Cantos superiores esquerdos e inferiores esquerdos arredondados */
+    background: #a3a3a3; /* Cor de fundo para o aside no modo escuro */
+    min-height: 100vh;
+    overflow-y: auto; /* Adicione isso para permitir rolagem se o conteúdo for maior do que a altura da página */
+  }
+
+
+
+  /* Estilo para os nomes dos itens do menu lateral com alta especificidade */
+  aside.navbar-lateral .list-unstyled .text-dark {
+    color: #2f2f2f !important; /* Altere a cor do texto conforme necessário */
+  }
+
+  li{
+    padding: 1.5rem;
+    border-radius: 3rem;
+    font-size: 2.5rem;
+  }
+
+  li:hover {
+    background: #1c1c1c;
+  }
+
+  ul {
+    
+  }
+
+
+
+  .dark-mode /* Estilo para os nomes dos itens do menu lateral com alta especificidade */
+  aside.navbar-lateral .list-unstyled .text-dark {
+    color: #fafafa !important; /* Altere a cor do texto conforme necessário */
+  }
+
+  /* Estilos para o modo escuro */
+  .dark-mode #aside {
+    background: #151515; /* Altere o fundo do modo escuro para a barra lateral conforme necessário */
+  }
+
+  .dark-mode h1, li {
+    color: #cccccc;
+  }
+
   .dark-mode .logo {
     /* Estilos para o modo escuro */
     /* Por exemplo: */
@@ -103,41 +144,15 @@ body {
 
 
   .dark-mode.body {
-    background: #161616;
+    background: #191919;
   }
 
   .dark-mode .dark-mode-aside {
-    background: #161616; /* Altere o fundo do modo escuro para a barra lateral conforme necessário */
-}
+    background: #1c1c1c; /* Altere o fundo do modo escuro para a barra lateral conforme necessário */
+  }
 
-/* Estilo para o aside (navbar-lateral) com cantos arredondados */
-#aside {
-  border-radius: 20px; /* Cantos superiores esquerdos e inferiores esquerdos arredondados */
-  background: #a3a3a3; /* Cor de fundo para o aside no modo escuro */
-  min-height: 100vh;
-  overflow-y: auto; /* Adicione isso para permitir rolagem se o conteúdo for maior do que a altura da página */
-}
+  /* Estilos para o modo escuro */
+  .dark-mode .header-custom {
+    background-color:#151515; /* Altere o fundo do modo escuro para o header conforme necessário */
+  }
 
-/* Estilos para o modo escuro */
-.dark-mode #aside {
-  background: #0f0f0f; /* Altere o fundo do modo escuro para a barra lateral conforme necessário */
-}
-
-.dark-mode header {
-  background: #181818;
-}
-
-.dark-mode h1, li {
-  color: #cccccc;
-}
-
-/* Estilo para os nomes dos itens do menu lateral com alta especificidade */
-aside.navbar-lateral .list-unstyled .text-dark {
-  color: #0d0d0d !important; /* Altere a cor do texto conforme necessário */
-}
-
-
-.dark-mode /* Estilo para os nomes dos itens do menu lateral com alta especificidade */
-aside.navbar-lateral .list-unstyled .text-dark {
-  color: #fafafa !important; /* Altere a cor do texto conforme necessário */
-}
