@@ -1,13 +1,8 @@
-/* Estilo para o aside (navbar-lateral) e o header (header-custom) com cantos arredondados */
-.navbar-lateral,
-.header-custom {
-    border-radius: 20px; /* Cantos superiores esquerdos arredondados */
-    border-radius: 20px; /* Cantos inferiores esquerdos arredondados */
-}
+
 
 /* Estilo para o header com fundo escuro e texto claro */
 .header-custom {
-  background-color: #a3a3a3; /* Cor de fundo padrão para o header */
+  display: flex;
   color: #1a1a1a; /* Cor do texto padrão para o header */
 }
 
@@ -22,7 +17,6 @@ body {
 
 /* Estilo para a barra lateral ocupar toda a altura da página */
 .navbar-lateral {
-    min-height: 100vh;
     overflow-y: auto; /* Adicione isso para permitir rolagem se o conteúdo for maior do que a altura da página */
 }
 
@@ -93,10 +87,12 @@ body {
 
   /* Estilo para o aside (navbar-lateral) com cantos arredondados */
   #aside {
-    border-radius: 20px; /* Cantos superiores esquerdos e inferiores esquerdos arredondados */
+    border-radius: 4rem;
     background: #a3a3a3; /* Cor de fundo para o aside no modo escuro */
-    min-height: 100vh;
+    min-height: 70%;
     overflow-y: auto; /* Adicione isso para permitir rolagem se o conteúdo for maior do que a altura da página */
+    margin-top: 5rem;
+    margin-left: 2rem;
   }
 
 
@@ -108,28 +104,44 @@ body {
 
   li{
     padding: 1.5rem;
-    border-radius: 3rem;
-    font-size: 2.5rem;
-  }
+    font-size: 2rem;
 
-  li:hover {
-    background: #1c1c1c;
   }
 
   ul {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  i {
+    display: flex;
+  }
+
+
+  i:hover {
+    color: #dedede;
     
+  }
+
+  .col-md-11 {
+  padding-right: 0;
+   padding-left: 0;
   }
 
 
 
   .dark-mode /* Estilo para os nomes dos itens do menu lateral com alta especificidade */
   aside.navbar-lateral .list-unstyled .text-dark {
-    color: #fafafa !important; /* Altere a cor do texto conforme necessário */
+    color: #6a6a6a !important; /* Altere a cor do texto conforme necessário */
   }
 
   /* Estilos para o modo escuro */
   .dark-mode #aside {
-    background: #151515; /* Altere o fundo do modo escuro para a barra lateral conforme necessário */
+    background: #9a9a9a27; /* Altere o fundo do modo escuro para a barra lateral conforme necessário */
+    border: solid 1px #6a6a6a45;
+    backdrop-filter: blur(5px);
   }
 
   .dark-mode h1, li {
@@ -153,6 +165,6 @@ body {
 
   /* Estilos para o modo escuro */
   .dark-mode .header-custom {
-    background-color:#151515; /* Altere o fundo do modo escuro para o header conforme necessário */
+    display: flex;
   }
 
