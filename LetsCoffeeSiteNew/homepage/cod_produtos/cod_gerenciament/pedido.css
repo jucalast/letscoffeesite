@@ -1,170 +1,235 @@
-
-
-/* Estilo para o header com fundo escuro e texto claro */
+/* Estilos para o header */
 .header-custom {
+
   display: flex;
   color: #1a1a1a; /* Cor do texto padrão para o header */
+  border-bottom: solid 1px  #6a6a6a45;
+  background-color: #d4d4d4;
+  height: 5rem;
+}
+
+h1 {
+  color: #0f0f0f;
+  font-size: 2rem;
+}
+
+.dark-mode-toggle input[type="checkbox"] {
+  display: none;
+}
+
+.dark-mode-toggle label {
+  margin-right: 1rem;
+  display: block;
+  width: 2.7em;
+  height: 1.5em;
+  background-color: #ddd;
+  border-radius: 2rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.dark-mode-toggle label:after {
+  content: "";
+  display: block;
+  width: 1.2em;
+  height: 1.2em;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked+label {
+  background-color: #6eec07;
+  box-shadow: 0 0 30px 20px #6eec074f;
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked+label:after {
+  transform: translateX(100%);
+}
+
+/* Estilos para o navbar */
+#aside {
+  display: flex;
+  height: 100%;
+  background: #e6e6e6; /* Cor de fundo para o aside no modo escuro */
+  min-height: 70%;
+  overflow-y: auto; /* Adicione isso para permitir rolagem se o conteúdo for maior do que a altura da página */
+}
+
+.logo {
+  width: 7rem;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #e6e6e6;
+  height: 5rem;
+  border: solid 1px #6a6a6a45;
+  align-items: center;
+  width: 100%;
+  border-left: none;
+}
+
+.navbar {
+  display: flex;
+  margin-top: 3rem;
+  
+/* Estilo para o link ativo */
+.active {
+  background-color: #007bff; /* Cor de fundo do link ativo */
+}
+
+/* Estilo para a imagem dentro do link ativo */
+.active img.imgicon {
+  filter: brightness(0) invert(1);
+}
+
+.active a {
+  color: #ffffff;
+}
+
+/* Desativa o comportamento de hover nos li ativos */
+.active:hover {
+  background-color: #007bff; /* Mantém a cor de fundo do link ativo */
+  cursor: default; /* Define o cursor como padrão */
+}
+
+/* Estilo para o link ativo durante o hover */
+.active:hover a {
+  color: #ffffff; /* Mantém a cor do texto do link ativo */
 }
 
 
-h1, li{
-  color: #0f0f0f;
+}
+
+a {
+  color: #535353;
+  padding: 1rem;
+  border-radius: 1.2rem;
+
+}
+
+a:HOVER {
+  color: #535353;
+  text-decoration: none; /* Remove o sublinhado */
+}
+
+.icon-home {
+  fill: red; /* Altere "red" para a cor desejada */
+}
+
+
+li {
+  color: #ffffff;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius:1.2REM ;
+  text-decoration: none; /* Remove o sublinhado */
+}
+
+li:hover {
+  background-color: #cacaca;
+}
+
+.col-md-2 {
+  padding: 0%;
+}
+
+.imgicon {
+  width: 1.5REM;
+
+  /* Cor azul */
+
+}
+
+
+/* Estilos gerais */
+html {
+  height: 100%;
 }
 
 body {
-  background: #d3d3d3;
-}
-
-/* Estilo para a barra lateral ocupar toda a altura da página */
-.navbar-lateral {
-    overflow-y: auto; /* Adicione isso para permitir rolagem se o conteúdo for maior do que a altura da página */
+  background: #ffffff;
+  height: 100%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
 }
 
 .row {
-    display: flex; /* Para fazer os elementos dentro da linha se comportarem como flexíveis */
+  display: flex; /* Para fazer os elementos dentro da linha se comportarem como flexíveis */
+  height: 100%;
 }
 
-/* Exemplo de personalização básica */
+.container-fluid {
+  height: 100%;
+}
+
+/* Barra de rolagem */
 ::-webkit-scrollbar {
-    width: 10px;
-    /* largura da barra de rolagem */
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: #949494;
-    /* cor do 'thumb' (a parte que você arrasta) */
-    border-radius: 5px;
-    /* borda arredondada */
-  }
-  
-  ::-webkit-scrollbar-track {
-    background-color: #d3d3d3;
-    /* cor do fundo da barra de rolagem */
-  }
-  
-  .dark-mode-toggle input[type="checkbox"] {
-    display: none;
-  }
-  
-  .dark-mode-toggle label {
-    margin-right: 1rem;
-    display: block;
-    width: 2.7em;
-    /* Tamanho relativo para melhor responsividade */
-    height: 1.5em;
-    /* Tamanho relativo para melhor responsividade */
-    background-color: #ddd;
-    border-radius: 2rem;
-    position: relative;
-    cursor: pointer;
-  
-  }
-  
-  .dark-mode-toggle label:after {
-    content: "";
-    display: block;
-    width: 1.2em;
-    /* Tamanho relativo para melhor responsividade */
-    height: 1.2em;
-    /* Tamanho relativo para melhor responsividade */
-    background-color: #fff;
-    border-radius: 50%;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .dark-mode-toggle input[type="checkbox"]:checked+label {
-    background-color: #6eec07;
-    box-shadow: 0 0 30px 20px #6eec074f;
-  }
-  
-  .dark-mode-toggle input[type="checkbox"]:checked+label:after {
-    transform: translateX(100%);
-    /* Usando uma porcentagem para garantir uma transição completa */
-  }
+  width: 10px;
+  /* largura da barra de rolagem */
+}
 
-  /* Estilo para o aside (navbar-lateral) com cantos arredondados */
-  #aside {
-    border-radius: 4rem;
-    background: #a3a3a3; /* Cor de fundo para o aside no modo escuro */
-    min-height: 70%;
-    overflow-y: auto; /* Adicione isso para permitir rolagem se o conteúdo for maior do que a altura da página */
-    margin-top: 5rem;
-    margin-left: 2rem;
-  }
+::-webkit-scrollbar-thumb {
+  background-color: #424242;
+  /* cor do 'thumb' (a parte que você arrasta) */
+  border-radius: 5px;
+  /* borda arredondada */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #212121;
+  /* cor do fundo da barra de rolagem */
+}
+
+/* Estilos para o modo escuro */
+.dark-mode #aside {
+  background: #9a9a9a27; /* Altere o fundo do modo escuro para a barra lateral conforme necessário */
+  border: solid 1px #6a6a6a45;
+  backdrop-filter: blur(5px);
+  border-top: 0;
+}
+
+.dark-mode h1, li {
+  color: #cccccc;
+}
+
+.dark-mode .logo {
+  filter: invert(1); /* Exemplo de inversão de cores */
+}
+
+.dark-mode.body {
+  background: #191919;
+}
+
+.dark-mode .dark-mode-aside {
+  background: #1c1c1c; /* Altere o fundo do modo escuro para a barra lateral conforme necessário */
+}
+
+.dark-mode .header-custom {
+  display: flex;
+  background: #0f0f0f;
+}
+
+.dark-mode .logo-container {
+  background: #2f2f2f;
+ 
+  border: solid 1px #6a6a6a45;
+}
 
 
 
-  /* Estilo para os nomes dos itens do menu lateral com alta especificidade */
-  aside.navbar-lateral .list-unstyled .text-dark {
-    color: #2f2f2f !important; /* Altere a cor do texto conforme necessário */
-  }
+.dark-mode .logo {
+  filter: invert(1); /* Exemplo de inversão de cores */
+}
 
-  li{
-    padding: 1.5rem;
-    font-size: 2rem;
-
-  }
-
-  ul {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-  }
-
-  i {
-    display: flex;
-  }
-
-
-  i:hover {
-    color: #dedede;
-    
-  }
-
-  .col-md-11 {
-  padding-right: 0;
-   padding-left: 0;
-  }
-
-
-
-  .dark-mode /* Estilo para os nomes dos itens do menu lateral com alta especificidade */
-  aside.navbar-lateral .list-unstyled .text-dark {
-    color: #6a6a6a !important; /* Altere a cor do texto conforme necessário */
-  }
-
-  /* Estilos para o modo escuro */
-  .dark-mode #aside {
-    background: #9a9a9a27; /* Altere o fundo do modo escuro para a barra lateral conforme necessário */
-    border: solid 1px #6a6a6a45;
-    backdrop-filter: blur(5px);
-  }
-
-  .dark-mode h1, li {
-    color: #cccccc;
-  }
-
-  .dark-mode .logo {
-    /* Estilos para o modo escuro */
-    /* Por exemplo: */
-    filter: invert(1); /* Exemplo de inversão de cores */
-  }
-
-
-  .dark-mode.body {
-    background: #191919;
-  }
-
-  .dark-mode .dark-mode-aside {
-    background: #1c1c1c; /* Altere o fundo do modo escuro para a barra lateral conforme necessário */
-  }
-
-  /* Estilos para o modo escuro */
-  .dark-mode .header-custom {
-    display: flex;
-  }
-
+.dark-mode li:hover {
+  background-color: #454545;
+}
+.dark-mode a {
+  color: #b3b3b3;
+}

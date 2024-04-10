@@ -13,46 +13,74 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <!-- CSS Personalizado -->
     <link rel="stylesheet" href="pedido.css">
+
 </head>
 
 <body class="body">
 
-<div class="container-fluid">
+<div class="container-fluid ">
     <div class="row ">
-        <!-- Navbar -->
-        <aside id="aside" class="aside col-md-0.5 navbar-lateral d-none d-md-block">
-
-            <div class="p-2">
-                
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a class="text-dark" href="dashboard.html"><i class="fas fa-tachometer-alt"></i> </a></li>
-                    <li class="mb-2"><a class="text-dark" href="pedidos.html"><i class="fas fa-box"></i></a></li>
-                    <li class="mb-2"><a class="text-dark" href="produtos.html"><i class="fas fa-coffee"></i></a></li>
-                    <li class="mb-2"><a class="text-dark" href="#"><i class="fas fa-users"></i></a></li>
-                    <li class="mb-2"><a class="text-dark" href="#"><i class="fas fa-chart-line"></i></a></li>
-                    <li class="mb-2"><a class="text-dark" href="#"><i class="fas fa-cogs"></i></a></li>
-                </ul>
-                
+        <!-- Header -->
+        <aside id="aside" class="aside col-md-2 navbar-lateral d-none d-md-block">
+            <div class="logo-container col-md-15">
+                <img class="logo" src="media/Logo.png" alt="Logo Let's Coffee">
             </div>
-        </aside>
-
-        <!-- Header e Conteúdo principal -->
-        <div class="col-md-10 content-wrapper"> <!-- Adicione a classe content-wrapper e remova o padding -->
-            <header class="header-custom text-light d-flex justify-content-between align-items-center p-4">
-                
-                <div>
-                    <h1 class="m-0"></h1>
-                </div>
-                <div class="dark-mode-toggle">
-                    <input type="checkbox" id="darkModeToggle" />
-                    <label for="darkModeToggle"></label>
-                </div>
-            </header>
+    <div class="p-2 navbar">
+        
+        <ul class="list-unstyled">
+            <li class="icon-li mb-2">
+                <a href="dashboard.html">
+                    <img class="imgicon" src="media/painel-de-controle (1).png" alt="Dashboard Icon">
+                    Dashboard
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="pedidos.html">
+                    <img class="imgicon" src="media/cesta-de-compras.png" alt="Pedidos Icon">
+                pedidos
+                </a>
+            </li>
+            <!-- Adicione a classe 'active' ao item de menu correspondente à página atual -->
+            <li class="mb-2 active">
+                <a href="produtos.html">
+                    <img class="imgicon" src="media/caixa (1).png" alt="Produtos Icon">
+                    produtos
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#">
+                    <img class="imgicon" src="media/do-utilizador.png" alt="Usuários Icon">
+                    usuários
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#">
+                    <img class="imgicon" src="media/configuracao.png" alt="Configurações Icon">
+                    configurações
+                </a>
+            </li>
             
-            <!-- Conteúdo principal -->
-            <div class="container-fluid">
-                <!-- Conteúdo principal aqui -->
-            </div>
+        </ul>
+    </div>
+</aside>
+
+<div class="col-md-10 header-custom text-light d-flex justify-content-between align-items-center ">
+    <div class="d-flex align-items-center">
+        <h1 class="m-0">Let's Coffee - Café Premium</h1>
+    </div>
+    <div class="dark-mode-toggle">
+        <input type="checkbox" id="darkModeToggle" />
+        <label for="darkModeToggle"></label>
+    </div>
+</div>
+        
+        
+        
+
+
+        <!-- Conteúdo principal -->
+        <div class="col-md-19 content-wrapper"> <!-- Adicione a classe content-wrapper e remova o padding -->
+            <!-- Conteúdo principal aqui -->
         </div>
     </div>
 </div>

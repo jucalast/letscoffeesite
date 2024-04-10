@@ -20,3 +20,14 @@ if (localStorage.getItem('darkMode') === 'enabled') {
         aside.classList.add('dark-mode-aside');
     }
 }
+
+// Função para identificar a página atual e adicionar a classe 'active' ao link correspondente
+function highlightCurrentPage() {
+    var currentPage = window.location.pathname.split("/").pop(); // Obtém o nome do arquivo da URL
+    $("ul.list-unstyled li").removeClass("active"); // Remove a classe 'active' de todos os itens de menu
+    $("ul.list-unstyled li a[href='" + currentPage + "']").parent().addClass("active"); // Adiciona a classe 'active' ao item de menu correspondente à página atual
+}
+
+$(document).ready(function() {
+    highlightCurrentPage(); // Chama a função ao carregar a página
+});
