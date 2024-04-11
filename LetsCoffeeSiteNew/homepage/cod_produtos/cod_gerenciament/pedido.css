@@ -78,6 +78,7 @@ h1 {
 .navbar {
   display: flex;
   margin-top: 3rem;
+  justify-content: center;
   
 /* Estilo para o link ativo */
 .active {
