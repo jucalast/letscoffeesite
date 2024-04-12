@@ -6,521 +6,90 @@
     <meta name="description" content="Let's coffee e-commerce - Sua fonte de grãos de café premium. Explore nosso cardápio, descubra nossos grãos exclusivos e faça seu coado perfeito. Leia nosso blog para dicas e novidades.">
     <meta name="keywords" content="Let's coffee, café, grãos de café, cardápio, coado, blog, coffee shop, e-commerce">
     <meta name="author" content="Seu Nome">
-
-    <link rel="stylesheet" href="area_comerciante.css">
-    <link rel="stylesheet" href="produtos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    
     <title>Let's Coffee - Café Premium</title>
+    <!-- Bootstrap CSS -->
+    <link id="theme" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/darkly/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="pedido.css">
+
 </head>
 
+<body class="body">
 
-<body>
-
-    
-    
-<header>
-    <div>
-        <h1>bem-vindo ao seu espaço de gerenciamento</h1>
+<div class="container-fluid ">
+    <div class="row ">
+        <!-- Header -->
+        <aside id="aside" class="aside col-md-2 navbar-lateral d-none d-md-block">
+            <div class="logo-container col-md-15">
+                <img class="logo" src="media/Logo.png" alt="Logo Let's Coffee">
+            </div>
+    <div class="p-2 navbar">
+        
+        <ul class="list-unstyled">
+            <li class="icon-li mb-2">
+                <a href="dashboard.html">
+                    <img class="imgicon" src="media/painel-de-controle (1).png" alt="Dashboard Icon">
+                    Dashboard
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="pedidos.html">
+                    <img class="imgicon" src="media/cesta-de-compras.png" alt="Pedidos Icon">
+                pedidos
+                </a>
+            </li>
+            <!-- Adicione a classe 'active' ao item de menu correspondente à página atual -->
+            <li class="mb-2 active">
+                <a href="produtos.html">
+                    <img class="imgicon" src="media/caixa (1).png" alt="Produtos Icon">
+                    produtos
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#">
+                    <img class="imgicon" src="media/do-utilizador.png" alt="Usuários Icon">
+                    usuários
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#">
+                    <img class="imgicon" src="media/configuracao.png" alt="Configurações Icon">
+                    configurações
+                </a>
+            </li>
+            
+        </ul>
     </div>
+</aside>
 
+<div class="col-md-10 header-custom text-light d-flex justify-content-between align-items-center ">
+    <div class="d-flex align-items-center">
+        <h1 class="m-0">Let's Coffee - Café Premium</h1>
+    </div>
     <div class="dark-mode-toggle">
         <input type="checkbox" id="darkModeToggle" />
         <label for="darkModeToggle"></label>
     </div>
-</header>
+</div>
+        
+        
+        
 
-<div class="corpo-maior">
-    <div class="corpo">
-        <aside>
-            <div class="logo-container">
-                <img class="logo" src="media/Logo.png" alt="Logo Let's Coffee">
-            </div>
-            <ul class="ul-lateral">
-                <li class="li-lateral"><a class="alateral" href="dashboard.html">Dashboard</a></li>
-                <li class="li-lateral"><a class="alateral" href="pedidos.html">Pedidos</a></li>
-                <li class="li-lateral select"><a class="alateral" href="produtos.html">Produtos</a></li>
-                <li class="li-lateral"><a class="alateral" href="#">Clientes</a></li>
-                <li class="li-lateral"><a class="alateral" href="#">Relatórios</a></li>
-                <li class="li-lateral"><a class="alateral" href="#">Configurações</a></li>
-            </ul>
-        </aside>
 
-        
-        
-        
-    
+        <!-- Conteúdo principal -->
+        <div class="col-md-19 content-wrapper"> <!-- Adicione a classe content-wrapper e remova o padding -->
+            <!-- Conteúdo principal aqui -->
+        </div>
     </div>
 </div>
 
-<script>
-    const aside = document.querySelector('aside');
-    const corpo = document.querySelector('.corpo');
-    const header = document.querySelector('header');
-    const toggleBtn = document.querySelector('.toggle-btn');
-    let isAsideVisible = true;
+<!-- Bootstrap JS e JavaScript personalizado -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="pedidos.js"></script> <!-- Seu script personalizado -->
 
-    function toggleAside() {
-        if (isAsideVisible) {
-            aside.style.width = "0";
-            aside.style.opacity = "0";
-            corpo.style.width = "100%";
-            header.style.width = "100%";
-        } else {
-            aside.style.width = "310px";
-            aside.style.opacity = "1";
-            corpo.style.width = "85%";
-            header.style.width = "85%";
-        }
-        isAsideVisible = !isAsideVisible;
-
-        // Adicione ou remova a classe 'active' para alternar a aparência da seta
-        toggleBtn.classList.toggle('active');
-    }
-
-    // Adicionando uma transição suave
-    aside.style.transition = "width 0.3s ease, opacity 0.3s ease";
-
-    // Adicionando um ouvinte de evento de clique para a classe toggle-btn
-    toggleBtn.addEventListener('click', toggleAside);
-</script>
-
-
-
-  <script>
-
-document.addEventListener("DOMContentLoaded", function() {
-  // Obtém o URL completo da página atual
-  var url = window.location.href;
-
-  // Obtém todos os links do menu lateral
-  var links = document.querySelectorAll(".ul-lateral .alateral");
-
-  // Itera sobre os links do menu lateral
-  links.forEach(function(link) {
-    // Verifica se o atributo href do link corresponde ao URL completo da página atual
-    if (link.href === url) {
-      // Adiciona uma classe CSS para destacar o link ativo
-      link.classList.add("active");
-    }
-  });
-});
-
-// Função para abrir o modal
-function openModal() {
-        document.getElementById('myModal').style.display = "block";
-    }
-
-    // Função para fechar o modal
-    function closeModal() {
-        document.getElementById('myModal').style.display = "none";
-    }
-
-    // Referência ao elemento de container do upload
-    const uploadContainer = document.getElementById('uploadContainer');
-
-    // Adiciona eventos de arrastar e soltar para o upload
-    uploadContainer.addEventListener('dragover', function(e) {
-        e.preventDefault();
-        this.classList.add('dragover');
-    });
-
-    uploadContainer.addEventListener('dragleave', function() {
-        this.classList.remove('dragover');
-    });
-
-    uploadContainer.addEventListener('drop', function(e) {
-        e.preventDefault();
-        this.classList.remove('dragover');
-        const fileInput = document.getElementById('fileInput');
-        fileInput.files = e.dataTransfer.files;
-    });
-
-    const fileLabel = document.querySelector('.file-label');
-
-    fileLabel.addEventListener('dragenter', () => {
-        fileLabel.classList.add('drag-over');
-    });
-
-    fileLabel.addEventListener('dragleave', () => {
-        fileLabel.classList.remove('drag-over');
-    });
-
-    fileLabel.addEventListener('drop', () => {
-        fileLabel.classList.remove('drag-over');
-    });
-
-    function expandirProdutos() {
-        const listaProdutos = document.getElementById('listaProdutos');
-        listaProdutos.classList.toggle('expandido');
-    }
-
-    // Adiciona um manipulador de eventos para o envio do formulário
-    document.getElementById('formulario').addEventListener('submit', enviarDadosDoFormulario);
-
-    // Evento para fechar o modal
-    document.getElementById('myModal').addEventListener('click', function(event) {
-        if (event.target === this) {
-            limparImagensModal();
-        }
-    });
-    
-
-
-  </script>
-
-<script type="module">
-    // Importe as funções necessárias dos SDKs do Firebase
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
-    import { getDatabase, ref, push, onValue, remove, update } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-    import { getStorage, ref as storageRef, listAll, getDownloadURL, uploadBytes, deleteObject } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
-
-    // Inicialize o Firebase
-    const firebaseConfig = {
-        apiKey: "AIzaSyD8m3pK1ybzcbz_c655G22L9AlM8tSjzd4",
-        authDomain: "let-s-coffee-site.firebaseapp.com",
-        projectId: "let-s-coffee-site",
-        storageBucket: "let-s-coffee-site.appspot.com",
-        messagingSenderId: "400929193396",
-        appId: "1:400929193396:web:15ab2756687b91f55d86e1",
-        measurementId: "G-G1H9QGKYJ9"
-    };
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-
-    // Referência ao banco de dados do Firebase
-    const database = getDatabase();
-    const produtosRef = ref(database, 'produtos');
-
-    // Referência ao Firebase Storage
-    const storage = getStorage();
-
-    // Função para enviar dados do formulário para o Firebase
-    function enviarDadosDoFormulario(event) {
-        event.preventDefault(); // Impede o envio padrão do formulário
-
-        // Obtém os valores do formulário
-        const nome = document.getElementById('nome').value;
-        const preco = document.getElementById('preco').value;
-        const descricao = document.getElementById('descricao').value;
-        const origem = document.getElementById('origem').value;
-        const torra = document.getElementById('torra').value;
-        const tamanhos = document.getElementById('tamanhos').value.split(',').map(item => item.trim());
-        const cores = document.getElementById('cores').value.split(',').map(item => item.trim());
-
-        // Obtém os URLs das imagens no modal
-        const imagens = Array.from(document.getElementById('imagemContainer').querySelectorAll('img')).map(img => img.src);
-
-        // Cria um objeto com os dados do produto, incluindo os URLs das imagens
-        const novoProduto = {
-            nome: nome,
-            preco: preco,
-            descricao: descricao,
-            especificacoes: {
-                origem: origem,
-                torra: torra
-            },
-            tamanhos: tamanhos,
-            cores: cores,
-            imagens: imagens // Adiciona os URLs das imagens ao objeto de produto
-        };
-
-        // Envia os dados do produto para o Firebase
-        push(produtosRef, novoProduto)
-            .then(() => {
-                alert('Dados do produto enviados com sucesso!');
-                // Limpa o formulário após o envio bem-sucedido
-                document.getElementById('formulario').reset();
-                // Fecha o modal após o envio bem-sucedido
-                closeModal();
-                // Limpa o contêiner de imagens do modal
-                limparImagensModal();
-            })
-            .catch((error) => {
-                console.error('Erro ao enviar dados do produto:', error);
-                alert('Ocorreu um erro ao enviar os dados do produto. Por favor, tente novamente.');
-            });
-    }
-
-    // Adiciona um manipulador de evento para o envio do formulário
-    document.getElementById('formulario').addEventListener('submit', enviarDadosDoFormulario);
-
-    // Adiciona um manipulador de evento ao fechar o modal para limpar as imagens
-    document.getElementById('myModal').addEventListener('click', function(event) {
-        if (event.target === this) { // Verifica se o clique ocorreu no próprio modal, não em elementos internos
-            limparImagensModal();
-        }
-    });
-
-    // Função para limpar imagens do modal
-    function limparImagensModal() {
-        document.getElementById('imagemContainer').innerHTML = '';
-    }
-
-    // Função para enviar imagem para o Firebase Storage
-    document.getElementById('uploadForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Impede o envio padrão do formulário
-
-        // Obtém os arquivos selecionados pelo usuário
-        const files = document.getElementById('fileInput').files;
-        const promisesUpload = [];
-
-        // Faz o upload de cada arquivo
-        Array.from(files).forEach(file => {
-            const fileName = new Date().getTime() + '-' + file.name;
-            const fileRef = storageRef(storage, 'images/' + fileName);
-            promisesUpload.push(uploadBytes(fileRef, file).then(snapshot => {
-                console.log('Upload da imagem completo');
-                // Após o upload, adiciona a imagem ao contêiner de imagens
-                getDownloadURL(snapshot.ref).then(url => {
-                    const imgContainer = document.createElement('div');
-                    imgContainer.classList.add('img-container');
-
-                    const img = document.createElement('img');
-                    img.src = url;
-
-                    const deleteButton = document.createElement('button');
-                    deleteButton.classList.add('delete-immgbutton');
-                    deleteButton.textContent = 'X';
-                    deleteButton.addEventListener('click', () => {
-                        deleteImage(snapshot.ref);
-                        imgContainer.parentElement.removeChild(imgContainer);
-                    });
-
-                    imgContainer.appendChild(img);
-                    imgContainer.appendChild(deleteButton);
-
-                    document.getElementById('imagemContainer').appendChild(imgContainer);
-                });
-            }).catch((error) => {
-                console.error('Erro ao enviar imagem:', error);
-            }));
-        });
-
-        // Quando todos os uploads estiverem completos
-        Promise.all(promisesUpload).then(() => {
-            alert('Imagens enviadas com sucesso!');
-        });
-    });
-
-    // Função para excluir uma imagem do armazenamento do Firebase
-    function deleteImage(imageRef) {
-        deleteObject(imageRef).then(() => {
-            console.log('Imagem excluída com sucesso do armazenamento.');
-        }).catch((error) => {
-            console.error('Erro ao excluir imagem do armazenamento:', error);
-        });
-    }
-
-    // Adiciona um manipulador de evento ao carregar a página para chamar a função listarProdutos
-    window.addEventListener('load', listarProdutos);
-
-    // Função para listar os produtos do Firebase
-    function listarProdutos() {
-        const listaProdutos = document.getElementById('listaProdutos');
-
-        // Limpa o conteúdo atual da lista de produtos
-        listaProdutos.innerHTML = '';
-
-        // Recupera os dados dos produtos
-        onValue(produtosRef, (snapshot) => {
-            const produtos = snapshot.val();
-
-            // Verifica se há produtos
-            if (produtos) {
-                // Itera sobre cada produto e adiciona à lista
-                Object.entries(produtos).forEach(([key, produto]) => {
-                    // Verifica se o card já existe pelo ID único do produto
-                    let produtoElemento = document.getElementById(`produto-${key}`);
-
-                    // Se o card ainda não existe, cria um novo
-                    if (!produtoElemento) {
-                        produtoElemento = document.createElement('div');
-                        produtoElemento.id = `produto-${key}`;
-                        produtoElemento.classList.add('produto');
-                        listaProdutos.appendChild(produtoElemento);
-                    } else {
-                        // Limpa o conteúdo do card existente para atualização
-                        produtoElemento.innerHTML = '';
-                    }
-
-                    // Verifica se o produto tem imagens antes de acessar a primeira
-                    const primeiraImagem = produto.imagens && produto.imagens.length > 0 ? produto.imagens[0] : '';
-
-                    produtoElemento.innerHTML = `
-                        <img class="imglist"src="${primeiraImagem}" alt="Imagem do produto">
-                        <div class="cardcompl">
-                            <div class="infoprod">
-                                <h2 class="nomeproduto">${produto.nome}</h2>
-                                <p>Preço: <span class="preco">${produto.preco}</span></p>
-                            </div>
-                        </div>  
-                        <div class="buttons">      
-                        <button class="delete-button" data-id="${key}">Excluir</button>
-                        <button class="edit-button" data-id="${key}">Editar</button>
-                    </div> 
-                    `;
-
-                    // Adiciona eventos de clique aos ícones de lixeira e aos botões de edição
-                    const deleteIcon = produtoElemento.querySelector('.delete-button');
-                    deleteIcon.addEventListener('click', () => {
-                        const produtoId = deleteIcon.getAttribute('data-id');
-                        excluirProduto(produtoId);
-                    });
-
-                    const editButton = produtoElemento.querySelector('.edit-button');
-                    editButton.addEventListener('click', () => {
-                        const produtoId = editButton.getAttribute('data-id');
-                        abrirModalEditar(produtoId, produto);
-                    });
-                });
-            } else {
-                // Caso não haja produtos, exibe uma mensagem indicando isso
-                listaProdutos.innerHTML = '<p>Nenhum produto cadastrado.</p>';
-            }
-        });
-    }
-
-    // Função para abrir o modal preenchido com os dados do produto selecionado para edição
-    function abrirModalEditar(produtoId, produto) {
-        // Preencha os campos do formulário no modal com os dados do produto
-        document.getElementById('nome').value = produto.nome;
-        document.getElementById('preco').value = produto.preco;
-        document.getElementById('descricao').value = produto.descricao;
-        document.getElementById('origem').value = produto.especificacoes.origem;
-        document.getElementById('torra').value = produto.especificacoes.torra;
-        document.getElementById('tamanhos').value = produto.tamanhos.join(',');
-        document.getElementById('cores').value = produto.cores.join(',');
-
-        // Preencha o contêiner de imagens do modal com as imagens do produto
-        const imagemContainer = document.getElementById('imagemContainer');
-        imagemContainer.innerHTML = '';
-        produto.imagens.forEach(imagemUrl => {
-            const imgContainer = document.createElement('div');
-            imgContainer.classList.add('img-container');
-
-            const img = document.createElement('img');
-            img.src = imagemUrl;
-
-            const deleteButton = document.createElement('button');
-            deleteButton.classList.add('delete-buttondentro');
-            deleteButton.textContent = 'X';
-            deleteButton.addEventListener('click', () => {
-                const imageIndex = produto.imagens.indexOf(imagemUrl);
-                produto.imagens.splice(imageIndex, 1);
-                imgContainer.parentElement.removeChild(imgContainer);
-            });
-
-            imgContainer.appendChild(img);
-            imgContainer.appendChild(deleteButton);
-
-            imagemContainer.appendChild(imgContainer);
-        });
-
-        // Abra o modal de edição
-        openModal();
-
-        // Quando clicar em salvar
-        document.getElementById('formulario').onsubmit = function(event) {
-            event.preventDefault(); // Impede o envio padrão do formulário
-
-            // Obtém os valores do formulário
-            const nome = document.getElementById('nome').value;
-            const preco = document.getElementById('preco').value;
-            const descricao = document.getElementById('descricao').value;
-            const origem = document.getElementById('origem').value;
-            const torra = document.getElementById('torra').value;
-            const tamanhos = document.getElementById('tamanhos').value.split(',').map(item => item.trim());
-            const cores = document.getElementById('cores').value.split(',').map(item => item.trim());
-
-            // Obtém os URLs das imagens no modal
-            const imagens = Array.from(document.getElementById('imagemContainer').querySelectorAll('img')).map(img => img.src);
-
-            // Cria um objeto com os dados do produto, incluindo os URLs das imagens
-            const produtoAtualizado = {
-                nome: nome,
-                preco: preco,
-                descricao: descricao,
-                especificacoes: {
-                    origem: origem,
-                    torra: torra
-                },
-                tamanhos: tamanhos,
-                cores: cores,
-                imagens: imagens // Adiciona os URLs das imagens ao objeto de produto
-            };
-
-            // Referência ao produto específico no Firebase
-            const produtoRef = ref(database, `produtos/${produtoId}`);
-
-            // Remove o produto existente do Firebase antes de atualizar
-            remove(produtoRef)
-                .then(() => {
-                    // Atualiza os dados do produto no Firebase
-                    update(produtoRef, produtoAtualizado)
-                        .then(() => {
-                            alert('Dados do produto atualizados com sucesso!');
-                            // Limpa o formulário após a atualização bem-sucedida
-                            document.getElementById('formulario').reset();
-                            // Fecha o modal após a atualização bem-sucedida
-                            closeModal();
-                            // Limpa o contêiner de imagens do modal
-                            limparImagensModal();
-                            // Remove o último produto da lista após a atualização
-                            removerProdutoDaLista(produtoId);
-                        })
-                        .catch((error) => {
-                            console.error('Erro ao atualizar dados do produto:', error);
-                            alert('Ocorreu um erro ao atualizar os dados do produto. Por favor, tente novamente.');
-                        });
-                })
-                .catch((error) => {
-                    console.error('Erro ao excluir produto anterior:', error);
-                    alert('Ocorreu um erro ao excluir o produto anterior. Por favor, tente novamente.');
-                });
-        };
-    }
-
-    // Função para remover o último produto da lista após a edição
-    function removerProdutoDaLista(produtoId) {
-        const ultimoProduto = document.getElementById(`produto-${produtoId}`);
-        if (ultimoProduto) {
-            ultimoProduto.remove();
-        }
-    }
-
-    // Função para excluir um produto do Firebase
-    function excluirProduto(produtoId) {
-        const produtoRef = ref(database, `produtos/${produtoId}`);
-
-        // Remove o produto do Firebase
-        remove(produtoRef)
-            .then(() => {
-                alert('Produto excluído com sucesso!');
-                listarProdutos(); // Atualiza a lista após a exclusão
-            })
-            .catch((error) => {
-                console.error('Erro ao excluir produto:', error);
-                alert('Ocorreu um erro ao excluir o produto. Por favor, tente novamente.');
-            });
-    }
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="area_comerciante.js"></script>
 </body>
 </html>

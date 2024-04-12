@@ -1,506 +1,278 @@
-.corpo {
-    margin-left: 30rem;
-      display: flex;
-      flex-direction: column;
-      align-content: flex-start;
-      justify-content: flex-start;
-      align-items: flex-start;
-      width: 85%;
-      background-color: white;
-    }
+/* Estilos para o header */
+.header-custom {
+  display: flex;
+  color: #1a1a1a; /* Cor do texto padrão para o header */
+  border-bottom: solid 1px  #6a6a6a45;
+  background-color: #d4d4d4;
+  height: 5rem;
+}
+
+h1 {
+  margin-left: 1rem ;
+  color: #0f0f0f;
+  font-size: 2rem;
+}
+
+.dark-mode-toggle input[type="checkbox"] {
+  display: none;
+}
+
+.dark-mode-toggle label {
+  margin-right: 1rem;
+  display: block;
+  width: 2.7em;
+  height: 1.5em;
+  background-color: #ddd;
+  border-radius: 2rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.dark-mode-toggle label:after {
+  content: "";
+  display: block;
+  width: 1.2em;
+  height: 1.2em;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked+label {
+  background-color: #6eec07;
+  box-shadow: 0 0 30px 20px #6eec074f;
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked+label:after {
+  transform: translateX(100%);
+}
+
+.card {
+  margin-left: 1rem;
+  border: 1px solid #d2d2d2; /* borda com cor cinza claro */
+  border-radius:1.2REM ;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* sombra suave */
+  background: #bebebe;
+  color: #2c2c2c;
+}
+
+.card-header {
+  background-color: #9a9a9a; /* cor de fundo do cabeçalho */
+  padding: 10px; /* preenchimento interno */
+  border-bottom: 1px solid #979797; /* borda inferior com cor cinza claro */
+  border-radius:1.2REM ;
+}
+
+.card-header:first-child {
+  border-radius: 1.2rem 1.2rem 0 0;
+
+}
+
+
+/* Estilos para o navbar */
+#aside {
+  display: flex;
+  height: 100%;
+  background: #e6e6e6; /* Cor de fundo para o aside no modo escuro */
+  min-height: 70%;
+  overflow-y: auto; /* Adicione isso para permitir rolagem se o conteúdo for maior do que a altura da página */
+}
+
+.logo {
+  width: 7rem;
+}
 
 .logo-container {
-    display: flex;
-    max-width: 100%;
-    width: 100%;
-    height: 7rem;
-    background-color: #151515;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #e6e6e6;
+  height: 5rem;
+  border: solid 1px #6a6a6a45;
+  align-items: center;
+  width: 100%;
+  border-left: none;
+}
+
+.navbar {
+  display: flex;
+  margin-top: 3rem;
+  justify-content: center;
+  
+/* Estilo para o link ativo */
+.active {
+  background-color: #007bff; /* Cor de fundo do link ativo */
+}
+
+/* Estilo para a imagem dentro do link ativo */
+.active img.imgicon {
+  filter: brightness(0) invert(1);
+}
+
+.active a {
+  color: #ffffff;
+}
+
+/* Desativa o comportamento de hover nos li ativos */
+.active:hover {
+  background-color: #007bff; /* Mantém a cor de fundo do link ativo */
+  cursor: default; /* Define o cursor como padrão */
+}
+
+/* Estilo para o link ativo durante o hover */
+.active:hover a {
+  color: #ffffff; /* Mantém a cor do texto do link ativo */
+}
+
+}
+
+.col-md-10 {
+  padding: 0px;
+}
+
+a {
+  color: #535353;
+  padding: 1rem;
+  border-radius: 1.2rem;
+
+}
+
+a:HOVER {
+  color: #535353;
+  text-decoration: none; /* Remove o sublinhado */
+}
+
+.icon-home {
+  fill: red; /* Altere "red" para a cor desejada */
+}
 
 
-  .verprodutos {
-    width: 7rem;
-    height: 3.5rem;
-    border-radius: 1rem;
-    background-color: #762af038;
-    border: solid 1px #762af0cc;
-    font-size: 2rem;
-    color: #c099ff;
-    font-weight: bold;
-    margin-left: 1rem;
-  }
-  
-  .verprodutos:hover {
-  
-    box-shadow: 0 0 30px 5px #7f2fff69;;
-  }
+li {
+  color: #ffffff;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius:1.2REM ;
+  text-decoration: none; /* Remove o sublinhado */
+}
 
-.corpodedentro {
-    background-color: #f5f5f5;
-    height: 100%;
-    transition: width 0.3s ease; /* Adiciona uma transição suave */
-    width: 100%;
-    margin-top: 10rem;
-  }
+li:hover {
+  background-color: #cacaca;
+}
 
-  .corpo-maior {
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: flex-end;
-  }
-  
-.toggle-btn {
-    height: 50%;
-  }
-  
-.toggle-btn i {
-    color: #4a4a4a;
-    font-size: 2rem;
-    font-weight: bold;
-    transition: color 0.3s ease, transform 0.3s ease; /* Adiciona uma transição suave para a mudança de cor e rotação */
-    transform: rotate(180deg); /* Mantém a mesma rotação quando o botão está ativo */
-  }
-  
-.toggle-btn:hover i {
-    color: white; /* Muda a cor para branco quando o mouse está sobre o botão */
-  }
-  
-.toggle-btn.active i {
-    transform: rotate(0deg); /* Inverte a rotação quando o botão está ativo */
-    color: #4a4a4a;
-    margin-left: 2rem;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-top: 17rem;
-  }
-  .toggle-btn:hover i {
-    color: white;
-  }
-  
-  .card {
-    width: 90%;
-    height: 15rem;
-    border-radius: 2rem;
-    font-size: 250%;
-    line-height: 1.2;
-  }
+.col-md-2 {
+  padding: 0%;
+}
 
-  .card p {
-    font-size: 60%;
-  }
+.imgicon {
+  width: 1.5REM;
 
-  .abrirprodutos {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
+  /* Cor azul */
 
-  .opcoesProdutos {
-    margin-left: 2rem;
-    width: 10rem;
-  }
+}
 
-  .botãoprodutos {
-    margin-left: 2rem;
-    border: 1px solid #3939391d;
-    backdrop-filter: blur(5px);
-    background: #c1c1c184;
-    border-radius: 20px;
-    color: #363636;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        width: 100%;
-        height: 150%;
-        font-size: 250%;
-      }
-  
-  
-  .produto {
-    display: flex;
-    border: 1px solid #3939391d;
-    backdrop-filter: blur(5px);
-    background: #d0d0d084;
-    ;
-    border-radius: 2rem;
-    /* Bordas arredondadas */
-    padding: 15px;
-    /* Espaçamento interno */
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    flex-direction: row;
-    align-items: center;
-  }
 
-  .lista-produtos.expandido {
-    max-height: 100%;
-    margin-top: 4rem;
-    gap: 1rem;
-   }
+/* Estilos gerais */
+html {
+  height: 100%;
+}
 
-   /* Estilo para lista de produtos */
-.lista-produtos {
-    transition: max-height 0.5s ease;
-    max-height: 0;
-    overflow: hidden;
-    margin-left: 2rem;
-    margin-top: 1rem;
-    gap: 1rem;
-  }
-   
-  .nomeproduto {
-    font-size: 2.5rem;
-    margin-bottom: 0;
-    margin-top: 0;
-    height: 50%;
-  }
+body {
+  background: #ffffff;
+  height: 100%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+}
 
-  .produto .preco {
-    font-weight: bold;
-    /* Texto em negrito para o preço */
-    color: #007bff;
-    /* Cor azul para o preço */
-    height: 70%;
-    margin-top: 1.5rem;
-  }
+.row {
+  display: flex; /* Para fazer os elementos dentro da linha se comportarem como flexíveis */
+  height: 100%;
+}
 
-  .produto p {
-    margin-bottom: 5px;
-    /* Espaçamento inferior para o texto */
-  }
-  
-  
-.delete-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ff00002e;
-    color: #a90000;
-    padding: 0;
-    cursor: pointer;
-    border: solid 1px #ff0000;
-  }
+.container-fluid {
+  height: 100%;
+}
 
-  .edit-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #3cff004e;
-    color: #2fc900e2;
-    padding: 0;
-    cursor: pointer;
-    border: solid 1px #3cff00;
-  }
+/* Barra de rolagem */
+::-webkit-scrollbar {
+  width: 10px;
+  /* largura da barra de rolagem */
+}
 
-  .modal-content {
-    background: #ffffff84;
-    margin: 8% auto;
-    width: 80%;
-    height: 70%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: flex-end;
-    border-radius: 2rem;
-  }
+::-webkit-scrollbar-thumb {
+  background-color: #424242;
+  /* cor do 'thumb' (a parte que você arrasta) */
+  border-radius: 5px;
+  /* borda arredondada */
+}
 
-  form#uploadForm {
-    display: flex;
-    width: 90%;
-    height: 60%;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: flex-end;
-    justify-content: flex-end;
-  }
+::-webkit-scrollbar-track {
+  background-color: #212121;
+  /* cor do fundo da barra de rolagem */
+}
 
-  .file-label {
-    display: flex;
-    /* Usando flexbox para alinhar vertical e horizontalmente */
-    align-items: center;
-    /* Alinha verticalmente ao centro */
-    justify-content: center;
-    /* Alinha horizontalmente ao centro */
-    background-color: #4e4e4e4a;
-    color: #4c4c4c;
-    font-size: 1.5rem;
-    padding: 10px 20px;
-    border-radius: 2rem;
-    cursor: pointer;
-    width: 90%;
-    height: 80%;
-    border: 2px dashed #8888883e;
-    /* Define a borda pontilhada */
-  }
-  
-  .file-label:hover {
-    border-color: #007bff;
-    /* Altera a cor da borda para azul quando hover */
-  }
-  
-  .file-label.drag-over {
-    border-color: #007bff;
-    /* Altera a cor da borda para azul quando arrastando um arquivo */
-  }
-  
-  /* Estilos para feedback visual de arrastar e soltar */
-.upload-container.dragover .file-label {
-    background-color: #afafaf;
-  }
+/* Estilos para o modo escuro */
+.dark-mode #aside {
+  background: #9a9a9a27; /* Altere o fundo do modo escuro para a barra lateral conforme necessário */
+  border: solid 1px #6a6a6a45;
+  backdrop-filter: blur(5px);
+  border-top: 0;
+}
 
-  .upload-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #007bff4e;
-    color: #007bff;
-    padding: 0;
-    /* Remover o preenchimento interno para permitir que o ícone ocupe todo o espaço */
-    border-radius: 1rem;
-    /* Faz o botão redondo */
-    width: 6rem;
-    height: 3rem;
-    cursor: pointer;
-    position: absolute;
-    margin: 1rem;
-    margin-bottom: 1rem;
-    border: solid 1px #007bff;
-  }
-  
-  .upload-button i {
-    font-size: 1rem;
-    /* Ajuste o tamanho do ícone conforme necessário */
-    margin-left: 0.2rem;
-  }
+.dark-mode h1, li {
+  color: #cccccc;
+}
 
-  #formulario label {
-    margin-bottom: 0.5rem;
-  }
-  
-  #formulario input[type="text"],
-  #formulario input[type="number"],
-  #formulario textarea {
-    font-size: 1.6rem;
-    padding-left: 1rem;
-    margin-bottom: 1rem;
-    border: none;
-    border-radius: 0.3rem;
-    width: 50rem;
-    /* Defina uma largura padrão de 100% */
-    height: 3rem;
-    border-radius: 1rem;
-  }
-  
-  #formulario input[type="text"] {
-    width: 80%;
-    /* Defina a largura específica para o tipo text */
-    border: solid 1px #5353534e;
-  
-  }
-  
-  #formulario input[type="number"] {
-    width: 80%;
-    /* Defina a largura específica para o tipo number */
-    height: 3rem;
-    font-size: 1.6rem;
-    padding-left: 1rem;
-    border: solid 1px #5353534e;
-  }
-  
-  #formulario textarea {
-    height: 100px;
-    /* Defina a altura específica para o textarea */
-    width: 90%;
-    /* Defina a largura para ocupar a largura do container */
-    padding: 0;
-    font-size: 1.6rem;
-    padding-left: 1rem;
-    padding-top: 1rem;
-    border: solid 1px #5353534e;
-  }
-  
-  #formulario input[type="text"]::placeholder,
-  #formulario input[type="number"]::placeholder {
-    text-align: center;
-    /* Centraliza o texto do placeholder */
-    font-size: 1.7rem;
-  }
-  
-  #formulario textarea::placeholder {
-    text-align: center;
-    /* Centraliza horizontalmente */
-    padding-top: calc(10% - 1em);
-    /* Ajusta o padding para centralizar verticalmente */
-  }
-  
-  #formulario input[type="text"]:hover,
-  #formulario input[type="number"]:hover,
-  #formulario textarea:hover {
-    border-color: #b0b0b0;
-    /* Cor da borda ao passar o mouse */
-  }
-  
-  #formulario input[type="text"]:focus,
-  #formulario input[type="number"]:focus,
-  #formulario textarea:focus {
-    border-color: #007bff;
-    /* Cor da borda ao ser selecionado */
-    outline: none;
-    /* Remove a borda de foco padrão */
-  }
-  
-  
-#formulario {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0 1rem 1rem 0;
-    background-color: #ffffff84;
-    justify-content: flex-start;
-  }
-  
+.dark-mode .logo {
+  filter: invert(1); /* Exemplo de inversão de cores */
+}
 
-  .grid-container {
-    margin: 6% auto;
-    width: 100%;
-    height: 60%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 2fr));
-    /* Duas colunas */
-    gap: 1rem;
-    justify-items: center;
-  }
+.dark-mode.body {
+  background: #191919;
+}
 
-  .enviarform {
-    color: #224e00;
-    width: 28rem;
-    height: 7rem;
-    border-radius: 1rem;
-    font-size: 2rem;
-    background: #84dc3c;
-    border: none;
-  }
+.dark-mode .dark-mode-aside {
+  background: #1c1c1c; /* Altere o fundo do modo escuro para a barra lateral conforme necessário */
+}
 
-  
+.dark-mode .header-custom {
+  display: flex;
+  background: #0f0f0f;
+}
 
-  
-#descricao {
-    grid-column: span 2;
-    /* Ocupa duas colunas no grid */
-    width: calc(80% - 2rem);
-    /* Largura total do grid menos a lacuna */
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: none;
-    border-radius: 0.3rem;
-    height: 100px;
-    /* Altura específica */
-    font-size: 1.7rem;
-  }
-  
-  #modalContentVer {
-    width: 100%;
-    height: 100%;
-    border-radius: 3rem;
-  }
+.dark-mode .logo-container {
+  background: #2f2f2f;
+ 
+  border: solid 1px #6a6a6a45;
+}
 
-  /* Estilo para o botão de fechar */
-.close {
-    display: flex;
-    color: #ffffff;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    position: fixed;
-    left: 116rem;
-    bottom: 48rem;
-    background-color: rgba(255, 255, 255, 0.313);
-    border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
-    align-items: center;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  
-  .close:hover,
-  .close:focus {
-    color: rgb(218, 218, 218);
-    text-decoration: none;
-    cursor: pointer;
-  }
 
-  
-.fa-chevron-right {
-    margin-left: 2rem;
-    }
-    
-    .upload-container {
-        display: flex;
-        text-align: center;
-        margin-top: 20px;
-        width: 45%;
-        height: 90%;
-        align-items: center;
-      
-      }
-      
-      
-      .upload-container.dragover {
-        border: 2px dashed #17a3b800;
-      }
-      
-      /* Ícone de upload */
-      .upload-container .fas {
-        margin-right: 10px;
-      }
 
-      img.imglist  {
-        width: 10rem;
-      }
-      
+.dark-mode .logo {
+  filter: invert(1); /* Exemplo de inversão de cores */
+}
 
-      
-.abrirprodutos {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  
+.dark-mode li:hover {
+  background-color: #454545;
+}
+.dark-mode a {
+  color: #b3b3b3;
+}
 
-  .opcoes-produtos {
-    width: 100%;
-  }
+/* Estilos adicionais para quando o modo escuro estiver ativado */
+.dark-mode .card {
+  border-color: #555; /* borda com cor cinza mais escura */
+  background-color: #333; /* cor de fundo mais escura */
+  color: #fff; /* cor do texto branca */
+}
 
-  .cardcompl {
-    display: flex;
-    width: 60%;
-  
-  }
+.dark-mode .card-header {
+  background-color: #555; /* cor de fundo do cabeçalho em modo escuro */
+  border-bottom-color: #555; /* borda inferior com cor cinza mais escura */
+}
 
-  
- .infoprod {
-    margin-left: 1rem;
-   }
-  
-   
-  .nomeproduto {
-    font-size: 2rem;
-    margin-bottom: 0;
-    margin-top: 0;
-    height: 50%;
-  }
-
-  div.buttons {
-    height: 100%;
-   }
+/* Estilização do card quando o modo escuro estiver ativado */
+.dark-mode-aside .card {
+  border-color: #000; /* borda com cor preta */
+}
