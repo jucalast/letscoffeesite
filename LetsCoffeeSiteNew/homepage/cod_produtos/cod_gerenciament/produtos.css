@@ -52,24 +52,74 @@ h1 {
 
 .card {
   margin-left: 1rem;
-  border: 1px solid #d2d2d2; /* borda com cor cinza claro */
+  border: none; /* borda com cor cinza claro */
   border-radius:1.2REM ;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* sombra suave */
   background: #bebebe;
   color: #2c2c2c;
+  height: 10rem;
+  padding: 0.5rem;
 }
 
 .card-header {
-  background-color: #9a9a9a; /* cor de fundo do cabeçalho */
-  padding: 10px; /* preenchimento interno */
-  border-bottom: 1px solid #979797; /* borda inferior com cor cinza claro */
-  border-radius:1.2REM ;
+  display: flex;
+  background-color: #9a9a9a;
+  padding: 5px;
+  border-bottom: none;
+  border-radius: 1.2REM;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+}
+
+h5 {
+  margin-left: 1rem;
 }
 
 .card-header:first-child {
   border-radius: 1.2rem 1.2rem 0 0;
 
 }
+
+/*modal*/
+/* Estilos para o modal */
+.modal-content {
+  border-radius: 0;
+  background: #212121;
+}
+
+/* Estilo para o cabeçalho do modal */
+.modal-header {
+  border-bottom: none;
+}
+
+/* Estilo para o corpo do modal */
+.modal-body {
+  padding-top: 20px;
+}
+
+/* Estilo para o rodapé do modal */
+.modal-footer {
+  border-top: none;
+}
+
+/* Estilo para o espaço de carregamento de imagens */
+.dropzone {
+  border: 2px dashed #393939;
+  border-radius: 5px;
+  min-height: 200px;
+  background: #212121;
+  padding: 20px;
+}
+
+/* Estilo para o texto dentro do espaço de carregamento de imagens */
+.dropzone .dz-message {
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 70px;
+}
+
 
 
 /* Estilos para o navbar */
@@ -262,14 +312,12 @@ body {
 
 /* Estilos adicionais para quando o modo escuro estiver ativado */
 .dark-mode .card {
-  border-color: #555; /* borda com cor cinza mais escura */
   background-color: #333; /* cor de fundo mais escura */
   color: #fff; /* cor do texto branca */
 }
 
 .dark-mode .card-header {
-  background-color: #555; /* cor de fundo do cabeçalho em modo escuro */
-  border-bottom-color: #555; /* borda inferior com cor cinza mais escura */
+  background-color:#333; /* cor de fundo do cabeçalho em modo escuro */
 }
 
 /* Estilização do card quando o modo escuro estiver ativado */

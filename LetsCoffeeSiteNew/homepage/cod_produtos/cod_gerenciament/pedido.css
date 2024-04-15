@@ -50,6 +50,10 @@ h1 {
   transform: translateX(100%);
 }
 
+/* estilos para o card */
+.card-header {
+  background-color: #e6e6e6;
+}
 /* Estilos para o navbar */
 #aside {
   display: flex;
@@ -143,9 +147,6 @@ li:hover {
 
 .imgicon {
   width: 1.5REM;
-
-  /* Cor azul */
-
 }
 
 

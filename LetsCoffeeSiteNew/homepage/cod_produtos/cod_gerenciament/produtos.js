@@ -31,3 +31,6 @@ function highlightCurrentPage() {
 $(document).ready(function() {
     highlightCurrentPage(); // Chama a função ao carregar a página
 });
+
+
+

@@ -14,6 +14,7 @@
     <!-- CSS Personalizado -->
     <link rel="stylesheet" href="produtos.css">
 
+
 </head>
 
 <body class="body">
@@ -67,26 +68,90 @@
             </div>
 
             <!-- Card -->
-            <div class="card mt-3 col-md-2">
+            <div class="card mt-3 col-md-3" data-toggle="modal" data-target="#myModal">
                 <div class="card-header">
-                    Seu Card Aqui
+                    <img class="imgicon" src="media\adicionar-produto.png" alt="">
+                    <h5>adicionar novo produto</h5>
                 </div>
                 <div class="card-body">
-                    Conteúdo do Seu Card
+                   -
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Adicionar Novo Produto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- Espaço para carregar imagens com Dropzone.js -->
+                    <div class="col-md-6">
+                        <h5>Carregar Imagens</h5>
+                        <form action="/file-upload" class="dropzone" id="myDropzone">
+                            <div class="fallback">
+                                <input name="file" type="file" multiple />
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Parte para informações do produto -->
+                    <div class="col-md-6">
+                        <h5>Informações do Produto</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="productName">Nome do Produto</label>
+                                <input type="text" class="form-control" id="productName">
+                            </div>
+                            <div class="form-group">
+                                <label for="productDescription">Descrição do Produto</label>
+                                <textarea class="form-control" id="productDescription" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="productPrice">Preço do Produto</label>
+                                <input type="text" class="form-control" id="productPrice">
+                            </div>
+                            <div class="form-group">
+                                <label for="productCategory">Categoria do Produto</label>
+                                <select class="form-control" id="productCategory">
+                                    <option>Selecione a categoria...</option>
+                                    <!-- Adicione opções de categoria aqui -->
+                                </select>
+                            </div>
+                            <!-- Adicione mais campos conforme necessário -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-<script src="produtos.js" ></script>
+<!-- Dropzone.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
+
+<!-- SweetAlert2 -->                            
+
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
 <!-- Bootstrap JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<!-- Seu script produtos.js -->
+<script src="produtos.js"></script>
 
 
 </body>
