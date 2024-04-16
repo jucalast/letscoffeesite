@@ -80,69 +80,82 @@
         </div>
     </div>
 </div>
+<!-- Card -->
+<div class="card mt-3 col-md-3" data-toggle="modal" data-target="#myModal">
+    <div class="card-header">
+        <img class="imgicon" src="media\adicionar-produto.png" alt="">
+        <h5>adicionar novo produto</h5>
+    </div>
+    <div class="card-body">
+       -
+    </div>
+</div>
+</div>
+</div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+        <div class="modal-content col-md-15">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Adicionar Novo Produto</h5>
+                <h5 class="modal-title" id="exampleModalLabel">adicionar novo produto</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <!-- Espaço para carregar imagens com Dropzone.js -->
                     <div class="col-md-6">
-                        <h5>Carregar Imagens</h5>
-                        <form action="/file-upload" class="dropzone" id="myDropzone">
-                            <div class="fallback">
-                                <input name="file" type="file" multiple />
+                        <!-- formulário dropzone -->
+                        <div id="myDropzone" class="dropzone">
+                            <div class="dz-message">
+                                <div class="icon">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </div>
+                                <h4>arraste as imagens aqui</h4>
+                                <span class="note">(ou clique para selecionar manualmente)</span>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                    <!-- Parte para informações do produto -->
-                    <div class="col-md-6">
-                        <h5>Informações do Produto</h5>
+                    <div class="col-md-6 formulario">
                         <form>
                             <div class="form-group">
-                                <label for="productName">Nome do Produto</label>
-                                <input type="text" class="form-control" id="productName">
+                                <label for="productname">nome do produto</label>
+                                <input type="text" class="form-control" id="productname" placeholder="digite o nome do produto">
                             </div>
                             <div class="form-group">
-                                <label for="productDescription">Descrição do Produto</label>
-                                <textarea class="form-control" id="productDescription" rows="3"></textarea>
+                                <label for="productdescription">descrição do produto</label>
+                                <textarea class="form-control" id="productdescription" rows="5" placeholder="digite uma descrição detalhada do produto"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="productPrice">Preço do Produto</label>
-                                <input type="text" class="form-control" id="productPrice">
+                                <label for="productprice">preço do produto (r$)</label>
+                                <input type="number" class="form-control" id="productprice" min="0" step="0.01" placeholder="digite o preço do produto">
                             </div>
                             <div class="form-group">
-                                <label for="productCategory">Categoria do Produto</label>
-                                <select class="form-control" id="productCategory">
-                                    <option>Selecione a categoria...</option>
-                                    <!-- Adicione opções de categoria aqui -->
-                                </select>
+                                <label for="productcategory">categoria do produto</label>
+                                <input type="text" class="form-control" id="productcategory" placeholder="digite e pressione enter para adicionar uma categoria">
+                                <div id="categorytags"></div>
                             </div>
-                            <!-- Adicione mais campos conforme necessário -->
+                            <!-- campos personalizados serão adicionados dinamicamente aqui -->
+                            <button type="button" class="btn btn-primary" id="addcustomfield">+ adicionar campo personalizado</button>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">fechar</button>
+                <button type="button" class="btn btn-primary">salvar</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Dropzone.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
 
-<!-- SweetAlert2 -->                            
 
+
+ <!-- Inclua o script do Dropzone.js -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
